@@ -1,0 +1,54 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/master.swiftdeps"
+  },
+  "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/Sources/JorcipesCore/DietaryAttribute.swift": {
+    "dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/DietaryAttribute.d",
+    "object": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/DietaryAttribute.swift.o",
+    "swiftmodule": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/DietaryAttribute~partial.swiftmodule",
+    "swift-dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/DietaryAttribute.swiftdeps",
+    "diagnostics": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/DietaryAttribute.dia"
+  },
+  "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/Sources/JorcipesCore/Ingredient.swift": {
+    "dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Ingredient.d",
+    "object": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Ingredient.swift.o",
+    "swiftmodule": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Ingredient~partial.swiftmodule",
+    "swift-dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Ingredient.swiftdeps",
+    "diagnostics": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Ingredient.dia"
+  },
+  "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/Sources/JorcipesCore/Loadable.swift": {
+    "dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Loadable.d",
+    "object": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Loadable.swift.o",
+    "swiftmodule": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Loadable~partial.swiftmodule",
+    "swift-dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Loadable.swiftdeps",
+    "diagnostics": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Loadable.dia"
+  },
+  "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/Sources/JorcipesCore/Recipe+Preview.swift": {
+    "dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Recipe+Preview.d",
+    "object": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Recipe+Preview.swift.o",
+    "swiftmodule": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Recipe+Preview~partial.swiftmodule",
+    "swift-dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Recipe+Preview.swiftdeps",
+    "diagnostics": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Recipe+Preview.dia"
+  },
+  "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/Sources/JorcipesCore/Recipe.swift": {
+    "dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Recipe.d",
+    "object": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Recipe.swift.o",
+    "swiftmodule": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Recipe~partial.swiftmodule",
+    "swift-dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Recipe.swiftdeps",
+    "diagnostics": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/Recipe.dia"
+  },
+  "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/Sources/JorcipesCore/RecipeDestination.swift": {
+    "dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/RecipeDestination.d",
+    "object": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/RecipeDestination.swift.o",
+    "swiftmodule": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/RecipeDestination~partial.swiftmodule",
+    "swift-dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/RecipeDestination.swiftdeps",
+    "diagnostics": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/RecipeDestination.dia"
+  },
+  "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/Sources/JorcipesCore/RecipeSearchQuery.swift": {
+    "dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/RecipeSearchQuery.d",
+    "object": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/RecipeSearchQuery.swift.o",
+    "swiftmodule": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/RecipeSearchQuery~partial.swiftmodule",
+    "swift-dependencies": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/RecipeSearchQuery.swiftdeps",
+    "diagnostics": "/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCore.build/RecipeSearchQuery.dia"
+  }
+}
