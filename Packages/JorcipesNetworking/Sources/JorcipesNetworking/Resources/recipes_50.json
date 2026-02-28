@@ -1,0 +1,2502 @@
+{
+  "recipes": [
+    {
+      "id": "F1A2B3C4-D5E6-4F78-9ABC-DEF012345678",
+      "title": "Mediterranean Falafel Bowl",
+      "description": "Crispy baked falafel served over fluffy couscous with fresh vegetables and tahini dressing.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "canned-chickpeas",
+          "name": "Canned Chickpeas",
+          "quantity": "2 cans (400g each)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-parsley",
+          "name": "Fresh Parsley",
+          "quantity": "1 cup packed",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "couscous",
+          "name": "Couscous",
+          "quantity": "1.5 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "tahini",
+          "name": "Tahini",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cherry-tomatoes",
+          "name": "Cherry Tomatoes",
+          "quantity": "1 cup halved",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cucumber",
+          "name": "Cucumber",
+          "quantity": "1 medium",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "**Preheat** the oven to 200°C (400°F) and line a baking sheet with parchment paper.",
+        "Drain and pat dry the chickpeas. Blend with parsley, garlic, cumin, and salt until a *coarse mixture* forms.",
+        "Shape into **small patties** and place on the baking sheet. Bake for 25 minutes, flipping halfway.",
+        "Cook couscous according to package directions and fluff with a fork.",
+        "Whisk tahini with lemon juice and water until smooth. Assemble bowls with couscous, falafel, tomatoes, and *diced cucumber*.",
+        "Drizzle generously with **tahini dressing** and serve."
+      ]
+    },
+    {
+      "id": "F2B3C4D5-E6F7-4A89-BCDE-F01234567890",
+      "title": "Vegan Black Bean Tacos",
+      "description": "Smoky spiced black beans in warm corn tortillas with avocado, salsa, and pickled onions.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "black-beans",
+          "name": "Black Beans",
+          "quantity": "2 cans (400g each)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "corn-tortillas",
+          "name": "Corn Tortillas",
+          "quantity": "12 small",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "avocado",
+          "name": "Avocado",
+          "quantity": "2 ripe",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "red-onion",
+          "name": "Red Onion",
+          "quantity": "1 medium",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-cilantro",
+          "name": "Fresh Cilantro",
+          "quantity": "1 bunch",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "lime",
+          "name": "Lime",
+          "quantity": "2",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Drain and rinse the black beans. Mash half roughly with a fork, leaving the rest whole.",
+        "Heat the beans in a skillet with cumin, smoked paprika, and **chili powder** over medium heat for 5 minutes.",
+        "Thinly slice the red onion and toss with lime juice to *quick-pickle* for 10 minutes.",
+        "Warm tortillas in a dry skillet for **30 seconds** per side.",
+        "Fill each tortilla with black beans, sliced avocado, pickled onion, and *fresh cilantro*."
+      ]
+    },
+    {
+      "id": "F3C4D5E6-F7A8-4B90-CDEF-012345678901",
+      "title": "Indian Chana Masala",
+      "description": "A rich and aromatic North Indian chickpea curry simmered in a spiced tomato sauce.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "chickpeas-chana",
+          "name": "Chickpeas",
+          "quantity": "2 cans (400g each)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "crushed-tomatoes",
+          "name": "Crushed Tomatoes",
+          "quantity": "1 can (400g)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "yellow-onion-chana",
+          "name": "Yellow Onion",
+          "quantity": "1 large",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "garam-masala",
+          "name": "Garam Masala",
+          "quantity": "2 tsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-ginger",
+          "name": "Fresh Ginger",
+          "quantity": "1-inch piece",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "basmati-rice",
+          "name": "Basmati Rice",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Sauté diced onion in oil over **medium heat** until golden, about 8 minutes.",
+        "Add minced ginger, garlic, and garam masala. Cook for *1 minute* until fragrant.",
+        "Pour in crushed tomatoes and simmer for **10 minutes** until thickened.",
+        "Add drained chickpeas, stir well, and cook for another 15 minutes on *low heat*.",
+        "Serve over steamed basmati rice with a squeeze of **fresh lemon**."
+      ]
+    },
+    {
+      "id": "F4D5E6F7-A8B9-4C01-DEFA-123456789012",
+      "title": "Japanese Edamame Rice Bowl",
+      "description": "A light and nutritious Japanese-inspired bowl with seasoned rice, edamame, and sesame dressing.",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": "sushi-rice",
+          "name": "Sushi Rice",
+          "quantity": "1.5 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "edamame",
+          "name": "Shelled Edamame",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "nori-sheets",
+          "name": "Nori Sheets",
+          "quantity": "2 sheets",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "sesame-oil",
+          "name": "Sesame Oil",
+          "quantity": "1 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "soy-sauce",
+          "name": "Soy Sauce",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "pickled-ginger",
+          "name": "Pickled Ginger",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Cook sushi rice according to package directions and season with rice vinegar, sugar, and salt.",
+        "Boil edamame in salted water for **3–4 minutes**, then drain.",
+        "Whisk together soy sauce, sesame oil, and a splash of *rice vinegar* for the dressing.",
+        "Divide rice between bowls and top with edamame, shredded nori, and pickled ginger.",
+        "Drizzle with **sesame dressing** and sprinkle with sesame seeds."
+      ]
+    },
+    {
+      "id": "F5E6F7A8-B9C0-4D12-EFAB-234567890123",
+      "title": "Korean Vegan Bibimbap",
+      "description": "A colorful Korean rice bowl topped with seasoned vegetables, gochujang sauce, and crispy tofu.",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": "short-grain-rice",
+          "name": "Short Grain Rice",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "firm-tofu-bibimbap",
+          "name": "Firm Tofu",
+          "quantity": "200g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "spinach-bibimbap",
+          "name": "Fresh Spinach",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "carrots-bibimbap",
+          "name": "Carrots",
+          "quantity": "2 medium",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "gochujang",
+          "name": "Gochujang Paste",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "zucchini-bibimbap",
+          "name": "Zucchini",
+          "quantity": "1 medium",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Cook rice and keep warm. Press and cube tofu, then pan-fry until **golden and crispy**.",
+        "Blanch spinach for 30 seconds, drain, and season with sesame oil and *a pinch of salt*.",
+        "Julienne carrots and zucchini. Sauté each separately over **high heat** for 2 minutes.",
+        "Arrange rice in bowls and top with each vegetable in *separate sections*, placing tofu in the center.",
+        "Add a generous spoonful of **gochujang** on top and mix everything together before eating."
+      ]
+    },
+    {
+      "id": "F6F7A8B9-C0D1-4E23-FABC-345678901234",
+      "title": "Roasted Cauliflower Steaks",
+      "description": "Thick-cut cauliflower steaks roasted until caramelized, served with chimichurri sauce.",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": "cauliflower-head",
+          "name": "Cauliflower",
+          "quantity": "1 large head",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "olive-oil-steaks",
+          "name": "Olive Oil",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-parsley-chim",
+          "name": "Fresh Parsley",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "red-wine-vinegar",
+          "name": "Red Wine Vinegar",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "garlic-chim",
+          "name": "Garlic",
+          "quantity": "3 cloves",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "**Preheat** oven to 220°C (425°F). Slice cauliflower into 2 thick steaks from the center.",
+        "Brush both sides with olive oil and season with salt, pepper, and *smoked paprika*.",
+        "Roast for **25–30 minutes**, flipping once, until deeply golden and tender.",
+        "Blend parsley, garlic, red wine vinegar, and olive oil to make a **chimichurri sauce**.",
+        "Serve cauliflower steaks drizzled with *chimichurri* and a side of crusty bread."
+      ]
+    },
+    {
+      "id": "F7A8B9C0-D1E2-4F34-ABCD-456789012345",
+      "title": "Moroccan Vegetable Tagine",
+      "description": "A warming North African stew of root vegetables, dried apricots, and fragrant spices.",
+      "servings": 6,
+      "ingredients": [
+        {
+          "id": "sweet-potato-tagine",
+          "name": "Sweet Potatoes",
+          "quantity": "2 large",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "canned-chickpeas-tagine",
+          "name": "Chickpeas",
+          "quantity": "1 can (400g)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "dried-apricots",
+          "name": "Dried Apricots",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cumin-seeds",
+          "name": "Cumin Seeds",
+          "quantity": "1 tsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "vegetable-broth-tagine",
+          "name": "Vegetable Broth",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-cilantro-tagine",
+          "name": "Fresh Cilantro",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Peel and cube sweet potatoes into **1-inch pieces**.",
+        "Toast cumin seeds in a dry pot for *30 seconds* until fragrant. Add diced onion and sauté for 5 minutes.",
+        "Add sweet potatoes, drained chickpeas, apricots, and vegetable broth. Season with cinnamon, turmeric, and **smoked paprika**.",
+        "Bring to a boil, then reduce heat and simmer for **25–30 minutes** until potatoes are tender.",
+        "Garnish with *fresh cilantro* and serve over couscous."
+      ]
+    },
+    {
+      "id": "F8B9C0D1-E2F3-4A45-BCDE-567890123456",
+      "title": "Vegan Pad Thai",
+      "description": "Classic Thai street food made with rice noodles, tofu, peanuts, and a sweet-tangy tamarind sauce.",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": "rice-noodles",
+          "name": "Flat Rice Noodles",
+          "quantity": "250g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "firm-tofu-pad-thai",
+          "name": "Firm Tofu",
+          "quantity": "200g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "tamarind-paste",
+          "name": "Tamarind Paste",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "bean-sprouts",
+          "name": "Bean Sprouts",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "roasted-peanuts",
+          "name": "Roasted Peanuts",
+          "quantity": "1/3 cup crushed",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "green-onions",
+          "name": "Green Onions",
+          "quantity": "4 stalks",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Soak rice noodles in warm water for **20 minutes**, then drain.",
+        "Press and cube tofu. Fry in a hot wok with oil until *golden on all sides*.",
+        "Mix tamarind paste, soy sauce, lime juice, and a pinch of sugar for the **pad thai sauce**.",
+        "Add noodles to the wok along with the sauce. Toss over high heat for **2–3 minutes**.",
+        "Add bean sprouts and sliced green onions. Toss for *30 seconds*.",
+        "Serve topped with **crushed peanuts** and a wedge of lime."
+      ]
+    },
+    {
+      "id": "A1234567-B890-4CDE-F012-345678901234",
+      "title": "Classic Margherita Pizza",
+      "description": "A traditional Italian pizza with fresh mozzarella, basil, and San Marzano tomato sauce.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "pizza-dough-marg",
+          "name": "Pizza Dough",
+          "quantity": "1 ball",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-mozzarella",
+          "name": "Fresh Mozzarella",
+          "quantity": "200g",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "san-marzano-tomatoes-marg",
+          "name": "San Marzano Tomatoes",
+          "quantity": "1 can",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-basil-marg",
+          "name": "Fresh Basil",
+          "quantity": "1 bunch",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "olive-oil-marg",
+          "name": "Extra Virgin Olive Oil",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "**Preheat** the oven to 250°C (480°F) with a pizza stone inside.",
+        "Stretch the dough into a 12-inch round on a floured surface.",
+        "Crush tomatoes by hand and spread over the dough, leaving a *1-inch border*.",
+        "Tear mozzarella into pieces and distribute across the pizza. Drizzle with **olive oil**.",
+        "Bake for **8–10 minutes** until crust is golden and cheese is bubbly.",
+        "Top with *fresh basil* and serve immediately."
+      ]
+    },
+    {
+      "id": "A2345678-C901-4DEF-0123-456789012345",
+      "title": "Wild Mushroom Risotto",
+      "description": "Creamy Italian risotto made with a medley of wild mushrooms, butter, and parmesan.",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": "arborio-rice-risotto",
+          "name": "Arborio Rice",
+          "quantity": "1.5 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "mixed-mushrooms-risotto",
+          "name": "Mixed Wild Mushrooms",
+          "quantity": "300g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "vegetable-broth-risotto",
+          "name": "Vegetable Broth",
+          "quantity": "4 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "butter-risotto",
+          "name": "Butter",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "parmesan-risotto-2",
+          "name": "Parmesan Cheese",
+          "quantity": "3/4 cup grated",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "yellow-onion-risotto",
+          "name": "Yellow Onion",
+          "quantity": "1 medium",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "garlic-risotto",
+          "name": "Garlic",
+          "quantity": "3 cloves",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Heat broth in a saucepan and keep at a gentle simmer.",
+        "Melt 1 tbsp butter over **medium heat**. Sauté mushrooms until golden, about 5 minutes.",
+        "Sauté diced onion and garlic in 1 tbsp butter until *softened*, about 3 minutes.",
+        "Add arborio rice and stir for **1–2 minutes** until lightly toasted.",
+        "Add broth one ladle at a time, stirring frequently, for about **18–20 minutes**.",
+        "Stir in remaining butter, parmesan, and mushrooms. Season with salt and *fresh pepper*."
+      ]
+    },
+    {
+      "id": "A3456789-D012-4EFA-1234-567890123456",
+      "title": "Spinach and Ricotta Stuffed Shells",
+      "description": "Jumbo pasta shells filled with creamy ricotta and spinach, baked in marinara sauce.",
+      "servings": 6,
+      "ingredients": [
+        {
+          "id": "jumbo-shells",
+          "name": "Jumbo Pasta Shells",
+          "quantity": "24 shells",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "ricotta-cheese",
+          "name": "Ricotta Cheese",
+          "quantity": "450g",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "frozen-spinach",
+          "name": "Frozen Spinach",
+          "quantity": "300g thawed",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "marinara-sauce",
+          "name": "Marinara Sauce",
+          "quantity": "3 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "mozzarella-shredded",
+          "name": "Shredded Mozzarella",
+          "quantity": "1.5 cups",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "egg-shells",
+          "name": "Egg",
+          "quantity": "1 large",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "**Preheat** oven to 190°C (375°F). Cook shells according to package directions, then drain.",
+        "Squeeze all excess moisture from the thawed spinach using a *clean kitchen towel*.",
+        "Mix ricotta, spinach, egg, and half the mozzarella. Season with salt, pepper, and **a pinch of nutmeg**.",
+        "Spread 1 cup marinara in a baking dish. Fill each shell with the ricotta mixture and nestle into the dish.",
+        "Top with remaining marinara and *shredded mozzarella*. Bake for **25–30 minutes** until bubbly."
+      ]
+    },
+    {
+      "id": "A4567890-E123-4FAB-2345-678901234567",
+      "title": "French Onion Soup",
+      "description": "A classic French soup with deeply caramelized onions in rich beef-free broth, topped with melted gruyère.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "yellow-onions-soup",
+          "name": "Yellow Onions",
+          "quantity": "4 large",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "butter-soup",
+          "name": "Butter",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "vegetable-broth-soup",
+          "name": "Vegetable Broth",
+          "quantity": "6 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "gruyere-cheese",
+          "name": "Gruyère Cheese",
+          "quantity": "200g shredded",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "baguette-slices",
+          "name": "Baguette",
+          "quantity": "8 slices",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Slice onions thinly. Melt butter in a large pot over **medium-low heat**.",
+        "Cook onions for **35–40 minutes**, stirring occasionally, until deeply *caramelized and golden*.",
+        "Add a splash of dry white wine and scrape up any browned bits from the bottom.",
+        "Pour in vegetable broth and simmer for **15 minutes**. Season with salt and pepper.",
+        "Ladle soup into oven-safe bowls. Top each with baguette slices and *generous gruyère*.",
+        "Broil for **3–4 minutes** until cheese is melted and bubbly."
+      ]
+    },
+    {
+      "id": "A5678901-F234-4ABC-3456-789012345678",
+      "title": "Caprese Pasta Salad",
+      "description": "A fresh Italian pasta salad with cherry tomatoes, mozzarella, basil, and balsamic glaze.",
+      "servings": 6,
+      "ingredients": [
+        {
+          "id": "penne-pasta",
+          "name": "Penne Pasta",
+          "quantity": "400g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cherry-tomatoes-caprese",
+          "name": "Cherry Tomatoes",
+          "quantity": "2 cups halved",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "mozzarella-balls",
+          "name": "Mini Mozzarella Balls",
+          "quantity": "250g",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "fresh-basil-caprese",
+          "name": "Fresh Basil",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "balsamic-glaze",
+          "name": "Balsamic Glaze",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "olive-oil-caprese",
+          "name": "Extra Virgin Olive Oil",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Cook penne until **al dente**, then drain and rinse under cold water.",
+        "Halve the cherry tomatoes and tear basil leaves into *small pieces*.",
+        "Toss pasta with tomatoes, mozzarella balls, and basil in a large bowl.",
+        "Drizzle with olive oil and **balsamic glaze**. Season with salt and pepper.",
+        "Serve chilled or at *room temperature*."
+      ]
+    },
+    {
+      "id": "A6789012-A345-4BCD-4567-890123456789",
+      "title": "Eggplant Parmesan",
+      "description": "Layers of breaded eggplant, marinara sauce, and melted cheese baked until golden.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "eggplant",
+          "name": "Eggplant",
+          "quantity": "2 large",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "eggs-eggplant",
+          "name": "Eggs",
+          "quantity": "2 large",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "breadcrumbs",
+          "name": "Italian Breadcrumbs",
+          "quantity": "1.5 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "marinara-eggplant",
+          "name": "Marinara Sauce",
+          "quantity": "3 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "mozzarella-eggplant",
+          "name": "Shredded Mozzarella",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "parmesan-eggplant",
+          "name": "Parmesan Cheese",
+          "quantity": "1/2 cup grated",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "Slice eggplant into **1/2-inch rounds**. Salt and let sit for 20 minutes to draw out moisture.",
+        "Pat dry, dip in beaten eggs, then coat in *seasoned breadcrumbs*.",
+        "Bake breaded slices on an oiled sheet at 200°C (400°F) for **20 minutes**, flipping halfway.",
+        "Spread marinara in a baking dish. Layer eggplant, more sauce, and cheeses. **Repeat layers**.",
+        "Bake at 190°C (375°F) for **25 minutes** until cheese is melted and *golden brown*."
+      ]
+    },
+    {
+      "id": "A7890123-B456-4CDE-5678-901234567890",
+      "title": "Greek Spanakopita",
+      "description": "Flaky phyllo pastry filled with spinach, feta, and fresh herbs in the traditional Greek style.",
+      "servings": 8,
+      "ingredients": [
+        {
+          "id": "phyllo-dough",
+          "name": "Phyllo Dough",
+          "quantity": "1 package (450g)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-spinach-span",
+          "name": "Fresh Spinach",
+          "quantity": "500g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "feta-cheese",
+          "name": "Feta Cheese",
+          "quantity": "200g crumbled",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "eggs-span",
+          "name": "Eggs",
+          "quantity": "3 large",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "fresh-dill",
+          "name": "Fresh Dill",
+          "quantity": "1/4 cup chopped",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "butter-melted-span",
+          "name": "Melted Butter",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "**Preheat** oven to 180°C (350°F). Wilt spinach in a pan, then squeeze out all moisture.",
+        "Mix spinach with crumbled feta, beaten eggs, dill, and *a pinch of nutmeg*.",
+        "Brush a baking dish with melted butter. Layer **8 sheets** of phyllo, brushing each with butter.",
+        "Spread the spinach filling evenly, then top with another **8 sheets** of buttered phyllo.",
+        "Score the top into squares with a sharp knife. Bake for **35–40 minutes** until *golden and crispy*.",
+        "Let cool for 10 minutes before cutting along the scored lines."
+      ]
+    },
+    {
+      "id": "A8901234-C567-4DEF-6789-012345678901",
+      "title": "Indian Paneer Tikka Masala",
+      "description": "Cubes of paneer simmered in a rich, spiced tomato-cream sauce with aromatic herbs.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "paneer",
+          "name": "Paneer",
+          "quantity": "400g cubed",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "heavy-cream-tikka",
+          "name": "Heavy Cream",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "crushed-tomatoes-tikka",
+          "name": "Crushed Tomatoes",
+          "quantity": "1 can (400g)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "garam-masala-tikka",
+          "name": "Garam Masala",
+          "quantity": "2 tsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "yogurt-tikka",
+          "name": "Plain Yogurt",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "basmati-rice-tikka",
+          "name": "Basmati Rice",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Marinate paneer in yogurt, garam masala, and turmeric for **at least 30 minutes**.",
+        "Pan-fry marinated paneer until *golden on each side*. Set aside.",
+        "Sauté diced onion, garlic, and ginger in oil until softened. Add crushed tomatoes and spices.",
+        "Simmer sauce for **15 minutes**, then stir in heavy cream.",
+        "Add paneer to the sauce and cook for *5 more minutes*.",
+        "Serve over steamed basmati rice with **fresh cilantro**."
+      ]
+    },
+    {
+      "id": "A9012345-D678-4EFA-7890-123456789012",
+      "title": "Cheese and Herb Omelette",
+      "description": "A fluffy French-style omelette filled with gruyère, fresh herbs, and a touch of cream.",
+      "servings": 1,
+      "ingredients": [
+        {
+          "id": "eggs-omelette",
+          "name": "Eggs",
+          "quantity": "3 large",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "gruyere-omelette",
+          "name": "Gruyère Cheese",
+          "quantity": "50g shredded",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "fresh-chives",
+          "name": "Fresh Chives",
+          "quantity": "1 tbsp chopped",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "butter-omelette",
+          "name": "Butter",
+          "quantity": "1 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "Whisk eggs with a splash of cream, salt, and pepper until *light and frothy*.",
+        "Melt butter in a non-stick skillet over **medium-low heat**.",
+        "Pour in the egg mixture and cook, gently pulling edges inward, for **2–3 minutes**.",
+        "When the top is *barely set*, sprinkle gruyère and chives on one half.",
+        "Fold the omelette and slide onto a plate. Garnish with **extra chives**."
+      ]
+    },
+    {
+      "id": "B0123456-E789-4FAB-8901-234567890123",
+      "title": "Mediterranean Halloumi Salad",
+      "description": "Grilled halloumi cheese over a bed of mixed greens with roasted peppers and olives.",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": "halloumi",
+          "name": "Halloumi Cheese",
+          "quantity": "250g",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "mixed-greens",
+          "name": "Mixed Salad Greens",
+          "quantity": "4 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "roasted-red-peppers",
+          "name": "Roasted Red Peppers",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "kalamata-olives",
+          "name": "Kalamata Olives",
+          "quantity": "1/3 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "lemon-dressing",
+          "name": "Lemon",
+          "quantity": "1",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "olive-oil-salad",
+          "name": "Olive Oil",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Slice halloumi into **1/2-inch thick** pieces.",
+        "Grill or pan-fry halloumi for *2 minutes per side* until golden grill marks appear.",
+        "Arrange mixed greens on plates. Top with roasted peppers and **kalamata olives**.",
+        "Place warm halloumi on top and drizzle with olive oil and *fresh lemon juice*.",
+        "Season with cracked pepper and serve immediately."
+      ]
+    },
+    {
+      "id": "B1234567-F890-4ABC-9012-345678901234",
+      "title": "Honey Glazed Roasted Vegetables",
+      "description": "A colorful medley of root vegetables roasted with a sweet honey and thyme glaze.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "carrots-roasted",
+          "name": "Carrots",
+          "quantity": "4 large",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "parsnips",
+          "name": "Parsnips",
+          "quantity": "3 medium",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "beets",
+          "name": "Beets",
+          "quantity": "2 medium",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "honey-glaze",
+          "name": "Honey",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "fresh-thyme",
+          "name": "Fresh Thyme",
+          "quantity": "4 sprigs",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "olive-oil-roast",
+          "name": "Olive Oil",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "**Preheat** oven to 200°C (400°F). Peel and cut vegetables into even-sized chunks.",
+        "Toss with olive oil, salt, and pepper. Spread on a baking sheet in a *single layer*.",
+        "Roast for **25 minutes**, then drizzle with honey and scatter thyme sprigs over the top.",
+        "Return to oven for **10–15 more minutes** until caramelized and *fork-tender*.",
+        "Serve as a side dish with a sprinkle of **flaky sea salt**."
+      ]
+    },
+    {
+      "id": "B2345678-A901-4BCD-0123-456789012345",
+      "title": "Italian Quattro Formaggi Pasta",
+      "description": "Rich and creamy four-cheese pasta made with gorgonzola, fontina, parmesan, and mozzarella.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "rigatoni",
+          "name": "Rigatoni Pasta",
+          "quantity": "400g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "gorgonzola",
+          "name": "Gorgonzola Cheese",
+          "quantity": "100g",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "fontina-cheese",
+          "name": "Fontina Cheese",
+          "quantity": "100g cubed",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "parmesan-4cheese",
+          "name": "Parmesan Cheese",
+          "quantity": "50g grated",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "mozzarella-4cheese",
+          "name": "Mozzarella",
+          "quantity": "100g shredded",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "cream-4cheese",
+          "name": "Heavy Cream",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "Cook rigatoni until **al dente**. Reserve 1 cup of pasta water before draining.",
+        "In a large pan, heat cream over *medium-low heat* until it begins to simmer.",
+        "Add gorgonzola, fontina, and mozzarella. Stir until **completely melted** and smooth.",
+        "Toss in the pasta, adding reserved pasta water as needed for a *silky consistency*.",
+        "Serve topped with grated **parmesan** and freshly cracked black pepper."
+      ]
+    },
+    {
+      "id": "B3456789-B012-4CDE-1234-567890123456",
+      "title": "Mexican Street Corn Salad",
+      "description": "A vibrant off-the-cob version of elote with cotija cheese, lime, and chili powder.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "corn-cobs",
+          "name": "Corn on the Cob",
+          "quantity": "6 ears",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cotija-cheese",
+          "name": "Cotija Cheese",
+          "quantity": "1/2 cup crumbled",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "mayonnaise",
+          "name": "Mayonnaise",
+          "quantity": "1/3 cup",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "lime-elote",
+          "name": "Lime",
+          "quantity": "2",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cilantro-elote",
+          "name": "Fresh Cilantro",
+          "quantity": "1/4 cup chopped",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Grill corn over **high heat** for 10–12 minutes, turning occasionally, until charred.",
+        "Let cool slightly, then cut kernels off the cobs into a *large bowl*.",
+        "Mix mayonnaise with lime juice, chili powder, and a pinch of **cayenne pepper**.",
+        "Toss corn with the mayo-lime dressing and *crumbled cotija*.",
+        "Garnish with fresh cilantro and serve with **extra lime wedges**."
+      ]
+    },
+    {
+      "id": "B4567890-C123-4DEF-2345-678901234567",
+      "title": "Grilled Chicken Caesar Salad",
+      "description": "Crispy romaine lettuce topped with juicy grilled chicken, croutons, and creamy caesar dressing.",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": "chicken-breast-caesar",
+          "name": "Chicken Breast",
+          "quantity": "2 pieces",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "romaine-lettuce-caesar",
+          "name": "Romaine Lettuce",
+          "quantity": "1 head",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "parmesan-caesar",
+          "name": "Parmesan Cheese",
+          "quantity": "50g shaved",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "croutons-caesar",
+          "name": "Croutons",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "caesar-dressing-salad",
+          "name": "Caesar Dressing",
+          "quantity": "4 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "Season chicken with salt, pepper, and olive oil.",
+        "Grill over **medium-high heat** for 6–7 minutes per side until cooked through.",
+        "Chop romaine lettuce into bite-sized pieces and place in a *large bowl*.",
+        "Slice grilled chicken. Toss lettuce with dressing, top with chicken, croutons, and **shaved parmesan**."
+      ]
+    },
+    {
+      "id": "B5678901-D234-4EFA-3456-789012345678",
+      "title": "Classic Beef Tacos",
+      "description": "Seasoned ground beef in crispy taco shells with fresh toppings and melted cheese.",
+      "servings": 6,
+      "ingredients": [
+        {
+          "id": "ground-beef-tacos",
+          "name": "Ground Beef",
+          "quantity": "500g",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "taco-shells-beef",
+          "name": "Taco Shells",
+          "quantity": "12 shells",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "iceberg-lettuce-tacos",
+          "name": "Iceberg Lettuce",
+          "quantity": "1/2 head shredded",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "tomato-tacos",
+          "name": "Tomatoes",
+          "quantity": "2 large diced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cheddar-tacos",
+          "name": "Cheddar Cheese",
+          "quantity": "1 cup shredded",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "sour-cream-tacos",
+          "name": "Sour Cream",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "Brown ground beef over **medium-high heat**, breaking it apart as it cooks.",
+        "Drain fat, add taco seasoning and water. Simmer for **3–4 minutes** until thickened.",
+        "Warm taco shells according to package directions.",
+        "Fill each shell with beef, then top with lettuce, tomato, *shredded cheddar*, and sour cream."
+      ]
+    },
+    {
+      "id": "B6789012-E345-4FAB-4567-890123456789",
+      "title": "Thai Basil Chicken Stir-Fry",
+      "description": "A quick and fiery Thai stir-fry with chicken, holy basil, and bird's eye chilies.",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": "chicken-thighs-thai",
+          "name": "Chicken Thighs",
+          "quantity": "400g boneless",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "thai-basil-stirfry",
+          "name": "Thai Basil",
+          "quantity": "1 cup packed",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "birds-eye-chili",
+          "name": "Bird's Eye Chilies",
+          "quantity": "3–5",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "garlic-thai",
+          "name": "Garlic",
+          "quantity": "5 cloves",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fish-sauce",
+          "name": "Fish Sauce",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "jasmine-rice-thai",
+          "name": "Jasmine Rice",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Mince chicken thighs into small pieces. Slice chilies and mince garlic.",
+        "Heat oil in a wok over **high heat** until smoking. Add garlic and chilies, stir for 30 seconds.",
+        "Add chicken and stir-fry for **4–5 minutes** until cooked through.",
+        "Season with fish sauce, soy sauce, and a pinch of *sugar*.",
+        "Toss in Thai basil and stir for **10 seconds** until just wilted. Serve over jasmine rice."
+      ]
+    },
+    {
+      "id": "B7890123-F456-4ABC-5678-901234567890",
+      "title": "Japanese Teriyaki Salmon",
+      "description": "Pan-seared salmon fillets glazed with a sweet and savory homemade teriyaki sauce.",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": "salmon-fillets",
+          "name": "Salmon Fillets",
+          "quantity": "2 (200g each)",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "soy-sauce-teriyaki",
+          "name": "Soy Sauce",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "mirin",
+          "name": "Mirin",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "brown-sugar-teriyaki",
+          "name": "Brown Sugar",
+          "quantity": "1 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "steamed-rice-teriyaki",
+          "name": "Steamed Rice",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "sesame-seeds-teriyaki",
+          "name": "Sesame Seeds",
+          "quantity": "1 tsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Pat salmon dry and season with salt and pepper.",
+        "Whisk soy sauce, mirin, and brown sugar together for the **teriyaki sauce**.",
+        "Sear salmon skin-side down in a hot skillet for **4 minutes** until *crispy*.",
+        "Flip and pour teriyaki sauce around the fillets. Cook for **3 more minutes**, spooning glaze over.",
+        "Serve over steamed rice, drizzled with sauce and sprinkled with *sesame seeds*."
+      ]
+    },
+    {
+      "id": "B8901234-A567-4BCD-6789-012345678901",
+      "title": "American BBQ Pulled Pork",
+      "description": "Tender slow-cooked pork shoulder shredded and tossed in smoky barbecue sauce.",
+      "servings": 8,
+      "ingredients": [
+        {
+          "id": "pork-shoulder",
+          "name": "Pork Shoulder",
+          "quantity": "2 kg",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "bbq-sauce",
+          "name": "Barbecue Sauce",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "brioche-buns",
+          "name": "Brioche Buns",
+          "quantity": "8",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "apple-cider-vinegar",
+          "name": "Apple Cider Vinegar",
+          "quantity": "1/4 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "coleslaw-mix",
+          "name": "Coleslaw Mix",
+          "quantity": "3 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Rub pork shoulder generously with salt, pepper, paprika, and **garlic powder**.",
+        "Place in a slow cooker with apple cider vinegar. Cook on low for **8–10 hours**.",
+        "Shred the pork with two forks and toss with *barbecue sauce*.",
+        "Toast brioche buns under the broiler for **1–2 minutes**.",
+        "Pile pulled pork onto buns and top with *crispy coleslaw*."
+      ]
+    },
+    {
+      "id": "B9012345-B678-4CDE-7890-123456789012",
+      "title": "Indian Butter Chicken",
+      "description": "Tender chicken pieces in a velvety tomato-butter sauce with warm Indian spices.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "chicken-thighs-butter",
+          "name": "Chicken Thighs",
+          "quantity": "600g boneless",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "butter-chicken-sauce",
+          "name": "Butter",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "tomato-puree-butter",
+          "name": "Tomato Puree",
+          "quantity": "1 can (400g)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "heavy-cream-butter",
+          "name": "Heavy Cream",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "garam-masala-butter",
+          "name": "Garam Masala",
+          "quantity": "2 tsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "naan-bread",
+          "name": "Naan Bread",
+          "quantity": "4 pieces",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "Cut chicken into bite-sized pieces. Marinate in yogurt, garam masala, and turmeric for **30 minutes**.",
+        "Sear chicken in a hot pan until **golden** on each side. Set aside.",
+        "Melt butter and sauté onions, garlic, and ginger until *softened*.",
+        "Add tomato puree and simmer for **15 minutes**. Stir in cream and return chicken to the pan.",
+        "Cook for *10 more minutes* on low heat. Serve with warm **naan bread**."
+      ]
+    },
+    {
+      "id": "C0123456-C789-4DEF-8901-234567890123",
+      "title": "Korean Beef Bulgogi",
+      "description": "Thinly sliced beef marinated in a sweet and savory soy-pear sauce, grilled to perfection.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "beef-sirloin",
+          "name": "Beef Sirloin",
+          "quantity": "500g thinly sliced",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "soy-sauce-bulgogi",
+          "name": "Soy Sauce",
+          "quantity": "4 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "asian-pear",
+          "name": "Asian Pear",
+          "quantity": "1 grated",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "sesame-oil-bulgogi",
+          "name": "Sesame Oil",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "green-onions-bulgogi",
+          "name": "Green Onions",
+          "quantity": "4 stalks",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "steamed-rice-bulgogi",
+          "name": "Steamed Rice",
+          "quantity": "3 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Mix soy sauce, grated pear, sesame oil, garlic, and sugar for the **marinade**.",
+        "Toss sliced beef in marinade and refrigerate for *at least 2 hours*.",
+        "Grill or pan-fry beef in batches over **high heat** for 2–3 minutes per side.",
+        "Garnish with sliced green onions and *toasted sesame seeds*.",
+        "Serve over steamed rice with **kimchi** on the side."
+      ]
+    },
+    {
+      "id": "C1234567-D890-4EFA-9012-345678901234",
+      "title": "Mediterranean Grilled Lamb Chops",
+      "description": "Herb-crusted lamb chops grilled with rosemary, garlic, and a lemon-olive oil marinade.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "lamb-chops",
+          "name": "Lamb Chops",
+          "quantity": "8 pieces",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "fresh-rosemary",
+          "name": "Fresh Rosemary",
+          "quantity": "3 sprigs",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "garlic-lamb",
+          "name": "Garlic",
+          "quantity": "4 cloves minced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "lemon-lamb",
+          "name": "Lemon",
+          "quantity": "1",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "olive-oil-lamb",
+          "name": "Olive Oil",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Mix olive oil, minced garlic, chopped rosemary, and lemon zest for the **marinade**.",
+        "Coat lamb chops and let marinate for *at least 1 hour* in the refrigerator.",
+        "Grill over **high heat** for 3–4 minutes per side for medium-rare.",
+        "Let rest for **5 minutes** before serving with a squeeze of *fresh lemon*."
+      ]
+    },
+    {
+      "id": "C2345678-E901-4FAB-0123-456789012345",
+      "title": "French Coq au Vin",
+      "description": "Classic French braised chicken in red wine with mushrooms, bacon, and pearl onions.",
+      "servings": 6,
+      "ingredients": [
+        {
+          "id": "chicken-pieces-coq",
+          "name": "Chicken Pieces",
+          "quantity": "1.5 kg (bone-in)",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "bacon-lardons",
+          "name": "Bacon Lardons",
+          "quantity": "200g",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "red-wine",
+          "name": "Red Wine",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "pearl-onions",
+          "name": "Pearl Onions",
+          "quantity": "1 cup peeled",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cremini-mushrooms",
+          "name": "Cremini Mushrooms",
+          "quantity": "250g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "chicken-broth-coq",
+          "name": "Chicken Broth",
+          "quantity": "1 cup",
+          "dietaryAttributes": []
+        }
+      ],
+      "instructions": [
+        "Render bacon lardons in a Dutch oven until **crispy**. Remove and set aside.",
+        "Season chicken and brown on all sides in the bacon fat over *medium-high heat*.",
+        "Add pearl onions and mushrooms, cooking for **5 minutes** until lightly browned.",
+        "Pour in red wine and chicken broth. Return bacon and chicken to the pot.",
+        "Cover and braise in a 160°C (325°F) oven for **1.5 hours** until *fall-off-the-bone tender*.",
+        "Serve with crusty bread or **mashed potatoes**."
+      ]
+    },
+    {
+      "id": "C3456789-F012-4ABC-1234-567890123456",
+      "title": "Japanese Chicken Katsu Curry",
+      "description": "Crispy breaded chicken cutlet served over rice with a rich Japanese-style curry sauce.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "chicken-breast-katsu",
+          "name": "Chicken Breast",
+          "quantity": "4 pieces",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "panko-breadcrumbs",
+          "name": "Panko Breadcrumbs",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "eggs-katsu",
+          "name": "Eggs",
+          "quantity": "2 beaten",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "japanese-curry-roux",
+          "name": "Japanese Curry Roux",
+          "quantity": "1 package",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "steamed-rice-katsu",
+          "name": "Steamed Rice",
+          "quantity": "3 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "carrots-katsu",
+          "name": "Carrots",
+          "quantity": "2 medium",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Pound chicken breasts to **even thickness**. Season with salt and pepper.",
+        "Dip in flour, then beaten egg, then coat in *panko breadcrumbs*.",
+        "Fry in oil at 180°C (350°F) for **5–6 minutes** per side until golden and cooked through.",
+        "Simmer diced carrots and onions in water. Add curry roux and stir until *thickened*.",
+        "Slice katsu into strips. Serve over rice with **generous curry sauce** ladled alongside."
+      ]
+    },
+    {
+      "id": "C4567890-A123-4BCD-2345-678901234567",
+      "title": "Mexican Carnitas",
+      "description": "Slow-braised pork shoulder seasoned with citrus and spices, then crisped under the broiler.",
+      "servings": 8,
+      "ingredients": [
+        {
+          "id": "pork-shoulder-carnitas",
+          "name": "Pork Shoulder",
+          "quantity": "1.5 kg",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "orange-carnitas",
+          "name": "Orange",
+          "quantity": "2 juiced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "lime-carnitas",
+          "name": "Lime",
+          "quantity": "2 juiced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "flour-tortillas",
+          "name": "Flour Tortillas",
+          "quantity": "16 small",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "white-onion-carnitas",
+          "name": "White Onion",
+          "quantity": "1 diced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cilantro-carnitas",
+          "name": "Fresh Cilantro",
+          "quantity": "1 bunch",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Cut pork into large chunks. Season with salt, cumin, oregano, and **chili powder**.",
+        "Place in a Dutch oven with orange juice, lime juice, and garlic. Cover tightly.",
+        "Braise in a 150°C (300°F) oven for **3–3.5 hours** until *fork-tender*.",
+        "Shred pork and spread on a baking sheet. Broil for **5 minutes** until edges are crispy.",
+        "Serve in warm tortillas with diced onion and *fresh cilantro*."
+      ]
+    },
+    {
+      "id": "C5678901-B234-4CDE-3456-789012345678",
+      "title": "Middle Eastern Shawarma Bowl",
+      "description": "Spiced roasted chicken served over rice with pickled turnips, tahini, and fresh vegetables.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "chicken-thighs-shawarma",
+          "name": "Chicken Thighs",
+          "quantity": "600g boneless",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "tahini-shawarma",
+          "name": "Tahini",
+          "quantity": "1/4 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "basmati-rice-shawarma",
+          "name": "Basmati Rice",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "pickled-turnips",
+          "name": "Pickled Turnips",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cucumber-shawarma",
+          "name": "Cucumber",
+          "quantity": "1 diced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "roma-tomatoes",
+          "name": "Roma Tomatoes",
+          "quantity": "2 diced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Marinate chicken in olive oil, cumin, paprika, turmeric, and **cinnamon** for 1 hour.",
+        "Roast at 220°C (425°F) for **25 minutes** until charred and cooked through.",
+        "Cook basmati rice with a pinch of turmeric for *golden color*.",
+        "Slice chicken thinly. Assemble bowls with rice, chicken, cucumber, tomatoes, and pickled turnips.",
+        "Drizzle with **tahini sauce** thinned with lemon juice and water."
+      ]
+    },
+    {
+      "id": "C6789012-C345-4DEF-4567-890123456789",
+      "title": "Italian Spaghetti Bolognese",
+      "description": "A hearty meat sauce slow-simmered with tomatoes, red wine, and aromatic vegetables over spaghetti.",
+      "servings": 6,
+      "ingredients": [
+        {
+          "id": "ground-beef-bolognese",
+          "name": "Ground Beef",
+          "quantity": "500g",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "spaghetti",
+          "name": "Spaghetti",
+          "quantity": "500g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "crushed-tomatoes-bolognese",
+          "name": "Crushed Tomatoes",
+          "quantity": "2 cans (400g each)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "carrots-bolognese",
+          "name": "Carrots",
+          "quantity": "2 medium diced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "celery-bolognese",
+          "name": "Celery",
+          "quantity": "2 stalks diced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "red-wine-bolognese",
+          "name": "Red Wine",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "parmesan-bolognese",
+          "name": "Parmesan Cheese",
+          "quantity": "for serving",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "Finely dice carrots, celery, and onion to make a **soffritto**.",
+        "Brown ground beef in a large pot over *high heat*, breaking it apart.",
+        "Add the soffritto and cook for **5 minutes** until softened.",
+        "Pour in red wine and let it reduce by half. Add crushed tomatoes and a pinch of *sugar*.",
+        "Simmer on low heat for **at least 1 hour**, stirring occasionally.",
+        "Cook spaghetti al dente. Serve topped with sauce and **freshly grated parmesan**."
+      ]
+    },
+    {
+      "id": "C7890123-D456-4EFA-5678-901234567890",
+      "title": "Thai Shrimp Fried Rice",
+      "description": "A quick wok-fried rice dish with plump shrimp, vegetables, and a savory soy-garlic sauce.",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": "large-shrimp",
+          "name": "Large Shrimp",
+          "quantity": "300g peeled",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "day-old-rice",
+          "name": "Day-Old Jasmine Rice",
+          "quantity": "3 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "eggs-fried-rice",
+          "name": "Eggs",
+          "quantity": "2",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "garlic-fried-rice",
+          "name": "Garlic",
+          "quantity": "4 cloves",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "soy-sauce-fried-rice",
+          "name": "Soy Sauce",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "peas-carrots",
+          "name": "Peas and Carrots",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Heat oil in a wok over **high heat**. Stir-fry shrimp for 2 minutes, then set aside.",
+        "Scramble eggs in the wok, breaking into *small pieces*.",
+        "Add garlic and peas and carrots. Stir-fry for **2 minutes**.",
+        "Add cold rice and toss vigorously, pressing against the wok for *slight crispiness*.",
+        "Return shrimp, add soy sauce, and toss everything together. Serve with **lime wedges**."
+      ]
+    },
+    {
+      "id": "C8901234-E567-4FAB-6789-012345678901",
+      "title": "Black Bean Veggie Burger",
+      "description": "A hearty vegetarian burger made with seasoned black beans, oats, and topped with cheddar cheese.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "black-beans-burger",
+          "name": "Black Beans",
+          "quantity": "2 cans (400g each)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cheddar-burger",
+          "name": "Cheddar Cheese",
+          "quantity": "4 slices",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "burger-buns-veg",
+          "name": "Burger Buns",
+          "quantity": "4",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "rolled-oats",
+          "name": "Rolled Oats",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "egg-burger",
+          "name": "Egg",
+          "quantity": "1",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "pickles-veg",
+          "name": "Dill Pickles",
+          "quantity": "8 slices",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Drain and mash black beans in a bowl, leaving some chunks for **texture**.",
+        "Mix in oats, egg, cumin, smoked paprika, and *salt and pepper*.",
+        "Shape into 4 patties and refrigerate for **15 minutes** to firm up.",
+        "Cook on a hot griddle with oil for **4–5 minutes** per side until crispy.",
+        "Place a slice of cheddar on each patty during the *last minute* of cooking.",
+        "Serve on toasted buns with pickles and your **favorite toppings**."
+      ]
+    },
+    {
+      "id": "C9012345-F678-4ABC-7890-123456789012",
+      "title": "Vietnamese Pho Bo",
+      "description": "A deeply aromatic Vietnamese beef noodle soup with star anise, cinnamon, and fresh herbs.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "beef-bones",
+          "name": "Beef Bones",
+          "quantity": "1 kg",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "beef-brisket",
+          "name": "Beef Brisket",
+          "quantity": "300g",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "rice-noodles-pho",
+          "name": "Rice Noodles",
+          "quantity": "400g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "star-anise",
+          "name": "Star Anise",
+          "quantity": "3 whole",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "bean-sprouts-pho",
+          "name": "Bean Sprouts",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "thai-basil-pho",
+          "name": "Thai Basil",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Char onion and ginger under the broiler for **10 minutes**. Rinse bones in boiling water.",
+        "Simmer bones with charred aromatics, star anise, and cinnamon for *at least 3 hours*.",
+        "Add brisket to the broth during the last **1.5 hours** of cooking.",
+        "Strain broth and season with fish sauce and sugar. Slice brisket *thinly against the grain*.",
+        "Cook rice noodles and divide among bowls. Ladle hot broth over and top with **fresh herbs and bean sprouts**."
+      ]
+    },
+    {
+      "id": "D0123456-A789-4BCD-8901-234567890123",
+      "title": "Middle Eastern Lamb Kofta",
+      "description": "Spiced ground lamb skewers grilled and served with warm pita, yogurt sauce, and fresh salad.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "ground-lamb",
+          "name": "Ground Lamb",
+          "quantity": "500g",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "pita-bread",
+          "name": "Pita Bread",
+          "quantity": "4 rounds",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "plain-yogurt-kofta",
+          "name": "Plain Yogurt",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "red-onion-kofta",
+          "name": "Red Onion",
+          "quantity": "1 small grated",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-mint",
+          "name": "Fresh Mint",
+          "quantity": "1/4 cup chopped",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cucumber-kofta",
+          "name": "Cucumber",
+          "quantity": "1 diced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Mix ground lamb with grated onion, cumin, coriander, cinnamon, and **fresh mint**.",
+        "Shape into logs around skewers. Refrigerate for *30 minutes* to firm up.",
+        "Grill over **high heat** for 3–4 minutes per side until charred and cooked through.",
+        "Mix yogurt with diced cucumber and a pinch of *salt* for the sauce.",
+        "Serve kofta in warm pita with **yogurt sauce** and a simple tomato salad."
+      ]
+    },
+    {
+      "id": "D1234567-B890-4CDE-9012-345678901234",
+      "title": "Thai Massaman Curry with Beef",
+      "description": "A rich and mildly spiced Thai curry with tender beef, potatoes, and roasted peanuts.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "beef-chuck",
+          "name": "Beef Chuck",
+          "quantity": "500g cubed",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "coconut-milk-massaman",
+          "name": "Coconut Milk",
+          "quantity": "1 can (400ml)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "massaman-curry-paste",
+          "name": "Massaman Curry Paste",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "potatoes-massaman",
+          "name": "Potatoes",
+          "quantity": "2 medium cubed",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "peanuts-massaman",
+          "name": "Roasted Peanuts",
+          "quantity": "1/3 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "jasmine-rice-massaman",
+          "name": "Jasmine Rice",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Sear beef cubes in a hot pot until **browned on all sides**. Remove and set aside.",
+        "Fry massaman paste in coconut cream (thick top of the can) for *2 minutes*.",
+        "Add remaining coconut milk, potatoes, and the beef. Bring to a simmer.",
+        "Cook on **low heat for 1.5 hours** until beef is tender and potatoes are soft.",
+        "Stir in peanuts and season with fish sauce, tamarind, and *a pinch of sugar*.",
+        "Serve over steamed **jasmine rice**."
+      ]
+    },
+    {
+      "id": "D2345678-C901-4DEF-0123-456789012345",
+      "title": "American Shrimp and Grits",
+      "description": "Creamy Southern-style grits topped with sautéed shrimp in a buttery garlic sauce.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "large-shrimp-grits",
+          "name": "Large Shrimp",
+          "quantity": "450g peeled",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "stone-ground-grits",
+          "name": "Stone-Ground Grits",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cheddar-grits",
+          "name": "Sharp Cheddar Cheese",
+          "quantity": "1 cup shredded",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "butter-grits",
+          "name": "Butter",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "garlic-grits",
+          "name": "Garlic",
+          "quantity": "4 cloves minced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "lemon-grits",
+          "name": "Lemon",
+          "quantity": "1",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Cook grits in salted water according to package directions. Stir in cheddar and **1 tbsp butter**.",
+        "Season shrimp with paprika, salt, and *cayenne pepper*.",
+        "Melt remaining butter in a skillet. Sauté garlic for **30 seconds**, then add shrimp.",
+        "Cook shrimp for **2–3 minutes** per side until pink and curled.",
+        "Squeeze lemon over the shrimp. Serve on a bed of *creamy grits*."
+      ]
+    },
+    {
+      "id": "D3456789-D012-4EFA-1234-567890123456",
+      "title": "Italian Chicken Piccata",
+      "description": "Pan-seared chicken cutlets in a bright lemon-butter-caper sauce with fresh parsley.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "chicken-breast-piccata",
+          "name": "Chicken Breast",
+          "quantity": "4 pieces pounded thin",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "capers",
+          "name": "Capers",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "butter-piccata",
+          "name": "Butter",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "lemon-piccata",
+          "name": "Lemon",
+          "quantity": "2",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "chicken-broth-piccata",
+          "name": "Chicken Broth",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "angel-hair-pasta",
+          "name": "Angel Hair Pasta",
+          "quantity": "350g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Dredge pounded chicken in flour, shaking off excess. Season with **salt and pepper**.",
+        "Sear in butter and oil over *medium-high heat* for 3 minutes per side. Remove.",
+        "Add chicken broth, lemon juice, and capers to the pan. Simmer for **3 minutes**.",
+        "Swirl in remaining butter to create a *glossy sauce*. Return chicken to the pan.",
+        "Serve over angel hair pasta with sauce spooned over and **fresh parsley** on top."
+      ]
+    },
+    {
+      "id": "D4567890-E123-4FAB-2345-678901234567",
+      "title": "Korean Kimchi Jjigae",
+      "description": "A spicy and hearty Korean kimchi stew with pork belly, tofu, and green onions.",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": "pork-belly-jjigae",
+          "name": "Pork Belly",
+          "quantity": "200g sliced",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "aged-kimchi",
+          "name": "Aged Kimchi",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "soft-tofu-jjigae",
+          "name": "Soft Tofu",
+          "quantity": "1 block (300g)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "gochugaru",
+          "name": "Gochugaru (Korean Chili Flakes)",
+          "quantity": "1 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "green-onions-jjigae",
+          "name": "Green Onions",
+          "quantity": "3 stalks",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Sauté sliced pork belly in a pot until **lightly browned and the fat renders**.",
+        "Add kimchi and stir-fry together for *3 minutes*.",
+        "Pour in water or anchovy broth and bring to a boil. Add gochugaru and **a splash of soy sauce**.",
+        "Slide in the tofu, broken into large chunks. Simmer for **15 minutes**.",
+        "Top with sliced green onions and serve *piping hot* with steamed rice."
+      ]
+    },
+    {
+      "id": "D5678901-F234-4ABC-3456-789012345678",
+      "title": "Mexican Fish Tacos",
+      "description": "Beer-battered white fish in warm tortillas with cabbage slaw and chipotle crema.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "white-fish",
+          "name": "White Fish Fillets",
+          "quantity": "500g (cod or tilapia)",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "corn-tortillas-fish",
+          "name": "Corn Tortillas",
+          "quantity": "12 small",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "purple-cabbage",
+          "name": "Purple Cabbage",
+          "quantity": "2 cups shredded",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "sour-cream-fish",
+          "name": "Sour Cream",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "chipotle-peppers",
+          "name": "Chipotle Peppers in Adobo",
+          "quantity": "2 peppers",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "lime-fish-tacos",
+          "name": "Lime",
+          "quantity": "2",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Cut fish into strips. Season with salt, cumin, and **chili powder**.",
+        "Pan-fry in hot oil for *3 minutes per side* until golden and flaky.",
+        "Mix sour cream with minced chipotle pepper for the **crema**.",
+        "Toss shredded cabbage with lime juice and a *pinch of salt*.",
+        "Warm tortillas and fill with fish, cabbage slaw, and a drizzle of **chipotle crema**."
+      ]
+    },
+    {
+      "id": "D6789012-A345-4BCD-4567-890123456789",
+      "title": "French Duck Confit",
+      "description": "Duck legs slowly braised in their own fat until impossibly tender with crispy golden skin.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "duck-legs",
+          "name": "Duck Legs",
+          "quantity": "4",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "duck-fat",
+          "name": "Duck Fat",
+          "quantity": "3 cups",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "garlic-heads-duck",
+          "name": "Garlic",
+          "quantity": "1 head",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-thyme-duck",
+          "name": "Fresh Thyme",
+          "quantity": "6 sprigs",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "bay-leaves",
+          "name": "Bay Leaves",
+          "quantity": "3",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Salt duck legs generously and refrigerate **overnight** with thyme and bay leaves.",
+        "Rinse and pat dry. Submerge in melted duck fat in an *oven-safe pot*.",
+        "Cook at 135°C (275°F) for **3–4 hours** until meat is extremely tender.",
+        "Remove legs and let cool slightly. To serve, sear skin-side down in a hot skillet for **3 minutes**.",
+        "Serve with *roasted potatoes* cooked in the reserved duck fat."
+      ]
+    },
+    {
+      "id": "D7890123-B456-4CDE-5678-901234567890",
+      "title": "Japanese Miso Ramen",
+      "description": "A rich miso-based ramen broth with chashu pork, soft-boiled egg, and nori.",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": "ramen-noodles",
+          "name": "Fresh Ramen Noodles",
+          "quantity": "2 portions",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "chashu-pork",
+          "name": "Pork Belly (for Chashu)",
+          "quantity": "300g",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "white-miso-paste",
+          "name": "White Miso Paste",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "soft-boiled-eggs",
+          "name": "Eggs",
+          "quantity": "2",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "nori-ramen",
+          "name": "Nori Sheets",
+          "quantity": "4 pieces",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "green-onions-ramen",
+          "name": "Green Onions",
+          "quantity": "2 stalks",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Braise pork belly in soy sauce, mirin, and sugar for **2 hours** until tender. Slice thinly.",
+        "Boil eggs for exactly *6.5 minutes* for a jammy center. Marinate in soy and mirin.",
+        "Heat broth and whisk in miso paste until **completely dissolved**.",
+        "Cook ramen noodles according to package directions. Divide into bowls.",
+        "Ladle miso broth over noodles. Top with chashu, *halved egg*, nori, and sliced **green onions**."
+      ]
+    },
+    {
+      "id": "D8901234-C567-4DEF-6789-012345678901",
+      "title": "American New England Clam Chowder",
+      "description": "A thick and creamy soup loaded with tender clams, potatoes, and smoky bacon.",
+      "servings": 6,
+      "ingredients": [
+        {
+          "id": "canned-clams",
+          "name": "Canned Clams",
+          "quantity": "3 cans (180g each)",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "bacon-chowder",
+          "name": "Bacon",
+          "quantity": "150g diced",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "potatoes-chowder",
+          "name": "Yukon Gold Potatoes",
+          "quantity": "3 medium cubed",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "heavy-cream-chowder",
+          "name": "Heavy Cream",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "celery-chowder",
+          "name": "Celery",
+          "quantity": "2 stalks diced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "butter-chowder",
+          "name": "Butter",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "Render bacon in a large pot until **crispy**. Remove half for garnish.",
+        "Add butter, diced celery, and onion. Cook for *5 minutes* until softened.",
+        "Stir in flour and cook for 1 minute. Add clam juice and potatoes.",
+        "Simmer for **15 minutes** until potatoes are tender.",
+        "Add clams and heavy cream. Heat through for *3 minutes* without boiling.",
+        "Serve in bowls topped with **reserved crispy bacon** and oyster crackers."
+      ]
+    },
+    {
+      "id": "D9012345-D678-4EFA-7890-123456789012",
+      "title": "Indian Tandoori Chicken",
+      "description": "Marinated chicken pieces baked at high heat with yogurt, lemon, and aromatic tandoori spices.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "chicken-drumsticks",
+          "name": "Chicken Drumsticks",
+          "quantity": "8",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "yogurt-tandoori",
+          "name": "Plain Yogurt",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "tandoori-spice",
+          "name": "Tandoori Spice Mix",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "lemon-tandoori",
+          "name": "Lemon",
+          "quantity": "1 juiced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "ginger-tandoori",
+          "name": "Fresh Ginger",
+          "quantity": "1-inch piece grated",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Score chicken drumsticks with deep cuts. Mix yogurt, tandoori spice, lemon juice, and **grated ginger**.",
+        "Coat chicken thoroughly and marinate for *at least 4 hours*, preferably overnight.",
+        "Place on a wire rack over a baking sheet. Bake at 230°C (450°F) for **30–35 minutes**.",
+        "Chicken should be charred at the edges and *fully cooked through*.",
+        "Serve with **naan bread** and a fresh mint-cucumber raita."
+      ]
+    },
+    {
+      "id": "E0123456-E789-4FAB-8901-234567890123",
+      "title": "Thai Tom Yum Soup",
+      "description": "A hot and sour Thai soup with shrimp, mushrooms, lemongrass, and kaffir lime leaves.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "shrimp-tom-yum",
+          "name": "Shrimp",
+          "quantity": "300g peeled",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "lemongrass",
+          "name": "Lemongrass",
+          "quantity": "2 stalks",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "straw-mushrooms",
+          "name": "Straw Mushrooms",
+          "quantity": "1 can (400g)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "kaffir-lime-leaves",
+          "name": "Kaffir Lime Leaves",
+          "quantity": "4",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fish-sauce-tom-yum",
+          "name": "Fish Sauce",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "lime-juice-tom-yum",
+          "name": "Lime Juice",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Bring 4 cups of water to a boil. Add bruised lemongrass and **torn lime leaves**.",
+        "Simmer for *5 minutes* to infuse the aromatics.",
+        "Add mushrooms and cook for **3 minutes**.",
+        "Add shrimp and cook until pink, about *2 minutes*.",
+        "Season with fish sauce, lime juice, and **chili paste** to taste. Serve immediately."
+      ]
+    },
+    {
+      "id": "E1234567-F890-4ABC-9012-345678901234",
+      "title": "Mediterranean Grilled Sea Bass",
+      "description": "Whole sea bass grilled with lemon, fresh herbs, and olive oil in the Mediterranean style.",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": "whole-sea-bass",
+          "name": "Whole Sea Bass",
+          "quantity": "2 (cleaned)",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "lemon-sea-bass",
+          "name": "Lemon",
+          "quantity": "2",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "olive-oil-sea-bass",
+          "name": "Olive Oil",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-oregano",
+          "name": "Fresh Oregano",
+          "quantity": "4 sprigs",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cherry-tomatoes-bass",
+          "name": "Cherry Tomatoes",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Score fish on both sides. Stuff cavities with **lemon slices and oregano**.",
+        "Brush with olive oil and season generously with *sea salt and pepper*.",
+        "Grill over **medium-high heat** for 5–6 minutes per side.",
+        "Serve with blistered cherry tomatoes and a drizzle of *extra olive oil*."
+      ]
+    },
+    {
+      "id": "E2345678-A901-4BCD-0123-456789012345",
+      "title": "Korean Vegetable Japchae",
+      "description": "Sweet potato glass noodles stir-fried with colorful vegetables, egg ribbons, and sesame oil.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "glass-noodles",
+          "name": "Sweet Potato Glass Noodles",
+          "quantity": "250g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "eggs-japchae",
+          "name": "Eggs",
+          "quantity": "2",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "spinach-japchae",
+          "name": "Fresh Spinach",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "bell-pepper-japchae",
+          "name": "Bell Pepper",
+          "quantity": "1 large",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "sesame-oil-japchae",
+          "name": "Sesame Oil",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "soy-sauce-japchae",
+          "name": "Soy Sauce",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "shiitake-mushrooms",
+          "name": "Shiitake Mushrooms",
+          "quantity": "150g sliced",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Cook glass noodles according to package directions. Drain and toss with **sesame oil**.",
+        "Beat eggs and cook as a thin omelette. Slice into *thin ribbons*.",
+        "Sauté each vegetable separately: spinach, bell pepper, and mushrooms over **high heat**.",
+        "Toss noodles with all vegetables, egg ribbons, soy sauce, and sesame oil.",
+        "Serve warm or at **room temperature**, garnished with *toasted sesame seeds*."
+      ]
+    }
+  ]
+}
