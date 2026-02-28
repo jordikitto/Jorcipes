@@ -20,9 +20,25 @@
     {
       "parallelizable" : false,
       "target" : {
+        "containerPath" : "container:Packages\/JorcipesNetworking",
+        "identifier" : "JorcipesNetworkingTests",
+        "name" : "JorcipesNetworkingTests"
+      }
+    },
+    {
+      "parallelizable" : false,
+      "target" : {
         "containerPath" : "container:Jorcipes.xcodeproj",
         "identifier" : "D15D5CE22F525C210071C9B4",
         "name" : "JorcipesTests"
+      }
+    },
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:Packages\/JorcipesCore",
+        "identifier" : "JorcipesCoreTests",
+        "name" : "JorcipesCoreTests"
       }
     }
   ],
