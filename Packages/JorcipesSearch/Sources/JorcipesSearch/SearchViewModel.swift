@@ -77,27 +77,27 @@ public final class SearchViewModel {
     }
 
     public func toggleIngredientChip(at index: Int) {
-        guard index < query.includedIngredients.count else { return }
+        guard query.includedIngredients.indices.contains(index) else { return }
         let ingredient = query.includedIngredients.remove(at: index)
         query.excludedIngredients.append(ingredient)
         search()
     }
 
     public func toggleExcludedIngredientChip(at index: Int) {
-        guard index < query.excludedIngredients.count else { return }
+        guard query.excludedIngredients.indices.contains(index) else { return }
         let ingredient = query.excludedIngredients.remove(at: index)
         query.includedIngredients.append(ingredient)
         search()
     }
 
     public func removeIncludedIngredient(at index: Int) {
-        guard index < query.includedIngredients.count else { return }
+        guard query.includedIngredients.indices.contains(index) else { return }
         query.includedIngredients.remove(at: index)
         search()
     }
 
     public func removeExcludedIngredient(at index: Int) {
-        guard index < query.excludedIngredients.count else { return }
+        guard query.excludedIngredients.indices.contains(index) else { return }
         query.excludedIngredients.remove(at: index)
         search()
     }
