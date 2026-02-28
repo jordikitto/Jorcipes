@@ -13,6 +13,11 @@
 		A1B2C3D4E5F600000003C004 /* JorcipesCards in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002B004 /* JorcipesCards */; };
 		A1B2C3D4E5F600000003C005 /* JorcipesRecipeList in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002B005 /* JorcipesRecipeList */; };
 		A1B2C3D4E5F600000003C006 /* JorcipesSearch in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002B006 /* JorcipesSearch */; };
+		A1B2C3D4E5F600000003D001 /* JorcipesCore in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002C001 /* JorcipesCore */; };
+		A1B2C3D4E5F600000003D002 /* JorcipesNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002C002 /* JorcipesNetworking */; };
+		A1B2C3D4E5F600000003D003 /* JorcipesRecipeList in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002C003 /* JorcipesRecipeList */; };
+		A1B2C3D4E5F600000003D004 /* JorcipesSearch in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002C004 /* JorcipesSearch */; };
+		D16253AC2F528C7B009B546B /* Jorcipes.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D16253AB2F528C7B009B546B /* Jorcipes.xctestplan */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,7 @@
 		D15D5CD62F525C200071C9B4 /* Jorcipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jorcipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15D5CE32F525C210071C9B4 /* JorcipesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JorcipesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D15D5CED2F525C210071C9B4 /* JorcipesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JorcipesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16253AB2F528C7B009B546B /* Jorcipes.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jorcipes.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -74,6 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B2C3D4E5F600000003D001 /* JorcipesCore in Frameworks */,
+				A1B2C3D4E5F600000003D002 /* JorcipesNetworking in Frameworks */,
+				A1B2C3D4E5F600000003D003 /* JorcipesRecipeList in Frameworks */,
+				A1B2C3D4E5F600000003D004 /* JorcipesSearch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +104,7 @@
 				D15D5CE62F525C210071C9B4 /* JorcipesTests */,
 				D15D5CF02F525C210071C9B4 /* JorcipesUITests */,
 				D15D5CD72F525C200071C9B4 /* Products */,
+				D16253AB2F528C7B009B546B /* Jorcipes.xctestplan */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +167,10 @@
 			);
 			name = JorcipesTests;
 			packageProductDependencies = (
+				A1B2C3D4E5F600000002C001 /* JorcipesCore */,
+				A1B2C3D4E5F600000002C002 /* JorcipesNetworking */,
+				A1B2C3D4E5F600000002C003 /* JorcipesRecipeList */,
+				A1B2C3D4E5F600000002C004 /* JorcipesSearch */,
 			);
 			productName = JorcipesTests;
 			productReference = D15D5CE32F525C210071C9B4 /* JorcipesTests.xctest */;
@@ -241,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D16253AC2F528C7B009B546B /* Jorcipes.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +685,22 @@
 			productName = JorcipesRecipeList;
 		};
 		A1B2C3D4E5F600000002B006 /* JorcipesSearch */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesSearch;
+		};
+		A1B2C3D4E5F600000002C001 /* JorcipesCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesCore;
+		};
+		A1B2C3D4E5F600000002C002 /* JorcipesNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesNetworking;
+		};
+		A1B2C3D4E5F600000002C003 /* JorcipesRecipeList */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesRecipeList;
+		};
+		A1B2C3D4E5F600000002C004 /* JorcipesSearch */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JorcipesSearch;
 		};

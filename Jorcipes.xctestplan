@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "1EB0503A-A044-4F50-850B-7E69DB1BB04D",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Jorcipes.xcodeproj",
+      "identifier" : "D15D5CD52F525C200071C9B4",
+      "name" : "Jorcipes"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Jorcipes.xcodeproj",
+        "identifier" : "D15D5CE22F525C210071C9B4",
+        "name" : "JorcipesTests"
+      }
+    }
+  ],
+  "version" : 1
+}
