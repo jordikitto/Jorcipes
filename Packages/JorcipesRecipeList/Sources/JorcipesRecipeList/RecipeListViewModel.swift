@@ -9,7 +9,7 @@ public final class RecipeListViewModel {
     public var navigationPath: [RecipeDestination] = []
 
     private let apiClient: APIClient
-    private var loadTask: Task<Void, Never>?
+    nonisolated(unsafe) private var loadTask: Task<Void, Never>?
 
     public init(apiClient: APIClient) {
         self.apiClient = apiClient

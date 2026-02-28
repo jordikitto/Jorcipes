@@ -11,7 +11,7 @@ public final class SearchViewModel {
     public var ingredientInput: String = ""
 
     private let apiClient: APIClient
-    private var searchTask: Task<Void, Never>?
+    nonisolated(unsafe) private var searchTask: Task<Void, Never>?
 
     public init(apiClient: APIClient) {
         self.apiClient = apiClient

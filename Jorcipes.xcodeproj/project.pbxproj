@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A1B2C3D4E5F600000003C001 /* JorcipesCore in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002B001 /* JorcipesCore */; };
+		A1B2C3D4E5F600000003C002 /* JorcipesDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002B002 /* JorcipesDesignSystem */; };
+		A1B2C3D4E5F600000003C003 /* JorcipesNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002B003 /* JorcipesNetworking */; };
+		A1B2C3D4E5F600000003C004 /* JorcipesCards in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002B004 /* JorcipesCards */; };
+		A1B2C3D4E5F600000003C005 /* JorcipesRecipeList in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002B005 /* JorcipesRecipeList */; };
+		A1B2C3D4E5F600000003C006 /* JorcipesSearch in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002B006 /* JorcipesSearch */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D15D5CE42F525C210071C9B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +61,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B2C3D4E5F600000003C001 /* JorcipesCore in Frameworks */,
+				A1B2C3D4E5F600000003C002 /* JorcipesDesignSystem in Frameworks */,
+				A1B2C3D4E5F600000003C003 /* JorcipesNetworking in Frameworks */,
+				A1B2C3D4E5F600000003C004 /* JorcipesCards in Frameworks */,
+				A1B2C3D4E5F600000003C005 /* JorcipesRecipeList in Frameworks */,
+				A1B2C3D4E5F600000003C006 /* JorcipesSearch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +127,12 @@
 			);
 			name = Jorcipes;
 			packageProductDependencies = (
+				A1B2C3D4E5F600000002B001 /* JorcipesCore */,
+				A1B2C3D4E5F600000002B002 /* JorcipesDesignSystem */,
+				A1B2C3D4E5F600000002B003 /* JorcipesNetworking */,
+				A1B2C3D4E5F600000002B004 /* JorcipesCards */,
+				A1B2C3D4E5F600000002B005 /* JorcipesRecipeList */,
+				A1B2C3D4E5F600000002B006 /* JorcipesSearch */,
 			);
 			productName = Jorcipes;
 			productReference = D15D5CD62F525C200071C9B4 /* Jorcipes.app */;
@@ -195,6 +216,14 @@
 			);
 			mainGroup = D15D5CCD2F525C200071C9B4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A1B2C3D4E5F600000001A001 /* XCLocalSwiftPackageReference "Packages/JorcipesCore" */,
+				A1B2C3D4E5F600000001A002 /* XCLocalSwiftPackageReference "Packages/JorcipesDesignSystem" */,
+				A1B2C3D4E5F600000001A003 /* XCLocalSwiftPackageReference "Packages/JorcipesNetworking" */,
+				A1B2C3D4E5F600000001A004 /* XCLocalSwiftPackageReference "Packages/JorcipesCards" */,
+				A1B2C3D4E5F600000001A005 /* XCLocalSwiftPackageReference "Packages/JorcipesRecipeList" */,
+				A1B2C3D4E5F600000001A006 /* XCLocalSwiftPackageReference "Packages/JorcipesSearch" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D15D5CD72F525C200071C9B4 /* Products */;
 			projectDirPath = "";
@@ -590,6 +619,60 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A1B2C3D4E5F600000001A001 /* XCLocalSwiftPackageReference "Packages/JorcipesCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/JorcipesCore;
+		};
+		A1B2C3D4E5F600000001A002 /* XCLocalSwiftPackageReference "Packages/JorcipesDesignSystem" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/JorcipesDesignSystem;
+		};
+		A1B2C3D4E5F600000001A003 /* XCLocalSwiftPackageReference "Packages/JorcipesNetworking" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/JorcipesNetworking;
+		};
+		A1B2C3D4E5F600000001A004 /* XCLocalSwiftPackageReference "Packages/JorcipesCards" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/JorcipesCards;
+		};
+		A1B2C3D4E5F600000001A005 /* XCLocalSwiftPackageReference "Packages/JorcipesRecipeList" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/JorcipesRecipeList;
+		};
+		A1B2C3D4E5F600000001A006 /* XCLocalSwiftPackageReference "Packages/JorcipesSearch" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/JorcipesSearch;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A1B2C3D4E5F600000002B001 /* JorcipesCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesCore;
+		};
+		A1B2C3D4E5F600000002B002 /* JorcipesDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesDesignSystem;
+		};
+		A1B2C3D4E5F600000002B003 /* JorcipesNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesNetworking;
+		};
+		A1B2C3D4E5F600000002B004 /* JorcipesCards */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesCards;
+		};
+		A1B2C3D4E5F600000002B005 /* JorcipesRecipeList */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesRecipeList;
+		};
+		A1B2C3D4E5F600000002B006 /* JorcipesSearch */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesSearch;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D15D5CCE2F525C200071C9B4 /* Project object */;
 }

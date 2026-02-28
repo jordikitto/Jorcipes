@@ -1,24 +1,24 @@
-//
-//  ContentView.swift
-//  Jorcipes
-//
-//  Created by Jordi Kitto on 28/2/2026.
-//
-
 import SwiftUI
+import JorcipesRecipeList
+import JorcipesSearch
+import JorcipesNetworking
 
 struct ContentView: View {
+    let container: AppContainer
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            Tab("Recipes", systemImage: "book") {
+                RecipeListView(viewModel: container.makeRecipeListViewModel())
+            }
+
+            Tab(role: .search) {
+                SearchView(viewModel: container.makeSearchViewModel())
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(container: AppContainer(apiClient: MockAPIClient(simulateDelay: false)))
 }

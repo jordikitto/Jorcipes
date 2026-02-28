@@ -1,17 +1,13 @@
-//
-//  JorcipesApp.swift
-//  Jorcipes
-//
-//  Created by Jordi Kitto on 28/2/2026.
-//
-
 import SwiftUI
+import JorcipesNetworking
 
 @main
 struct JorcipesApp: App {
+    private let container = AppContainer(apiClient: MockAPIClient())
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(container: container)
         }
     }
 }
