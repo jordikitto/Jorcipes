@@ -1,0 +1,9 @@
+{
+  "recipes": [
+    {
+      "id": "not-a-uuid",
+      "title": 12345,
+      "servings": "not-a-number"
+    }
+  ]
+}

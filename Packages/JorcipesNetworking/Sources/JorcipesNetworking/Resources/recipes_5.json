@@ -1,0 +1,255 @@
+{
+  "recipes": [
+    {
+      "id": "A1B2C3D4-E5F6-7890-ABCD-EF1234567890",
+      "title": "Classic Margherita Pizza",
+      "description": "A traditional Italian pizza with fresh mozzarella, basil, and tomato sauce.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "pizza-dough",
+          "name": "Pizza Dough",
+          "quantity": "1 ball",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "mozzarella",
+          "name": "Fresh Mozzarella",
+          "quantity": "200g",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "san-marzano-tomatoes",
+          "name": "San Marzano Tomatoes",
+          "quantity": "1 can",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "fresh-basil",
+          "name": "Fresh Basil",
+          "quantity": "1 bunch",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "olive-oil",
+          "name": "Extra Virgin Olive Oil",
+          "quantity": "2 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "**Preheat** the oven to 250\u00b0C (480\u00b0F) with a pizza stone or inverted baking sheet inside.",
+        "Stretch the dough into a 12-inch round on a floured surface. Transfer to a piece of parchment paper.",
+        "Crush the San Marzano tomatoes by hand and spread evenly over the dough, leaving a 1-inch border.",
+        "Tear the mozzarella into pieces and distribute across the pizza. Drizzle with olive oil.",
+        "Slide the pizza (on parchment) onto the hot stone. Bake for **8\u201310 minutes** until the crust is golden and cheese is bubbly.",
+        "Top with *fresh basil leaves* and serve immediately."
+      ]
+    },
+    {
+      "id": "B2C3D4E5-F6A7-8901-BCDE-F12345678901",
+      "title": "Grilled Chicken Caesar Salad",
+      "description": "Crispy romaine lettuce topped with grilled chicken, parmesan, and creamy caesar dressing.",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": "chicken-breast",
+          "name": "Chicken Breast",
+          "quantity": "2 pieces",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "romaine-lettuce",
+          "name": "Romaine Lettuce",
+          "quantity": "1 head",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "parmesan",
+          "name": "Parmesan Cheese",
+          "quantity": "50g",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "croutons",
+          "name": "Croutons",
+          "quantity": "1 cup",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "caesar-dressing",
+          "name": "Caesar Dressing",
+          "quantity": "4 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "Season chicken breasts with salt, pepper, and a drizzle of olive oil.",
+        "Grill over **medium-high heat** for 6\u20137 minutes per side until internal temperature reaches 74\u00b0C (165\u00b0F).",
+        "Wash and chop the romaine lettuce into bite-sized pieces. Place in a large bowl.",
+        "Slice the grilled chicken. Toss lettuce with caesar dressing, top with chicken, croutons, and *shaved parmesan*."
+      ]
+    },
+    {
+      "id": "C3D4E5F6-A7B8-9012-CDEF-123456789012",
+      "title": "Vegan Thai Green Curry",
+      "description": "A fragrant and creamy Thai curry made with tofu, coconut milk, and fresh vegetables.",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": "firm-tofu",
+          "name": "Firm Tofu",
+          "quantity": "400g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "coconut-milk",
+          "name": "Coconut Milk",
+          "quantity": "1 can (400ml)",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "green-curry-paste",
+          "name": "Green Curry Paste",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "bell-peppers",
+          "name": "Bell Peppers",
+          "quantity": "2 mixed colors",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "jasmine-rice",
+          "name": "Jasmine Rice",
+          "quantity": "2 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "thai-basil",
+          "name": "Thai Basil",
+          "quantity": "1 handful",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Press tofu for 15 minutes, then cut into 1-inch cubes.",
+        "Heat a tablespoon of oil in a wok over **high heat**. Fry tofu until golden on all sides, about 5 minutes. Set aside.",
+        "In the same wok, cook the curry paste for 1 minute until fragrant. Pour in coconut milk and stir to combine.",
+        "Add sliced bell peppers and simmer for **5\u20137 minutes** until tender.",
+        "Return tofu to the wok. Stir gently and cook for 2 more minutes.",
+        "Serve over steamed jasmine rice, garnished with *fresh Thai basil*."
+      ]
+    },
+    {
+      "id": "D4E5F6A7-B8C9-0123-DEFA-234567890123",
+      "title": "Classic Beef Tacos",
+      "description": "Seasoned ground beef in crispy taco shells with fresh toppings and melted cheese.",
+      "servings": 6,
+      "ingredients": [
+        {
+          "id": "ground-beef",
+          "name": "Ground Beef",
+          "quantity": "500g",
+          "dietaryAttributes": []
+        },
+        {
+          "id": "taco-shells",
+          "name": "Taco Shells",
+          "quantity": "12 shells",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "iceberg-lettuce",
+          "name": "Iceberg Lettuce",
+          "quantity": "1/2 head",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "tomato",
+          "name": "Tomato",
+          "quantity": "2 large",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "cheddar-cheese",
+          "name": "Cheddar Cheese",
+          "quantity": "1 cup shredded",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "sour-cream",
+          "name": "Sour Cream",
+          "quantity": "1/2 cup",
+          "dietaryAttributes": ["vegetarian"]
+        }
+      ],
+      "instructions": [
+        "Brown the ground beef in a skillet over **medium-high heat**, breaking it apart as it cooks.",
+        "Drain excess fat. Add taco seasoning and 1/4 cup of water. Simmer for **3\u20134 minutes** until thickened.",
+        "Warm taco shells according to package directions.",
+        "Shred lettuce and dice tomatoes. Set up a taco bar with all toppings.",
+        "Fill each shell with seasoned beef, then top with lettuce, tomato, *shredded cheddar*, and a dollop of sour cream."
+      ]
+    },
+    {
+      "id": "E5F6A7B8-C9D0-1234-EFAB-345678901234",
+      "title": "Wild Mushroom Risotto",
+      "description": "Creamy Italian risotto made with a medley of wild mushrooms, butter, and parmesan.",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": "arborio-rice",
+          "name": "Arborio Rice",
+          "quantity": "1.5 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "mixed-mushrooms",
+          "name": "Mixed Wild Mushrooms",
+          "quantity": "300g",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "vegetable-broth",
+          "name": "Vegetable Broth",
+          "quantity": "4 cups",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "butter",
+          "name": "Butter",
+          "quantity": "3 tbsp",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "parmesan-risotto",
+          "name": "Parmesan Cheese",
+          "quantity": "3/4 cup grated",
+          "dietaryAttributes": ["vegetarian"]
+        },
+        {
+          "id": "yellow-onion",
+          "name": "Yellow Onion",
+          "quantity": "1 medium",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        },
+        {
+          "id": "garlic",
+          "name": "Garlic",
+          "quantity": "3 cloves",
+          "dietaryAttributes": ["vegetarian", "vegan"]
+        }
+      ],
+      "instructions": [
+        "Heat vegetable broth in a saucepan and keep at a gentle simmer.",
+        "In a large pan, melt 1 tbsp butter over **medium heat**. Saut\u00e9 mushrooms until golden, about 5 minutes. Set aside.",
+        "In the same pan, saut\u00e9 diced onion and minced garlic in 1 tbsp butter until softened, about 3 minutes.",
+        "Add arborio rice and stir for **1\u20132 minutes** until the grains are lightly toasted and translucent at the edges.",
+        "Add broth one ladle at a time, stirring frequently. Wait until each addition is mostly absorbed before adding the next. This takes about **18\u201320 minutes**.",
+        "When rice is *al dente* and creamy, remove from heat. Stir in remaining butter, parmesan, and the saut\u00e9ed mushrooms. Season to taste."
+      ]
+    }
+  ]
+}
