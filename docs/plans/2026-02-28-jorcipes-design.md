@@ -221,7 +221,7 @@ final class SearchViewModel {
     var query: RecipeSearchQuery = .init()
     var navigationPath: [RecipeDestination] = []
 
-    func search()                        // debounced search call
+    func search()                        // debounced search call (~300ms via Task.sleep + cancellation)
     func toggleDietaryAttribute(...)     // add/remove from query set
     func addIngredientChip(...)          // add to included
     func toggleIngredientChip(...)       // flip include ↔ exclude

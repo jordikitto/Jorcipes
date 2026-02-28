@@ -8,6 +8,10 @@
 
 **Tech Stack:** Swift 6.2, SwiftUI, iOS 26, Observation framework, Swift Testing
 
+**Cross-Cutting Concerns (apply to ALL tasks with views):**
+- **Accessibility:** Add `.accessibilityLabel()` and `.accessibilityHint()` to all custom interactive components (chips, cards, badges). Ensure all images have descriptive labels. Rely on Dynamic Type (no hardcoded font sizes per CLAUDE.md).
+- **Localization-ready strings:** Use `String(localized:)` or `LocalizedStringKey` for all user-facing text (labels, button titles, section headers, ContentUnavailableView descriptions). This makes the app localization-ready without adding translations yet.
+
 ---
 
 ### Task 1: Create JorcipesCore Package
@@ -730,7 +734,7 @@ public final class MockAPIClient: APIClient, @unchecked Sendable {
         if simulateDelay {
             try await Task.sleep(for: .seconds(Double.random(in: 0.5...1.5)))
         }
-        return try loadRecipes()
+        return try await loadRecipes()
     }
 
     public func searchRecipes(query: RecipeSearchQuery) async throws -> [Recipe] {
@@ -738,7 +742,7 @@ public final class MockAPIClient: APIClient, @unchecked Sendable {
             try await Task.sleep(for: .seconds(Double.random(in: 0.5...1.5)))
         }
 
-        let allRecipes = try loadRecipes()
+        let allRecipes = try await loadRecipes()
 
         guard !query.isEmpty else { return allRecipes }
 
@@ -753,7 +757,10 @@ public final class MockAPIClient: APIClient, @unchecked Sendable {
 
     // MARK: - Private
 
-    private func loadRecipes() throws -> [Recipe] {
+    /// Loads and decodes recipes off the main actor to avoid UI hitching.
+    private nonisolated func loadRecipes() async throws -> [Recipe] {
+        let jsonFileName = self.jsonFileName
+        let bundle = self.bundle
         guard let url = bundle.url(forResource: jsonFileName, withExtension: "json") else {
             throw APIError.fileNotFound(jsonFileName)
         }
@@ -1117,10 +1124,10 @@ public struct RecipeDetailView: View {
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: .space400) {
-                headerSection
-                dietarySection
-                ingredientsSection
-                instructionsSection
+                RecipeHeaderSection(recipe: recipe)
+                RecipeDietarySection(attributes: recipe.dietaryAttributes)
+                RecipeIngredientsSection(ingredients: recipe.ingredients)
+                RecipeInstructionsSection(instructions: recipe.instructions)
             }
             .padding(.space400)
         }
@@ -1129,9 +1136,9 @@ public struct RecipeDetailView: View {
     }
 }
 
-// MARK: - Sections
+// MARK: - Sections (separate View structs per CLAUDE.md)
 
-private struct HeaderSection: View {
+struct RecipeHeaderSection: View {
     let recipe: Recipe
 
     var body: some View {
@@ -1147,7 +1154,7 @@ private struct HeaderSection: View {
     }
 }
 
-private struct DietarySection: View {
+struct RecipeDietarySection: View {
     let attributes: Set<DietaryAttribute>
 
     var body: some View {
@@ -1161,7 +1168,7 @@ private struct DietarySection: View {
     }
 }
 
-private struct IngredientsSection: View {
+struct RecipeIngredientsSection: View {
     let ingredients: [Ingredient]
 
     var body: some View {
@@ -1184,7 +1191,7 @@ private struct IngredientsSection: View {
     }
 }
 
-private struct InstructionsSection: View {
+struct RecipeInstructionsSection: View {
     let instructions: [String]
 
     var body: some View {
@@ -1211,24 +1218,6 @@ private struct InstructionsSection: View {
                 }
             }
         }
-    }
-}
-
-private extension RecipeDetailView {
-    var headerSection: some View {
-        HeaderSection(recipe: recipe)
-    }
-
-    var dietarySection: some View {
-        DietarySection(attributes: recipe.dietaryAttributes)
-    }
-
-    var ingredientsSection: some View {
-        IngredientsSection(ingredients: recipe.ingredients)
-    }
-
-    var instructionsSection: some View {
-        InstructionsSection(instructions: recipe.instructions)
     }
 }
 
@@ -1386,7 +1375,7 @@ public struct RecipeListView: View {
                             description: Text("There are no recipes available at the moment.")
                         )
                     } else {
-                        recipeGrid(recipes: recipes)
+                        RecipeGridContent(recipes: recipes, heroNamespace: heroNamespace)
                     }
 
                 case .failed(let message):
@@ -1418,7 +1407,14 @@ public struct RecipeListView: View {
         }
     }
 
-    private func recipeGrid(recipes: [Recipe]) -> some View {
+}
+
+/// Extracted View struct for the recipe grid (per CLAUDE.md: no computed view properties).
+struct RecipeGridContent: View {
+    let recipes: [Recipe]
+    var heroNamespace: Namespace.ID
+
+    var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: .space400) {
                 ForEach(recipes) { recipe in
@@ -1529,6 +1525,10 @@ public final class SearchViewModel {
 
         searchTask = Task {
             do {
+                // Debounce: wait 300ms before executing search.
+                // If the user types again, this task gets cancelled.
+                try await Task.sleep(for: .milliseconds(300))
+
                 let recipes = try await apiClient.searchRecipes(query: query)
                 try Task.checkCancellation()
                 results = .loaded(recipes)
@@ -1706,17 +1706,24 @@ struct IngredientChipInputView: View {
     private func chipView(name: String, isIncluded: Bool, onTap: @escaping () -> Void, onRemove: @escaping () -> Void) -> some View {
         HStack(spacing: .space100) {
             Button(action: onTap) {
-                Text(name)
-                    .font(.subheadline)
+                Label(
+                    name,
+                    systemImage: isIncluded ? "checkmark" : "minus"
+                )
+                .font(.subheadline)
             }
+            .accessibilityHint(isIncluded ? "Tap to exclude this ingredient" : "Tap to include this ingredient")
             Button("Remove ingredient", systemImage: "xmark", action: onRemove)
                 .font(.caption)
+                .labelStyle(.iconOnly)
         }
         .padding(.horizontal, .space300)
         .padding(.vertical, .space150)
         .background(isIncluded ? Color.green.opacity(0.15) : Color.red.opacity(0.15))
         .foregroundStyle(isIncluded ? .green : .red)
         .clipShape(.capsule)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(name), \(isIncluded ? "included" : "excluded")")
     }
 }
 
@@ -1778,12 +1785,12 @@ struct SearchFilterView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: .space400) {
-            // Dietary chips
+            // Dietary chips (WrappingHStack for extensibility with future attributes)
             VStack(alignment: .leading, spacing: .space200) {
                 Text("Dietary")
                     .font(.headline)
 
-                HStack(spacing: .space200) {
+                WrappingHStack(spacing: .space200) {
                     ForEach(DietaryAttribute.allCases, id: \.self) { attribute in
                         DietaryChipView(
                             attribute: attribute,
@@ -1795,35 +1802,27 @@ struct SearchFilterView: View {
                 }
             }
 
-            // Servings
+            // Servings (toggle to enable, stepper to set value)
             VStack(alignment: .leading, spacing: .space200) {
-                HStack {
-                    Text("Servings")
-                        .font(.headline)
+                Text("Servings")
+                    .font(.headline)
 
-                    Spacer()
-
-                    if viewModel.query.servings != nil {
-                        Button("Clear") {
-                            viewModel.setServings(nil)
-                        }
-                        .font(.subheadline)
+                Toggle("Filter by servings", isOn: Binding(
+                    get: { viewModel.query.servings != nil },
+                    set: { enabled in
+                        viewModel.setServings(enabled ? 1 : nil)
                     }
-                }
+                ))
 
-                Stepper(
-                    value: Binding(
-                        get: { viewModel.query.servings ?? 1 },
-                        set: { viewModel.setServings($0) }
-                    ),
-                    in: 1...20
-                ) {
-                    if let servings = viewModel.query.servings {
-                        Text("\(servings) servings")
-                    } else {
-                        Text("Any")
-                            .foregroundStyle(.secondary)
-                    }
+                if let servings = viewModel.query.servings {
+                    Stepper(
+                        "\(servings) servings",
+                        value: Binding(
+                            get: { servings },
+                            set: { viewModel.setServings($0) }
+                        ),
+                        in: 1...20
+                    )
                 }
             }
 
@@ -1876,7 +1875,11 @@ public struct SearchView: View {
 
                     Divider()
 
-                    resultsContent
+                    SearchResultsContent(
+                        results: viewModel.results,
+                        heroNamespace: heroNamespace,
+                        onRetry: { viewModel.search() }
+                    )
                 }
             }
             .navigationTitle("Search")
@@ -1897,9 +1900,16 @@ public struct SearchView: View {
         }
     }
 
-    @ViewBuilder
-    private var resultsContent: some View {
-        switch viewModel.results {
+}
+
+/// Extracted View struct for search results (per CLAUDE.md: no computed view properties).
+struct SearchResultsContent: View {
+    let results: Loadable<[Recipe]>
+    var heroNamespace: Namespace.ID
+    let onRetry: () -> Void
+
+    var body: some View {
+        switch results {
         case .idle:
             ContentUnavailableView(
                 "Search Recipes",
@@ -1933,9 +1943,7 @@ public struct SearchView: View {
             } description: {
                 Text(message)
             } actions: {
-                Button("Try Again") {
-                    viewModel.search()
-                }
+                Button("Try Again", action: onRetry)
             }
         }
     }
@@ -2215,6 +2223,44 @@ struct RecipeListViewModelTests {
         vm.didTapRecipe(recipe)
         #expect(vm.navigationPath.count == 1)
     }
+
+    @Test("Load cancellation prevents stale overwrite")
+    func loadCancellationPreventsStaleOverwrite() async {
+        let client = ControlledAPIClient()
+        let vm = RecipeListViewModel(apiClient: client)
+        let stale = [Recipe.preview]
+        let latest = Recipe.previewList
+
+        vm.load() // request A
+        vm.load() // request B cancels A
+
+        await client.resolveFetch(with: .success(stale))  // stale response for A
+        await client.resolveFetch(with: .success(latest))  // response for B
+        await Task.yield()
+        await Task.yield()
+
+        #expect(vm.state == .loaded(latest))
+    }
+
+    @Test("Refresh keeps existing data visible during fetch")
+    func refreshKeepsData() async {
+        let client = ControlledAPIClient()
+        let vm = RecipeListViewModel(apiClient: client)
+        let initial = Recipe.previewList
+
+        // Load initial data
+        vm.load()
+        await client.resolveFetch(with: .success(initial))
+        await Task.yield()
+        #expect(vm.state == .loaded(initial))
+
+        // Start refresh — state should remain loaded (SwiftUI manages the spinner)
+        async let _ = vm.refresh()
+        #expect(vm.state == .loaded(initial))
+
+        await client.resolveFetch(with: .success([Recipe.preview]))
+        await Task.yield()
+    }
 }
 
 @Suite("SearchViewModel Tests")
@@ -2303,6 +2349,56 @@ struct SearchViewModelTests {
         #expect(vm.query.excludedIngredients.isEmpty)
         #expect(vm.query.includedIngredients == ["chicken"])
     }
+
+    @Test("Adding whitespace-only ingredient is ignored")
+    func addWhitespaceIngredient() {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+        vm.ingredientInput = "   "
+
+        vm.addIncludedIngredient()
+        #expect(vm.query.includedIngredients.isEmpty)
+    }
+
+    @Test("Toggle ingredient at out-of-bounds index is safe")
+    func toggleOutOfBounds() {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+        vm.query.includedIngredients = ["chicken"]
+
+        vm.toggleIngredientChip(at: 5)
+        #expect(vm.query.includedIngredients == ["chicken"])
+    }
+
+    @Test("Remove ingredient at valid index removes it")
+    func removeIngredient() {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+        vm.query.includedIngredients = ["chicken", "beef"]
+
+        vm.removeIncludedIngredient(at: 0)
+        #expect(vm.query.includedIngredients == ["beef"])
+    }
+
+    @Test("Search cancellation prevents stale overwrite")
+    func searchCancellationPreventsStaleOverwrite() async {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+        let stale = [Recipe.preview]
+        let latest = Recipe.previewList
+
+        vm.query.text = "old"
+        vm.search() // request A
+        vm.query.text = "new"
+        vm.search() // request B cancels A
+
+        await client.resolveSearch(with: .success(stale))
+        await client.resolveSearch(with: .success(latest))
+        await Task.yield()
+        await Task.yield()
+
+        #expect(vm.results == .loaded(latest))
+    }
 }
 
 private enum TestError: Error {
@@ -2389,9 +2485,9 @@ Include the following sections:
   - Ingredient quantity as plain string (no measurement parsing)
   - No persistence or favorites
 - **Known Limitations**:
-  - Search is not debounced (fires on each keystroke)
   - No offline support
-  - No localization
+  - No localization (strings are localization-ready but no translations provided)
+  - No image loading (placeholder icons used)
 
 **Step 2: Commit**
 
