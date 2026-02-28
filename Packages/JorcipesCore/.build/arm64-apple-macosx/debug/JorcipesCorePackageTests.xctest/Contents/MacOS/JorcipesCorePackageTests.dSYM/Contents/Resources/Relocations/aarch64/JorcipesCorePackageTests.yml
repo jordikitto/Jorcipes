@@ -1,5 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/jordikitto/Repos/Jorcipes/Packages/JorcipesCore/.build/arm64-apple-macosx/debug/JorcipesCorePackageTests.xctest/Contents/MacOS/JorcipesCorePackageTests'
-relocations:     []
-...
