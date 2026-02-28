@@ -32,7 +32,7 @@ struct RecipeListViewModelTests {
         vm.load()
         await client.waitForFetch()
         await client.resolveFetch(with: .success(expected))
-        await Task.yield()
+        try? await Task.sleep(for: .milliseconds(10))
 
         #expect(vm.state == .loaded(expected))
     }
@@ -45,7 +45,7 @@ struct RecipeListViewModelTests {
         vm.load()
         await client.waitForFetch()
         await client.resolveFetch(with: .failure(TestError.offline))
-        await Task.yield()
+        try? await Task.sleep(for: .milliseconds(10))
 
         if case .failed = vm.state {
             // expected
@@ -63,7 +63,7 @@ struct RecipeListViewModelTests {
         vm.load()
         await client.waitForFetch()
         await client.resolveFetch(with: .success(recipes))
-        await Task.yield()
+        try? await Task.sleep(for: .milliseconds(10))
 
         vm.onAppear()
         // State should still be loaded, not loading
@@ -94,9 +94,9 @@ struct RecipeListViewModelTests {
         // Wait for both continuations: A (stale, cancelled task) and B (new)
         await client.waitForFetch(count: 2)
         await client.resolveFetch(with: .success(stale))  // resolves A — cancelled, so ignored
-        await Task.yield()
+        try? await Task.sleep(for: .milliseconds(10))
         await client.resolveFetch(with: .success(latest))  // resolves B
-        await Task.yield()
+        try? await Task.sleep(for: .milliseconds(10))
 
         #expect(vm.state == .loaded(latest))
     }
@@ -111,7 +111,7 @@ struct RecipeListViewModelTests {
         vm.load()
         await client.waitForFetch()
         await client.resolveFetch(with: .success(initial))
-        await Task.yield()
+        try? await Task.sleep(for: .milliseconds(10))
         #expect(vm.state == .loaded(initial))
 
         // Start refresh -- state should remain loaded (SwiftUI manages the spinner)
@@ -163,11 +163,11 @@ struct SearchViewModelTests {
 
         vm.search()
 
-        // Wait for the 300ms debounce to pass so the API call is made
-        try? await Task.sleep(for: .milliseconds(400))
+        // Wait for the debounce to pass and the API call to be made
+        await client.waitForSearch()
 
         await client.resolveSearch(with: .success(expected))
-        await Task.yield()
+        try? await Task.sleep(for: .milliseconds(10))
 
         #expect(vm.results == .loaded(expected))
     }
@@ -259,12 +259,12 @@ struct SearchViewModelTests {
         vm.query.text = "new"
         vm.search() // request B cancels A
 
-        // Wait for debounce to pass
-        try? await Task.sleep(for: .milliseconds(400))
+        // Wait for the debounce to pass and the API call to be made
+        await client.waitForSearch()
 
         // The first search task was cancelled, so only one continuation should be pending
         await client.resolveSearch(with: .success(latest))
-        await Task.yield()
+        try? await Task.sleep(for: .milliseconds(10))
 
         #expect(vm.results == .loaded(latest))
     }
