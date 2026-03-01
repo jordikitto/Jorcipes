@@ -31,6 +31,8 @@ public struct RecipeCardView: View {
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
 
+                Spacer()
+
                 HStack(spacing: .space200) {
                     Label("\(recipe.servings)", systemImage: "person.2")
                         .font(.caption)
@@ -46,6 +48,7 @@ public struct RecipeCardView: View {
             .padding(.horizontal, .space200)
             .padding(.bottom, .space300)
         }
+        .frame(maxHeight: .infinity, alignment: .top)
         .background(.regularMaterial)
         .clipShape(.rect(cornerRadius: .cornerRadiusLarge))
         .shadow(color: .black.opacity(0.1), radius: 4, y: 2)
