@@ -9,6 +9,9 @@ public final class RecipeListViewModel {
     public var navigationPath: [RecipeDestination] = []
 
     private let apiClient: APIClient
+
+    // nonisolated(unsafe) so deinit can cancel; Task.cancel() is thread-safe.
+    @ObservationIgnored
     nonisolated(unsafe) private var loadTask: Task<Void, Never>?
 
     public init(apiClient: APIClient) {
