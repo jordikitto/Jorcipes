@@ -17,38 +17,26 @@
 - Modify: `Packages/JorcipesSearch/Sources/JorcipesSearch/IngredientChipInputView.swift:43`
 - Modify: `Packages/JorcipesSearch/Sources/JorcipesSearch/SearchView.swift:51`
 
-**Step 1: Remove the three comments that reference CLAUDE.md**
+**Step 1: Delete the three comments that reference CLAUDE.md entirely**
 
-In `RecipeListView.swift:68`, change:
+In `RecipeListView.swift:68`, delete this entire comment:
 ```swift
 /// Extracted View struct for the recipe grid (per CLAUDE.md: no computed view properties).
 ```
-to:
-```swift
-/// Extracted View struct for the recipe grid.
-```
 
-In `IngredientChipInputView.swift:43`, change:
+In `IngredientChipInputView.swift:43`, delete this entire comment:
 ```swift
 /// Separate View struct for individual ingredient chip (per CLAUDE.md: no computed view property returning some View).
 ```
-to:
-```swift
-/// Separate View struct for an individual ingredient chip.
-```
 
-In `SearchView.swift:51`, change:
+In `SearchView.swift:51`, delete this entire comment:
 ```swift
 /// Extracted View struct for search results (per CLAUDE.md: no computed view properties).
-```
-to:
-```swift
-/// Extracted View struct for search results.
 ```
 
 **Step 2: Build to verify no issues**
 
-Run: `xcodebuild build -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `BuildProject` to build the Jorcipes scheme.
 Expected: BUILD SUCCEEDED
 
 **Step 3: Commit**
@@ -87,16 +75,14 @@ to:
 RootTabView(container: container)
 ```
 
-**Step 3: Update the Xcode project file**
+**Step 3: Build to verify**
 
-The Xcode project references files by name. After renaming the file on disk, the project file (`Jorcipes.xcodeproj/project.pbxproj`) needs the old filename replaced with the new one. Search for `ContentView.swift` and replace with `RootTabView.swift`.
+The project uses `PBXFileSystemSynchronizedRootGroup`, so Xcode auto-syncs file references from disk. No manual `project.pbxproj` edits are needed — just rename the file and build.
 
-**Step 4: Build to verify**
-
-Run: `xcodebuild build -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `BuildProject` to build the Jorcipes scheme.
 Expected: BUILD SUCCEEDED
 
-**Step 5: Commit**
+**Step 4: Commit**
 
 ```bash
 git add -A && git commit -m "Rename ContentView to RootTabView"
@@ -132,7 +118,7 @@ Note: `import JorcipesDesignSystem` may need to be added to the file's imports.
 
 **Step 2: Build to verify**
 
-Run: `xcodebuild build -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `BuildProject` to build the Jorcipes scheme.
 Expected: BUILD SUCCEEDED
 
 **Step 3: Commit**
@@ -184,9 +170,13 @@ import SwiftUI
 
 struct DevSettingsView: View {
     @AppStorage("mockDataSource") private var mockDataSource = "recipes_5"
-    @State private var showRestartBanner = false
+    @State private var initialValue = ""
 
     private let mockDataOptions = ["recipes_5", "recipes_50", "recipes_empty", "recipes_corrupted"]
+
+    private var needsRestart: Bool {
+        mockDataSource != initialValue
+    }
 
     var body: some View {
         NavigationStack {
@@ -200,11 +190,11 @@ struct DevSettingsView: View {
                 }
             }
             .navigationTitle("Dev Settings")
-            .onChange(of: mockDataSource) {
-                showRestartBanner = true
+            .onAppear {
+                initialValue = mockDataSource
             }
             .safeAreaInset(edge: .bottom) {
-                if showRestartBanner {
+                if needsRestart {
                     Text("Restart the app for this to take effect.")
                         .font(.subheadline)
                         .bold()
@@ -249,7 +239,7 @@ var body: some View {
 
 **Step 4: Build to verify**
 
-Run: `xcodebuild build -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `BuildProject` to build the Jorcipes scheme.
 Expected: BUILD SUCCEEDED
 
 **Step 5: Commit**
@@ -272,6 +262,7 @@ Create `Packages/JorcipesCards/Sources/JorcipesCards/DietaryBadgesView.swift`:
 ```swift
 import SwiftUI
 import JorcipesCore
+import JorcipesDesignSystem
 
 public struct DietaryBadgesView: View {
     let sortedAttributes: [DietaryAttribute]
@@ -308,11 +299,9 @@ public struct DietaryBadgesView: View {
 }
 ```
 
-Note: `import JorcipesDesignSystem` is needed if `.space200` / `.space100` come from there. Check that DietaryBadgesView imports match DietaryBadgeView's imports.
-
 **Step 2: Build to verify**
 
-Run: `xcodebuild build -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `BuildProject` to build the Jorcipes scheme.
 Expected: BUILD SUCCEEDED
 
 **Step 3: Commit**
@@ -375,7 +364,7 @@ public var body: some View {
 
 **Step 2: Build to verify**
 
-Run: `xcodebuild build -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `BuildProject` to build the Jorcipes scheme.
 Expected: BUILD SUCCEEDED
 
 **Step 3: Commit**
@@ -566,7 +555,7 @@ struct DetailInstructionCard: View {
 
 **Step 2: Build to verify**
 
-Run: `xcodebuild build -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `BuildProject` to build the Jorcipes scheme.
 Expected: BUILD SUCCEEDED
 
 **Step 3: Commit**
@@ -577,12 +566,24 @@ git add -A && git commit -m "Redesign detail view with card-style layout and hig
 
 ---
 
-## Task 8: Add FilterOptions Model
+## Task 8: Add FilterOptions Model and Loadable.isFailed
 
 **Files:**
 - Create: `Packages/JorcipesCore/Sources/JorcipesCore/FilterOptions.swift`
+- Modify: `Packages/JorcipesCore/Sources/JorcipesCore/Loadable.swift`
 
-**Step 1: Create FilterOptions model**
+**Step 1: Add `isFailed` helper to Loadable**
+
+In `Packages/JorcipesCore/Sources/JorcipesCore/Loadable.swift`, add alongside the existing `isLoading`:
+
+```swift
+public var isFailed: Bool {
+    if case .failed = self { return true }
+    return false
+}
+```
+
+**Step 2: Create FilterOptions model**
 
 Create `Packages/JorcipesCore/Sources/JorcipesCore/FilterOptions.swift`:
 
@@ -598,15 +599,15 @@ public struct FilterOptions: Equatable, Sendable {
 }
 ```
 
-**Step 2: Build to verify**
+**Step 3: Build to verify**
 
-Run: `xcodebuild build -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `BuildProject` to build the Jorcipes scheme.
 Expected: BUILD SUCCEEDED
 
-**Step 3: Commit**
+**Step 4: Commit**
 
 ```bash
-git add -A && git commit -m "Add FilterOptions model to JorcipesCore"
+git add -A && git commit -m "Add FilterOptions model and Loadable.isFailed to JorcipesCore"
 ```
 
 ---
@@ -638,9 +639,33 @@ func fetchFilterOptions() async throws {
 }
 ```
 
-**Step 2: Run test to verify it fails**
+Also add edge case tests for empty and corrupted JSON:
 
-Run: `xcodebuild test -scheme JorcipesNetworking -destination 'platform=iOS Simulator,name=iPhone 16'`
+```swift
+@Test("fetchFilterOptions returns empty options for empty recipes")
+func fetchFilterOptionsEmpty() async throws {
+    let client = MockAPIClient(jsonFileName: "recipes_empty", simulateDelay: false)
+    let options = try await client.fetchFilterOptions()
+
+    #expect(options.availableServings.isEmpty)
+    #expect(options.availableIngredients.isEmpty)
+}
+
+@Test("fetchFilterOptions throws for corrupted JSON")
+func fetchFilterOptionsCorrupted() async {
+    let client = MockAPIClient(jsonFileName: "recipes_corrupted", simulateDelay: false)
+    do {
+        _ = try await client.fetchFilterOptions()
+        Issue.record("Expected an error to be thrown")
+    } catch {
+        // Expected
+    }
+}
+```
+
+**Step 2: Run tests to verify they fail**
+
+Use Xcode MCP `RunAllTests` to run the JorcipesNetworking tests.
 Expected: FAIL — `fetchFilterOptions` does not exist on APIClient.
 
 **Step 3: Add fetchFilterOptions to APIClient protocol**
@@ -704,12 +729,12 @@ func resolveFilterOptions(with result: Result<FilterOptions, Error>) {
 
 **Step 6: Run test to verify it passes**
 
-Run: `xcodebuild test -scheme JorcipesNetworking -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `RunAllTests` to run the JorcipesNetworking tests.
 Expected: PASS
 
 **Step 7: Run all tests**
 
-Run: `xcodebuild test -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `RunAllTests` to run the Jorcipes test suite.
 Expected: ALL PASS
 
 **Step 8: Commit**
@@ -783,7 +808,7 @@ func loadFilterOptions() async {
 
 **Step 2: Run tests to verify they fail**
 
-Run: `xcodebuild test -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16' -only-testing:JorcipesTests`
+Use Xcode MCP `RunSomeTests` to run JorcipesTests.
 Expected: FAIL — `activeFilterCount`, `loadFilterOptions`, `filterOptions` don't exist yet.
 
 **Step 3: Rewrite SearchViewModel**
@@ -839,7 +864,7 @@ public final class SearchViewModel {
     // MARK: - Filter Options
 
     public func loadFilterOptions() {
-        guard case .idle = filterOptions else { return }
+        guard filterOptions == .idle || filterOptions.isFailed else { return }
         filterOptions = .loading
 
         filterOptionsTask = Task {
@@ -939,6 +964,8 @@ public final class SearchViewModel {
 
     // MARK: - Sheet Dismissal
 
+    /// Called when any filter sheet is dismissed. Clears ingredient search text
+    /// and triggers a new search so filter changes take effect on results.
     public func onFilterSheetDismiss() {
         ingredientSearchText = ""
         search()
@@ -959,7 +986,7 @@ public final class SearchViewModel {
 
 **Step 4: Run tests to verify they pass**
 
-Run: `xcodebuild test -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16' -only-testing:JorcipesTests`
+Use Xcode MCP `RunSomeTests` to run JorcipesTests.
 Expected: PASS (some existing tests may need minor adjustments — see Step 5)
 
 **Step 5: Fix existing SearchViewModel tests**
@@ -984,13 +1011,14 @@ func searchSuccess() async {
 }
 ```
 
-The `searchCancellationPreventsStaleOverwrite` test also needs updating — without debounce, both search calls will immediately hit the API, so both will produce continuations:
+The `searchCancellationPreventsStaleOverwrite` test also needs updating — without debounce, both search calls will immediately hit the API, so both may produce continuations. We need to wait for two continuations and resolve both, verifying only the latest result is kept:
 
 ```swift
 @Test("Search cancellation prevents stale overwrite")
 func searchCancellationPreventsStaleOverwrite() async {
     let client = ControlledAPIClient()
     let vm = SearchViewModel(apiClient: client)
+    let stale = [Recipe.preview]
     let latest = Recipe.previewList
 
     vm.query.text = "old"
@@ -998,9 +1026,11 @@ func searchCancellationPreventsStaleOverwrite() async {
     vm.query.text = "new"
     vm.search() // request B cancels A
 
-    await client.waitForSearch()
-
-    await client.resolveSearch(with: .success(latest))
+    // Wait for both continuations to be captured
+    await client.waitForSearch(count: 2)
+    await client.resolveSearch(with: .success(stale))  // resolves A — cancelled, so ignored
+    try? await Task.sleep(for: .milliseconds(10))
+    await client.resolveSearch(with: .success(latest))  // resolves B
     try? await Task.sleep(for: .milliseconds(10))
 
     #expect(vm.results == .loaded(latest))
@@ -1035,11 +1065,50 @@ func toggleExcludedIngredient() {
     vm.toggleExcludedIngredient("Tofu")
     #expect(vm.query.excludedIngredients.isEmpty)
 }
+
+@Test("loadFilterOptions retries from failed state")
+func loadFilterOptionsRetry() async {
+    let client = ControlledAPIClient()
+    let vm = SearchViewModel(apiClient: client)
+    let expected = FilterOptions(availableServings: [2, 4], availableIngredients: ["Chicken"])
+
+    // First attempt fails
+    vm.loadFilterOptions()
+    await client.waitForFilterOptions()
+    await client.resolveFilterOptions(with: .failure(TestError.offline))
+    try? await Task.sleep(for: .milliseconds(10))
+    #expect(vm.filterOptions.isFailed)
+
+    // Retry should work from failed state
+    vm.loadFilterOptions()
+    await client.waitForFilterOptions()
+    await client.resolveFilterOptions(with: .success(expected))
+    try? await Task.sleep(for: .milliseconds(10))
+    #expect(vm.filterOptions == .loaded(expected))
+}
+
+@Test("Sheet dismiss triggers search with updated query")
+func sheetDismissTriggersSearch() async {
+    let client = ControlledAPIClient()
+    let vm = SearchViewModel(apiClient: client)
+    vm.query.dietaryAttributes.insert(.vegan)
+    vm.query.text = "curry"
+
+    vm.onFilterSheetDismiss()
+
+    // search() should have been called — wait for API call
+    await client.waitForSearch()
+    await client.resolveSearch(with: .success([Recipe.preview]))
+    try? await Task.sleep(for: .milliseconds(10))
+
+    #expect(vm.results == .loaded([Recipe.preview]))
+    #expect(vm.ingredientSearchText.isEmpty)
+}
 ```
 
 **Step 6: Run all tests**
 
-Run: `xcodebuild test -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `RunAllTests` to run the Jorcipes test suite.
 Expected: ALL PASS
 
 **Step 7: Commit**
@@ -1399,7 +1468,8 @@ struct ServingsFilterSheet: View {
     var body: some View {
         NavigationStack {
             Group {
-                if case .loaded(let options) = viewModel.filterOptions {
+                switch viewModel.filterOptions {
+                case .loaded(let options):
                     List {
                         Button {
                             viewModel.setServings(nil)
@@ -1435,7 +1505,17 @@ struct ServingsFilterSheet: View {
                             .buttonStyle(.plain)
                         }
                     }
-                } else {
+
+                case .failed(let message):
+                    ContentUnavailableView {
+                        Label("Failed to Load", systemImage: "exclamationmark.triangle")
+                    } description: {
+                        Text(message)
+                    } actions: {
+                        Button("Retry") { viewModel.loadFilterOptions() }
+                    }
+
+                default:
                     ProgressView()
                 }
             }
@@ -1469,32 +1549,36 @@ struct IngredientFilterSheet: View {
     var body: some View {
         NavigationStack {
             Group {
-                if case .loaded(let options) = viewModel.filterOptions {
+                switch viewModel.filterOptions {
+                case .loaded(let options):
                     List {
                         ForEach(filteredIngredients(from: options), id: \.self) { ingredient in
-                            Button {
+                            IngredientRow(
+                                ingredient: ingredient,
+                                isSelected: isSelected(ingredient),
+                                isDisabled: isInOppositeList(ingredient),
+                                oppositeLabel: isIncluded ? "Excluded" : "Included"
+                            ) {
                                 if isIncluded {
                                     viewModel.toggleIncludedIngredient(ingredient)
                                 } else {
                                     viewModel.toggleExcludedIngredient(ingredient)
                                 }
-                            } label: {
-                                HStack {
-                                    Text(ingredient)
-
-                                    Spacer()
-
-                                    if isSelected(ingredient) {
-                                        Image(systemName: "checkmark")
-                                            .foregroundStyle(.accent)
-                                    }
-                                }
                             }
-                            .buttonStyle(.plain)
                         }
                     }
                     .searchable(text: $viewModel.ingredientSearchText, prompt: "Search ingredients...")
-                } else {
+
+                case .failed(let message):
+                    ContentUnavailableView {
+                        Label("Failed to Load", systemImage: "exclamationmark.triangle")
+                    } description: {
+                        Text(message)
+                    } actions: {
+                        Button("Retry") { viewModel.loadFilterOptions() }
+                    }
+
+                default:
                     ProgressView()
                 }
             }
@@ -1524,6 +1608,48 @@ struct IngredientFilterSheet: View {
             viewModel.isIngredientExcluded(ingredient)
         }
     }
+
+    private func isInOppositeList(_ ingredient: String) -> Bool {
+        if isIncluded {
+            viewModel.isIngredientExcluded(ingredient)
+        } else {
+            viewModel.isIngredientIncluded(ingredient)
+        }
+    }
+}
+
+struct IngredientRow: View {
+    let ingredient: String
+    let isSelected: Bool
+    let isDisabled: Bool
+    let oppositeLabel: String
+    let onTap: () -> Void
+
+    var body: some View {
+        Button(action: onTap) {
+            HStack {
+                Text(ingredient)
+                    .foregroundStyle(isDisabled ? .tertiary : .primary)
+
+                Spacer()
+
+                if isDisabled {
+                    Text(oppositeLabel)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .padding(.horizontal, .space200)
+                        .padding(.vertical, .space50)
+                        .background(Color.secondary.opacity(0.15))
+                        .clipShape(.capsule)
+                } else if isSelected {
+                    Image(systemName: "checkmark")
+                        .foregroundStyle(.accent)
+                }
+            }
+        }
+        .buttonStyle(.plain)
+        .disabled(isDisabled)
+    }
 }
 ```
 
@@ -1538,12 +1664,12 @@ Note: `WrappingHStack` in `IngredientChipInputView.swift` may still be used else
 
 **Step 7: Build to verify**
 
-Run: `xcodebuild build -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `BuildProject` to build the Jorcipes scheme.
 Expected: BUILD SUCCEEDED
 
 **Step 8: Run all tests**
 
-Run: `xcodebuild test -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+Use Xcode MCP `RunAllTests` to run the Jorcipes test suite.
 Expected: ALL PASS
 
 **Step 9: Commit**
@@ -1554,23 +1680,43 @@ git add -A && git commit -m "Rewrite search UI with collapsible filters and half
 
 ---
 
-## Task 12: Final Verification
+## Task 12: Final Cleanup and Verification
 
-**Step 1: Run full test suite**
+**Step 1: Remove unused functions and properties**
 
-Run: `xcodebuild test -scheme Jorcipes -destination 'platform=iOS Simulator,name=iPhone 16'`
+After the refactors above, audit the codebase for any now-unused code. Key candidates:
+- `SearchViewModel.updateSearchText()` — removed, verify no callers remain
+- `SearchViewModel.ingredientInput` — replaced by `ingredientSearchText`, verify old property is gone
+- `SearchViewModel.addIncludedIngredient()`, `toggleIngredientChip()`, `toggleExcludedIngredientChip()`, `removeIncludedIngredient()`, `removeExcludedIngredient()` — replaced by `toggleIncludedIngredient(_:)` and `toggleExcludedIngredient(_:)`, verify old methods are gone
+- `RecipeDietarySection`, `RecipeHeaderSection`, `RecipeIngredientsSection`, `RecipeInstructionsSection` — replaced by new Detail sub-views, verify old structs are gone
+- `DietaryChipView`, `IngredientChipInputView`, `IngredientChip`, `WrappingHStack` — deleted with old files, verify no remaining references
+- Any other dead code discovered during audit
+
+**Step 2: Verify filter options flow end-to-end**
+
+Confirm that:
+- `SearchView.task` calls `viewModel.loadFilterOptions()` on appear
+- Filter sheets read from `viewModel.filterOptions`
+- Selecting filters updates `viewModel.query` (dietary, servings, included/excluded ingredients)
+- Dismissing a filter sheet calls `viewModel.onFilterSheetDismiss()` which calls `search()`
+- `search()` passes the full `query` (including filter selections) to `apiClient.searchRecipes(query:)`
+- `MockAPIClient.searchRecipes(query:)` already filters by dietary, servings, included/excluded ingredients
+
+**Step 3: Run full test suite**
+
+Use Xcode MCP `RunAllTests` to run the Jorcipes test suite.
 Expected: ALL PASS
 
-**Step 2: Check for any remaining CLAUDE.md references**
+**Step 4: Check for any remaining CLAUDE.md references**
 
 Search all `.swift` files for `CLAUDE.md` — should find zero results.
 
-**Step 3: Check for any remaining ContentView references**
+**Step 5: Check for any remaining ContentView references**
 
 Search all files for `ContentView` — should find zero results (in non-build directories).
 
-**Step 4: Verify no SwiftLint warnings (if installed)**
+**Step 6: Verify no SwiftLint warnings (if installed)**
 
 Run: `swiftlint lint` if available.
 
-**Step 5: Commit any final fixes if needed**
+**Step 7: Commit any final fixes if needed**
