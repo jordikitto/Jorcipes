@@ -7,6 +7,7 @@ struct IngredientFilterSheet: View {
     @Bindable var viewModel: SearchViewModel
     let isIncluded: Bool
     @Environment(\.dismiss) private var dismiss
+    @State private var isSearchFocused = false
 
     var body: some View {
         NavigationStack {
@@ -29,7 +30,7 @@ struct IngredientFilterSheet: View {
                             }
                         }
                     }
-                    .searchable(text: $viewModel.ingredientSearchText, prompt: "Search ingredients...")
+                    .searchable(text: $viewModel.ingredientSearchText, isPresented: $isSearchFocused, prompt: "Search ingredients...")
 
                 case .failed(let message):
                     ContentUnavailableView {
@@ -46,6 +47,9 @@ struct IngredientFilterSheet: View {
             }
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                isSearchFocused = true
+            }
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }

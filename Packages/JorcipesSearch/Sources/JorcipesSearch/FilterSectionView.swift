@@ -11,7 +11,9 @@ struct FilterSectionView: View {
                 activeCount: viewModel.activeFilterCount,
                 isExpanded: viewModel.filtersExpanded
             ) {
-                viewModel.filtersExpanded.toggle()
+                withAnimation {
+                    viewModel.filtersExpanded.toggle()
+                }
             }
 
             if viewModel.filtersExpanded {
