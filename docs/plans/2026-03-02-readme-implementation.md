@@ -1,3 +1,25 @@
+# README Implementation Plan
+
+> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+
+**Goal:** Create a README.md at the repo root that satisfies the ReciMe coding challenge deliverables.
+
+**Architecture:** Single markdown file with six sections matching the approved design at `docs/plans/2026-03-02-readme-design.md`. Challenge-required headings first, development process section last.
+
+**Tech Stack:** Markdown
+
+---
+
+### Task 1: Write README.md
+
+**Files:**
+- Create: `README.md`
+
+**Step 1: Write the full README**
+
+Create `README.md` at the repo root with the following content. Each section's content was approved during the brainstorming session — reproduce it faithfully.
+
+```markdown
 # Jorcipes
 
 A native iOS recipe browsing and search app, built with Swift and SwiftUI for the ReciMe coding challenge.
@@ -81,3 +103,15 @@ Each feature followed a structured cycle: **brainstorm → plan → implement �
 - Claude Code with the **Superpowers** plugin (brainstorming → planning → implementation workflow)
 - **swiftui-expert** skills for SwiftUI best practices
 - Xcode MCP server for build/test integration
+```
+
+**Step 2: Verify the file renders correctly**
+
+Skim the written file to check for markdown formatting issues (broken tables, mismatched backticks, etc.).
+
+**Step 3: Commit**
+
+```bash
+git add README.md
+git commit -m "Add README for ReciMe coding challenge"
+```
