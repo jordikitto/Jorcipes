@@ -38,6 +38,7 @@ The app follows MVVM with a modular package structure:
 - **Liquid Glass filters** — Filter chips use glassEffect styling on iOS 26, giving the search interface a modern, tactile feel.
 - **Consistent filtering UX** — All filters (dietary, servings, ingredients, instructions) use a uniform sheet-based interaction pattern for discoverability and consistency.
 - **Step-by-step instructions** — The detail view renders cooking instructions as a numbered step list with markdown support, rather than a wall of text.
+- **Matched geometry step highlight** — A `matchedGeometryEffect` animates the active-step border between instruction cards. More playful than polished, but it showcases SwiftUI's declarative geometry interpolation across the view hierarchy.
 - **Computed dietary attributes** — A recipe is only classified as vegetarian/vegan if *all* its ingredients carry that attribute, ensuring accuracy.
 - **Card-style recipe presentation** — Each recipe appears as a card with title, description, servings, and dietary badges for quick scanning.
 - **Dedicated search tab** — Separating search into its own tab gives each tab an independent navigation stack. This means a user can keep a recipe open in the browse tab while searching for another — a subtle but practical multitasking benefit.
