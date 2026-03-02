@@ -61,7 +61,7 @@ public final class MockAPIClient: APIClient, @unchecked Sendable {
         }
         let data = try Data(contentsOf: url)
         let response = try JSONDecoder().decode(RecipesResponse.self, from: data)
-        return response.recipes
+        return response.recipes.sorted(using: SortDescriptor(\.title))
     }
 
     private func matchesText(recipe: Recipe, text: String) -> Bool {

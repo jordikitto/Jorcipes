@@ -11,10 +11,9 @@ public struct RecipeCardView: View {
 
     public var body: some View {
         VStack(alignment: .leading, spacing: .space200) {
-            // Placeholder image area
             RoundedRectangle(cornerRadius: .cornerRadiusMedium)
                 .fill(Color.recipeSecondary.opacity(0.2))
-                .aspectRatio(4 / 3, contentMode: .fit)
+                .aspectRatio(4 / 3, contentMode: .fill)
                 .overlay {
                     Image(systemName: "fork.knife")
                         .font(.largeTitle)
@@ -33,7 +32,7 @@ public struct RecipeCardView: View {
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
 
-                Spacer()
+                Spacer(minLength: 0)
 
                 Label("\(recipe.servings)", systemImage: "person.2")
                     .font(.caption)
