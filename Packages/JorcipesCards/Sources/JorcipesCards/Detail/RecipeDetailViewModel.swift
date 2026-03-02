@@ -5,6 +5,7 @@ import Foundation
 public final class RecipeDetailViewModel {
     public var highlightedStep: Int?
     public var showCongratulations = false
+    public var isTitleVisible = true
 
     private let instructionCount: Int
 

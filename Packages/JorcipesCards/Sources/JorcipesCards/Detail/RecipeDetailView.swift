@@ -26,6 +26,9 @@ public struct RecipeDetailView: View {
                 Text(recipe.title)
                     .font(.largeTitle)
                     .bold()
+                    .onScrollVisibilityChange { visible in
+                        viewModel.isTitleVisible = visible
+                    }
 
                 DetailInfoCard(recipe: recipe)
 
@@ -62,8 +65,14 @@ public struct RecipeDetailView: View {
             .padding(.space400)
             .frame(maxWidth: 660, alignment: .center) // For iPad reading
         }
-        .navigationTitle(recipe.title)
-        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                if !viewModel.isTitleVisible {
+                    Text(recipe.title)
+                }
+            }
+        }
+        .animation(.linear, value: viewModel.isTitleVisible)
         .alert("Congratulations 🎉", isPresented: $viewModel.showCongratulations) {
             Button("OK") { }
         } message: {
