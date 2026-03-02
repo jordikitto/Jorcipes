@@ -8,7 +8,7 @@ import JorcipesNetworkingTestSupport
 @MainActor
 struct RecipeListViewModelTests {
 
-    @Test func `happy path loads and refreshes recipes`() async {
+    @Test func `happy path loads and refreshes recipes`() async throws {
         // GIVEN: View model initialised
         let client = MockAPIClient()
         let viewModel = RecipeListViewModel(apiClient: client)
@@ -26,7 +26,7 @@ struct RecipeListViewModelTests {
         // WHEN: Fetch completes successfully
         await client.waitForFetch()
         await client.resolveFetch(with: .success(recipes))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // THEN: State is loaded with recipes
         #expect(viewModel.state == .loaded(recipes))
@@ -53,7 +53,7 @@ struct RecipeListViewModelTests {
         #expect(viewModel.state == .loaded(refreshed))
     }
 
-    @Test func `failed load and stale cancellation`() async {
+    @Test func `failed load and stale cancellation`() async throws {
         // GIVEN: View model initialised
         let client = MockAPIClient()
         let viewModel = RecipeListViewModel(apiClient: client)
@@ -62,7 +62,7 @@ struct RecipeListViewModelTests {
         viewModel.load()
         await client.waitForFetch()
         await client.resolveFetch(with: .failure(TestError.offline))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // THEN: State is failed
         if case .failed = viewModel.state {
@@ -84,11 +84,11 @@ struct RecipeListViewModelTests {
 
         // WHEN: Stale response arrives (cancelled task ignores it)
         await client.resolveFetch(with: .success(stale))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // WHEN: Latest response arrives
         await client.resolveFetch(with: .success(latest))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // THEN: Only the latest response is used
         #expect(viewModel2.state == .loaded(latest))

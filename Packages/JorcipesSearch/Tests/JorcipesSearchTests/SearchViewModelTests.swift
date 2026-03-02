@@ -8,7 +8,7 @@ import JorcipesNetworkingTestSupport
 @MainActor
 struct SearchViewModelTests {
 
-    @Test func `search flow from idle through loading to loaded`() async {
+    @Test func `search flow from idle through loading to loaded`() async throws {
         // GIVEN: View model initialised
         let client = MockAPIClient()
         let viewModel = SearchViewModel(apiClient: client)
@@ -27,7 +27,7 @@ struct SearchViewModelTests {
         let expected = [Recipe.preview]
         await client.waitForSearch()
         await client.resolveSearch(with: .success(expected))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // THEN: State is loaded with results
         #expect(viewModel.results == .loaded(expected))
@@ -45,7 +45,7 @@ struct SearchViewModelTests {
         // Resolve viewModel2's search so it doesn't pollute later assertions
         await client.waitForSearch()
         await client.resolveSearch(with: .success([]))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // GIVEN: A fresh view model for cancellation test
         let viewModel3 = SearchViewModel(apiClient: client)
@@ -62,9 +62,9 @@ struct SearchViewModelTests {
         // WHEN: Stale response arrives (cancelled), then latest
         await client.waitForSearch(count: 2)
         await client.resolveSearch(with: .success(stale))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
         await client.resolveSearch(with: .success(latest))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // THEN: Only latest results are used
         #expect(viewModel3.results == .loaded(latest))
@@ -134,7 +134,7 @@ struct SearchViewModelTests {
         #expect(viewModel2.query.excludedIngredients.isEmpty)
     }
 
-    @Test func `filter options load and retry from failure`() async {
+    @Test func `filter options load and retry from failure`() async throws {
         // GIVEN: View model initialised
         let client = MockAPIClient()
         let viewModel = SearchViewModel(apiClient: client)
@@ -144,7 +144,7 @@ struct SearchViewModelTests {
         viewModel.loadFilterOptions()
         await client.waitForFilterOptions()
         await client.resolveFilterOptions(with: .success(expected))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // THEN: Filter options are loaded
         #expect(viewModel.filterOptions == .loaded(expected))
@@ -157,7 +157,7 @@ struct SearchViewModelTests {
         viewModel2.loadFilterOptions()
         await client.waitForFilterOptions()
         await client.resolveFilterOptions(with: .failure(TestError.offline))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // THEN: State is failed
         #expect(viewModel2.filterOptions.isFailed)
@@ -166,20 +166,20 @@ struct SearchViewModelTests {
         viewModel2.loadFilterOptions()
         await client.waitForFilterOptions()
         await client.resolveFilterOptions(with: .success(retryExpected))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // THEN: Filter options are loaded
         #expect(viewModel2.filterOptions == .loaded(retryExpected))
     }
 
-    @Test func `sheet dismiss triggers search only when query changed`() async {
+    @Test func `sheet dismiss triggers search only when query changed`() async throws {
         // GIVEN: View model with an initial search completed
         let client = MockAPIClient()
         let viewModel = SearchViewModel(apiClient: client)
         viewModel.search()
         await client.waitForSearch()
         await client.resolveSearch(with: .success([]))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
 
         // WHEN: Filters change and sheet is dismissed
         viewModel.query.dietaryAttributes.insert(.vegan)
@@ -188,7 +188,7 @@ struct SearchViewModelTests {
         // THEN: A new search is triggered
         await client.waitForSearch()
         await client.resolveSearch(with: .success([Recipe.preview]))
-        try? await Task.sleep(for: .milliseconds(10))
+        try await Task.sleep(for: .milliseconds(10))
         #expect(viewModel.results == .loaded([Recipe.preview]))
         #expect(viewModel.ingredientSearchText.isEmpty)
 
