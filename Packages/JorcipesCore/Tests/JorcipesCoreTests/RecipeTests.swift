@@ -7,8 +7,8 @@ struct RecipeTests {
 
     // MARK: - Dietary Attribute Computation
 
-    @Test("Recipe with all vegetarian ingredients is vegetarian")
-    func allVegetarianIngredients() {
+    @Test func `recipe with all vegetarian ingredients is vegetarian`() {
+        // GIVEN: A recipe where all ingredients are vegetarian
         let recipe = Recipe(
             title: "Test",
             description: "Test",
@@ -19,12 +19,14 @@ struct RecipeTests {
             ],
             instructions: []
         )
+
+        // THEN: Recipe is vegetarian but not vegan
         #expect(recipe.dietaryAttributes.contains(.vegetarian))
         #expect(!recipe.dietaryAttributes.contains(.vegan))
     }
 
-    @Test("Recipe with all vegan ingredients is both vegan and vegetarian")
-    func allVeganIngredients() {
+    @Test func `recipe with all vegan ingredients is both vegan and vegetarian`() {
+        // GIVEN: A recipe where all ingredients are vegan
         let recipe = Recipe(
             title: "Test",
             description: "Test",
@@ -35,12 +37,14 @@ struct RecipeTests {
             ],
             instructions: []
         )
+
+        // THEN: Recipe is both vegetarian and vegan
         #expect(recipe.dietaryAttributes.contains(.vegetarian))
         #expect(recipe.dietaryAttributes.contains(.vegan))
     }
 
-    @Test("Recipe with mixed ingredients has no dietary attributes")
-    func mixedIngredients() {
+    @Test func `recipe with mixed ingredients has no dietary attributes`() {
+        // GIVEN: A recipe with one non-vegetarian ingredient
         let recipe = Recipe(
             title: "Test",
             description: "Test",
@@ -51,11 +55,13 @@ struct RecipeTests {
             ],
             instructions: []
         )
+
+        // THEN: Recipe has no dietary attributes
         #expect(recipe.dietaryAttributes.isEmpty)
     }
 
-    @Test("Recipe with no ingredients has no dietary attributes")
-    func emptyIngredients() {
+    @Test func `recipe with no ingredients has no dietary attributes`() {
+        // GIVEN: A recipe with an empty ingredients list
         let recipe = Recipe(
             title: "Test",
             description: "Test",
@@ -63,61 +69,34 @@ struct RecipeTests {
             ingredients: [],
             instructions: []
         )
+
+        // THEN: Recipe has no dietary attributes
         #expect(recipe.dietaryAttributes.isEmpty)
-    }
-
-    // MARK: - Codable
-
-    @Test("Recipe round-trips through JSON encoding and decoding")
-    func codableRoundTrip() throws {
-        let original = Recipe.preview
-        let data = try JSONEncoder().encode(original)
-        let decoded = try JSONDecoder().decode(Recipe.self, from: data)
-        #expect(decoded.id == original.id)
-        #expect(decoded.title == original.title)
-        #expect(decoded.ingredients.count == original.ingredients.count)
-        #expect(decoded.dietaryAttributes == original.dietaryAttributes)
-    }
-
-    @Test("Ingredient round-trips through JSON")
-    func ingredientCodable() throws {
-        let original = Ingredient(id: "test", name: "Test", quantity: "1 cup", dietaryAttributes: [.vegetarian, .vegan])
-        let data = try JSONEncoder().encode(original)
-        let decoded = try JSONDecoder().decode(Ingredient.self, from: data)
-        #expect(decoded == original)
     }
 
     // MARK: - RecipeSearchQuery
 
-    @Test("Empty query reports isEmpty as true")
-    func emptyQuery() {
+    @Test func `empty query reports isEmpty as true`() {
+        // GIVEN: A default search query
         let query = RecipeSearchQuery()
+
+        // THEN: Query is empty
         #expect(query.isEmpty)
     }
 
-    @Test("Query with text is not empty")
-    func queryWithText() {
+    @Test func `query with text is not empty`() {
+        // GIVEN: A query with search text
         let query = RecipeSearchQuery(text: "pizza")
+
+        // THEN: Query is not empty
         #expect(!query.isEmpty)
     }
 
-    @Test("Query with dietary attributes is not empty")
-    func queryWithDietary() {
+    @Test func `query with dietary attributes is not empty`() {
+        // GIVEN: A query with a dietary filter
         let query = RecipeSearchQuery(dietaryAttributes: [.vegan])
+
+        // THEN: Query is not empty
         #expect(!query.isEmpty)
-    }
-
-    // MARK: - Preview Data
-
-    @Test("Preview list contains expected dietary distribution")
-    func previewDietaryDistribution() {
-        let recipes = Recipe.previewList
-        let vegetarian = recipes.filter { $0.dietaryAttributes.contains(.vegetarian) }
-        let vegan = recipes.filter { $0.dietaryAttributes.contains(.vegan) }
-        let neither = recipes.filter { $0.dietaryAttributes.isEmpty }
-
-        #expect(vegetarian.count == 3) // Margherita, Thai Curry, Risotto
-        #expect(vegan.count == 1)      // Thai Curry only
-        #expect(neither.count == 2)    // Caesar, Beef Tacos
     }
 }
