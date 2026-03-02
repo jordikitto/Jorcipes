@@ -4,7 +4,6 @@ import JorcipesDesignSystem
 
 struct ServingsFilterSheet: View {
     @Bindable var viewModel: SearchViewModel
-    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack {
@@ -12,38 +11,20 @@ struct ServingsFilterSheet: View {
                 switch viewModel.filterOptions {
                 case .loaded(let options):
                     List {
-                        Button {
-                            viewModel.setServings(nil)
-                        } label: {
-                            HStack {
-                                Text("Any")
-
-                                Spacer()
-
-                                if viewModel.query.servings == nil {
-                                    Image(systemName: "checkmark")
-                                        .foregroundStyle(.tint)
-                                }
-                            }
-                        }
-                        .buttonStyle(.plain)
-
                         ForEach(options.availableServings, id: \.self) { servings in
                             Button {
                                 viewModel.setServings(servings)
                             } label: {
-                                HStack {
-                                    Text("\(servings) servings")
-
-                                    Spacer()
-
-                                    if viewModel.query.servings == servings {
-                                        Image(systemName: "checkmark")
-                                            .foregroundStyle(.tint)
-                                    }
-                                }
+                                Text("\(servings) servings")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .contentShape(.rect)
                             }
                             .buttonStyle(.plain)
+                            .listRowBackground(
+                                viewModel.query.servings == servings
+                                    ? Color.accentColor.opacity(0.12)
+                                    : nil
+                            )
                         }
                     }
 
@@ -62,16 +43,7 @@ struct ServingsFilterSheet: View {
             }
             .navigationTitle("Servings")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close", systemImage: "xmark") { dismiss() }
-                        .labelStyle(.iconOnly)
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Clear") { viewModel.clearServings() }
-                        .tint(.red)
-                }
-            }
+            .toolbar { FilterSheetToolbar(onClear: { viewModel.clearServings() }) }
         }
     }
 }

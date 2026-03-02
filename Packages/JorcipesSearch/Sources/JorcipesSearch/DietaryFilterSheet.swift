@@ -4,7 +4,6 @@ import JorcipesDesignSystem
 
 struct DietaryFilterSheet: View {
     @Bindable var viewModel: SearchViewModel
-    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         NavigationStack {
@@ -13,32 +12,21 @@ struct DietaryFilterSheet: View {
                     Button {
                         viewModel.toggleDietaryAttribute(attribute)
                     } label: {
-                        HStack {
-                            Text(attribute.rawValue.capitalized)
-
-                            Spacer()
-
-                            if viewModel.isDietaryAttributeActive(attribute) {
-                                Image(systemName: "checkmark")
-                                    .foregroundStyle(.tint)
-                            }
-                        }
+                        Text(attribute.rawValue.capitalized)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .contentShape(.rect)
                     }
                     .buttonStyle(.plain)
+                    .listRowBackground(
+                        viewModel.isDietaryAttributeActive(attribute)
+                            ? Color.accentColor.opacity(0.12)
+                            : nil
+                    )
                 }
             }
             .navigationTitle("Dietary")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close", systemImage: "xmark") { dismiss() }
-                        .labelStyle(.iconOnly)
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Clear") { viewModel.clearDietaryAttributes() }
-                        .tint(.red)
-                }
-            }
+            .toolbar { FilterSheetToolbar(onClear: { viewModel.clearDietaryAttributes() }) }
         }
     }
 }

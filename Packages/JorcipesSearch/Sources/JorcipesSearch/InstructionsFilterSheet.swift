@@ -20,16 +20,7 @@ struct InstructionsFilterSheet: View {
             .onAppear {
                 isTextFieldFocused = true
             }
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Close", systemImage: "xmark") { dismiss() }
-                        .labelStyle(.iconOnly)
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Clear") { viewModel.clearInstructionText() }
-                        .tint(.red)
-                }
-            }
+            .toolbar { FilterSheetToolbar(onClear: { viewModel.clearInstructionText() }) }
         }
     }
 }
