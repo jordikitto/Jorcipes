@@ -25,6 +25,7 @@ public struct SearchView: View {
                 .frame(maxHeight: .infinity)
                 .safeAreaBar(edge: .top) {
                     FilterSectionView(viewModel: viewModel)
+                        .frame(maxWidth: 660, alignment: .center) // For iPad reading
                 }
             }
             .navigationTitle("Search")
@@ -90,8 +91,7 @@ struct SearchResultsContent: View {
                 ContentUnavailableView.search
             } else {
                 RecipeGridView(recipes: recipes, heroNamespace: heroNamespace)
-                    .padding(.horizontal, .space400)
-                    .safeAreaPadding(.vertical, .space400)
+                    .safeAreaPadding(.space400)
             }
 
         case .failed(let message):

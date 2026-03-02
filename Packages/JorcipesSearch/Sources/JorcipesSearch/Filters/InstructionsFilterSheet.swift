@@ -22,6 +22,6 @@ struct InstructionsFilterSheet: View {
             }
             .toolbar { FilterSheetToolbar(onClear: { viewModel.clearInstructionText() }) }
         }
-        .presentationDetents([.fraction(0.2)])
+        .presentationDetents([.fraction(UIDevice.current.userInterfaceIdiom == .pad ? 0.4 : 0.2)])
     }
 }

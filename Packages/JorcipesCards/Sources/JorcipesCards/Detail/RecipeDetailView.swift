@@ -58,6 +58,7 @@ public struct RecipeDetailView: View {
                 }
             }
             .padding(.space400)
+            .frame(maxWidth: 660, alignment: .center) // For iPad reading
         }
         .navigationTitle(recipe.title)
         .navigationBarTitleDisplayMode(.inline)

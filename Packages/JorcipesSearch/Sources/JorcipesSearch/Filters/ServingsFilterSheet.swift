@@ -49,7 +49,7 @@ struct ServingsFilterSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { FilterSheetToolbar(onClear: { viewModel.clearServings() }) }
         }
-        .presentationDetents([.medium])
+        .presentationDetents([UIDevice.current.userInterfaceIdiom == .pad ? .large : .medium])
     }
 }
 

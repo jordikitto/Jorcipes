@@ -16,7 +16,7 @@ public struct RecipeGridView: View {
     public var body: some View {
         ScrollView {
             LazyVGrid(
-                columns: [GridItem(.adaptive(minimum: minimumColumnWidth))],
+                columns: [GridItem(.adaptive(minimum: minimumColumnWidth), spacing: .space400)],
                 spacing: .space400
             ) {
                 ForEach(recipes) { recipe in
