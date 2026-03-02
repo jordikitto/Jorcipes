@@ -163,9 +163,7 @@ struct SearchViewModelTests {
 
         vm.search()
 
-        // Wait for the debounce to pass and the API call to be made
         await client.waitForSearch()
-
         await client.resolveSearch(with: .success(expected))
         try? await Task.sleep(for: .milliseconds(10))
 
@@ -184,69 +182,6 @@ struct SearchViewModelTests {
         #expect(!vm.query.dietaryAttributes.contains(.vegetarian))
     }
 
-    @Test("Adding included ingredient clears input and adds to query")
-    func addIngredient() {
-        let client = ControlledAPIClient()
-        let vm = SearchViewModel(apiClient: client)
-        vm.ingredientInput = "  chicken  "
-
-        vm.addIncludedIngredient()
-        #expect(vm.query.includedIngredients == ["chicken"])
-        #expect(vm.ingredientInput.isEmpty)
-    }
-
-    @Test("Toggle included ingredient moves it to excluded")
-    func toggleIncludedToExcluded() {
-        let client = ControlledAPIClient()
-        let vm = SearchViewModel(apiClient: client)
-        vm.query.includedIngredients = ["chicken"]
-
-        vm.toggleIngredientChip(at: 0)
-        #expect(vm.query.includedIngredients.isEmpty)
-        #expect(vm.query.excludedIngredients == ["chicken"])
-    }
-
-    @Test("Toggle excluded ingredient moves it to included")
-    func toggleExcludedToIncluded() {
-        let client = ControlledAPIClient()
-        let vm = SearchViewModel(apiClient: client)
-        vm.query.excludedIngredients = ["chicken"]
-
-        vm.toggleExcludedIngredientChip(at: 0)
-        #expect(vm.query.excludedIngredients.isEmpty)
-        #expect(vm.query.includedIngredients == ["chicken"])
-    }
-
-    @Test("Adding whitespace-only ingredient is ignored")
-    func addWhitespaceIngredient() {
-        let client = ControlledAPIClient()
-        let vm = SearchViewModel(apiClient: client)
-        vm.ingredientInput = "   "
-
-        vm.addIncludedIngredient()
-        #expect(vm.query.includedIngredients.isEmpty)
-    }
-
-    @Test("Toggle ingredient at out-of-bounds index is safe")
-    func toggleOutOfBounds() {
-        let client = ControlledAPIClient()
-        let vm = SearchViewModel(apiClient: client)
-        vm.query.includedIngredients = ["chicken"]
-
-        vm.toggleIngredientChip(at: 5)
-        #expect(vm.query.includedIngredients == ["chicken"])
-    }
-
-    @Test("Remove ingredient at valid index removes it")
-    func removeIngredient() {
-        let client = ControlledAPIClient()
-        let vm = SearchViewModel(apiClient: client)
-        vm.query.includedIngredients = ["chicken", "beef"]
-
-        vm.removeIncludedIngredient(at: 0)
-        #expect(vm.query.includedIngredients == ["beef"])
-    }
-
     @Test("Search cancellation prevents stale overwrite")
     func searchCancellationPreventsStaleOverwrite() async {
         let client = ControlledAPIClient()
@@ -259,14 +194,124 @@ struct SearchViewModelTests {
         vm.query.text = "new"
         vm.search() // request B cancels A
 
-        // Wait for the debounce to pass and the API call to be made
-        await client.waitForSearch()
-
-        // The first search task was cancelled, so only one continuation should be pending
-        await client.resolveSearch(with: .success(latest))
+        // Wait for both continuations to be captured
+        await client.waitForSearch(count: 2)
+        await client.resolveSearch(with: .success(stale))  // resolves A — cancelled, so ignored
+        try? await Task.sleep(for: .milliseconds(10))
+        await client.resolveSearch(with: .success(latest))  // resolves B
         try? await Task.sleep(for: .milliseconds(10))
 
         #expect(vm.results == .loaded(latest))
+    }
+
+    @Test("Search without debounce fires immediately")
+    func searchNoDebounce() async {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+        vm.query.text = "pizza"
+        vm.search()
+
+        await client.waitForSearch()
+        await client.resolveSearch(with: .success([Recipe.preview]))
+        try? await Task.sleep(for: .milliseconds(10))
+
+        #expect(vm.results == .loaded([Recipe.preview]))
+    }
+
+    @Test("Active filter count reflects selected filters")
+    func activeFilterCount() {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+
+        #expect(vm.activeFilterCount == 0)
+
+        vm.query.dietaryAttributes.insert(.vegan)
+        #expect(vm.activeFilterCount == 1)
+
+        vm.query.servings = 4
+        #expect(vm.activeFilterCount == 2)
+
+        vm.query.includedIngredients = ["chicken"]
+        #expect(vm.activeFilterCount == 3)
+
+        vm.query.excludedIngredients = ["tofu"]
+        #expect(vm.activeFilterCount == 4)
+    }
+
+    @Test("loadFilterOptions populates filter options")
+    func loadFilterOptions() async {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+        let expected = FilterOptions(availableServings: [2, 4], availableIngredients: ["Chicken", "Tofu"])
+
+        vm.loadFilterOptions()
+        await client.waitForFilterOptions()
+        await client.resolveFilterOptions(with: .success(expected))
+        try? await Task.sleep(for: .milliseconds(10))
+
+        #expect(vm.filterOptions == .loaded(expected))
+    }
+
+    @Test("Toggle included ingredient adds and removes")
+    func toggleIncludedIngredient() {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+
+        vm.toggleIncludedIngredient("Chicken")
+        #expect(vm.query.includedIngredients == ["Chicken"])
+
+        vm.toggleIncludedIngredient("Chicken")
+        #expect(vm.query.includedIngredients.isEmpty)
+    }
+
+    @Test("Toggle excluded ingredient adds and removes")
+    func toggleExcludedIngredient() {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+
+        vm.toggleExcludedIngredient("Tofu")
+        #expect(vm.query.excludedIngredients == ["Tofu"])
+
+        vm.toggleExcludedIngredient("Tofu")
+        #expect(vm.query.excludedIngredients.isEmpty)
+    }
+
+    @Test("loadFilterOptions retries from failed state")
+    func loadFilterOptionsRetry() async {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+        let expected = FilterOptions(availableServings: [2, 4], availableIngredients: ["Chicken"])
+
+        // First attempt fails
+        vm.loadFilterOptions()
+        await client.waitForFilterOptions()
+        await client.resolveFilterOptions(with: .failure(TestError.offline))
+        try? await Task.sleep(for: .milliseconds(10))
+        #expect(vm.filterOptions.isFailed)
+
+        // Retry should work from failed state
+        vm.loadFilterOptions()
+        await client.waitForFilterOptions()
+        await client.resolveFilterOptions(with: .success(expected))
+        try? await Task.sleep(for: .milliseconds(10))
+        #expect(vm.filterOptions == .loaded(expected))
+    }
+
+    @Test("Sheet dismiss triggers search with updated query")
+    func sheetDismissTriggersSearch() async {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+        vm.query.dietaryAttributes.insert(.vegan)
+        vm.query.text = "curry"
+
+        vm.onFilterSheetDismiss()
+
+        await client.waitForSearch()
+        await client.resolveSearch(with: .success([Recipe.preview]))
+        try? await Task.sleep(for: .milliseconds(10))
+
+        #expect(vm.results == .loaded([Recipe.preview]))
+        #expect(vm.ingredientSearchText.isEmpty)
     }
 }
 

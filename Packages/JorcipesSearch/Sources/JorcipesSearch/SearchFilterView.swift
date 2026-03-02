@@ -54,14 +54,37 @@ struct SearchFilterView: View {
                     .font(.headline)
 
                 IngredientChipInputView(
-                    text: $viewModel.ingredientInput,
+                    text: $viewModel.ingredientSearchText,
                     includedIngredients: viewModel.query.includedIngredients,
                     excludedIngredients: viewModel.query.excludedIngredients,
-                    onSubmit: { viewModel.addIncludedIngredient() },
-                    onToggleIncluded: { viewModel.toggleIngredientChip(at: $0) },
-                    onToggleExcluded: { viewModel.toggleExcludedIngredientChip(at: $0) },
-                    onRemoveIncluded: { viewModel.removeIncludedIngredient(at: $0) },
-                    onRemoveExcluded: { viewModel.removeExcludedIngredient(at: $0) }
+                    onSubmit: {
+                        let trimmed = viewModel.ingredientSearchText.trimmingCharacters(in: .whitespacesAndNewlines)
+                        guard !trimmed.isEmpty else { return }
+                        viewModel.toggleIncludedIngredient(trimmed)
+                        viewModel.ingredientSearchText = ""
+                    },
+                    onToggleIncluded: { index in
+                        guard viewModel.query.includedIngredients.indices.contains(index) else { return }
+                        let name = viewModel.query.includedIngredients[index]
+                        viewModel.toggleIncludedIngredient(name)
+                        viewModel.toggleExcludedIngredient(name)
+                    },
+                    onToggleExcluded: { index in
+                        guard viewModel.query.excludedIngredients.indices.contains(index) else { return }
+                        let name = viewModel.query.excludedIngredients[index]
+                        viewModel.toggleExcludedIngredient(name)
+                        viewModel.toggleIncludedIngredient(name)
+                    },
+                    onRemoveIncluded: { index in
+                        guard viewModel.query.includedIngredients.indices.contains(index) else { return }
+                        let name = viewModel.query.includedIngredients[index]
+                        viewModel.toggleIncludedIngredient(name)
+                    },
+                    onRemoveExcluded: { index in
+                        guard viewModel.query.excludedIngredients.indices.contains(index) else { return }
+                        let name = viewModel.query.excludedIngredients[index]
+                        viewModel.toggleExcludedIngredient(name)
+                    }
                 )
             }
         }

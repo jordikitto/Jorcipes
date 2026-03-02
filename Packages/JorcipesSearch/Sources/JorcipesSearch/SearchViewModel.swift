@@ -2,20 +2,58 @@ import Foundation
 import JorcipesCore
 import JorcipesNetworking
 
+public enum FilterSheet: Identifiable {
+    case dietary
+    case servings
+    case includedIngredients
+    case excludedIngredients
+
+    public var id: Self { self }
+}
+
 @MainActor
 @Observable
 public final class SearchViewModel {
     public private(set) var results: Loadable<[Recipe]> = .idle
+    public private(set) var filterOptions: Loadable<FilterOptions> = .idle
     public var query = RecipeSearchQuery()
     public var navigationPath: [RecipeDestination] = []
-    public var ingredientInput: String = ""
+    public var filtersExpanded = false
+    public var activeSheet: FilterSheet?
+    public var ingredientSearchText = ""
 
     private let apiClient: APIClient
+
+    @ObservationIgnored
     nonisolated(unsafe) private var searchTask: Task<Void, Never>?
+
+    @ObservationIgnored
+    nonisolated(unsafe) private var filterOptionsTask: Task<Void, Never>?
 
     public init(apiClient: APIClient) {
         self.apiClient = apiClient
     }
+
+    // MARK: - Filter Options
+
+    public func loadFilterOptions() {
+        guard filterOptions == .idle || filterOptions.isFailed else { return }
+        filterOptions = .loading
+
+        filterOptionsTask = Task {
+            do {
+                let options = try await apiClient.fetchFilterOptions()
+                try Task.checkCancellation()
+                filterOptions = .loaded(options)
+            } catch is CancellationError {
+                // Ignore
+            } catch {
+                filterOptions = .failed(error.localizedDescription)
+            }
+        }
+    }
+
+    // MARK: - Search
 
     public func search() {
         searchTask?.cancel()
@@ -29,19 +67,26 @@ public final class SearchViewModel {
 
         searchTask = Task {
             do {
-                // Debounce: wait 300ms before executing search.
-                // If the user types again, this task gets cancelled.
-                try await Task.sleep(for: .milliseconds(300))
-
                 let recipes = try await apiClient.searchRecipes(query: query)
                 try Task.checkCancellation()
                 results = .loaded(recipes)
             } catch is CancellationError {
-                // Ignore cancellation
+                // Ignore
             } catch {
                 results = .failed(error.localizedDescription)
             }
         }
+    }
+
+    // MARK: - Filter State
+
+    public var activeFilterCount: Int {
+        var count = 0
+        if !query.dietaryAttributes.isEmpty { count += 1 }
+        if query.servings != nil { count += 1 }
+        if !query.includedIngredients.isEmpty { count += 1 }
+        if !query.excludedIngredients.isEmpty { count += 1 }
+        return count
     }
 
     // MARK: - Dietary Attributes
@@ -52,7 +97,6 @@ public final class SearchViewModel {
         } else {
             query.dietaryAttributes.insert(attribute)
         }
-        search()
     }
 
     public func isDietaryAttributeActive(_ attribute: DietaryAttribute) -> Bool {
@@ -63,42 +107,40 @@ public final class SearchViewModel {
 
     public func setServings(_ servings: Int?) {
         query.servings = servings
-        search()
     }
 
-    // MARK: - Ingredient Chips
+    // MARK: - Ingredients
 
-    public func addIncludedIngredient() {
-        let trimmed = ingredientInput.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else { return }
-        query.includedIngredients.append(trimmed)
-        ingredientInput = ""
-        search()
+    public func toggleIncludedIngredient(_ name: String) {
+        if let index = query.includedIngredients.firstIndex(of: name) {
+            query.includedIngredients.remove(at: index)
+        } else {
+            query.includedIngredients.append(name)
+        }
     }
 
-    public func toggleIngredientChip(at index: Int) {
-        guard query.includedIngredients.indices.contains(index) else { return }
-        let ingredient = query.includedIngredients.remove(at: index)
-        query.excludedIngredients.append(ingredient)
-        search()
+    public func toggleExcludedIngredient(_ name: String) {
+        if let index = query.excludedIngredients.firstIndex(of: name) {
+            query.excludedIngredients.remove(at: index)
+        } else {
+            query.excludedIngredients.append(name)
+        }
     }
 
-    public func toggleExcludedIngredientChip(at index: Int) {
-        guard query.excludedIngredients.indices.contains(index) else { return }
-        let ingredient = query.excludedIngredients.remove(at: index)
-        query.includedIngredients.append(ingredient)
-        search()
+    public func isIngredientIncluded(_ name: String) -> Bool {
+        query.includedIngredients.contains(name)
     }
 
-    public func removeIncludedIngredient(at index: Int) {
-        guard query.includedIngredients.indices.contains(index) else { return }
-        query.includedIngredients.remove(at: index)
-        search()
+    public func isIngredientExcluded(_ name: String) -> Bool {
+        query.excludedIngredients.contains(name)
     }
 
-    public func removeExcludedIngredient(at index: Int) {
-        guard query.excludedIngredients.indices.contains(index) else { return }
-        query.excludedIngredients.remove(at: index)
+    // MARK: - Sheet Dismissal
+
+    /// Called when any filter sheet is dismissed. Clears ingredient search text
+    /// and triggers a new search so filter changes take effect on results.
+    public func onFilterSheetDismiss() {
+        ingredientSearchText = ""
         search()
     }
 
@@ -108,14 +150,8 @@ public final class SearchViewModel {
         navigationPath.append(.detail(recipe))
     }
 
-    // MARK: - Text Search
-
-    public func updateSearchText(_ text: String) {
-        query.text = text
-        search()
-    }
-
     deinit {
         searchTask?.cancel()
+        filterOptionsTask?.cancel()
     }
 }
