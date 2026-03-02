@@ -32,7 +32,8 @@ public struct RecipeListView: View {
                             description: Text("There are no recipes available at the moment.")
                         )
                     } else {
-                        RecipeGridContent(recipes: recipes, heroNamespace: heroNamespace)
+                        RecipeGridView(recipes: recipes, heroNamespace: heroNamespace)
+                            .padding(.space400)
                     }
 
                 case .failed(let message):
@@ -65,25 +66,6 @@ public struct RecipeListView: View {
     }
 }
 
-struct RecipeGridContent: View {
-    let recipes: [Recipe]
-    var heroNamespace: Namespace.ID
-
-    var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: .space400) {
-                ForEach(recipes) { recipe in
-                    NavigationLink(value: RecipeDestination.detail(recipe)) {
-                        RecipeCardView(recipe: recipe)
-                    }
-                    .buttonStyle(.plain)
-                    .matchedTransitionSource(id: recipe.id, in: heroNamespace)
-                }
-            }
-            .padding(.space400)
-        }
-    }
-}
 
 #Preview {
     RecipeListView(

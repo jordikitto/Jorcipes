@@ -89,19 +89,9 @@ struct SearchResultsContent: View {
             if recipes.isEmpty {
                 ContentUnavailableView.search
             } else {
-                ScrollView {
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: .space400) {
-                        ForEach(recipes) { recipe in
-                            NavigationLink(value: RecipeDestination.detail(recipe)) {
-                                RecipeCardView(recipe: recipe)
-                            }
-                            .buttonStyle(.plain)
-                            .matchedTransitionSource(id: recipe.id, in: heroNamespace)
-                        }
-                    }
+                RecipeGridView(recipes: recipes, heroNamespace: heroNamespace)
                     .padding(.horizontal, .space400)
-                }
-                .safeAreaPadding(.vertical, .space400)
+                    .safeAreaPadding(.vertical, .space400)
             }
 
         case .failed(let message):
