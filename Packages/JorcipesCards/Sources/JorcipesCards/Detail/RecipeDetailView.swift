@@ -5,6 +5,7 @@ import JorcipesDesignSystem
 public struct RecipeDetailView: View {
     let recipe: Recipe
     @State private var viewModel: RecipeDetailViewModel
+    @Namespace private var instructionHighlight
 
     public init(recipe: Recipe) {
         self.recipe = recipe
@@ -51,7 +52,8 @@ public struct RecipeDetailView: View {
                     DetailInstructionCard(
                         index: index,
                         instruction: instruction,
-                        isHighlighted: index == viewModel.highlightedStep
+                        isHighlighted: index == viewModel.highlightedStep,
+                        highlightNamespace: instructionHighlight
                     ) {
                         viewModel.selectStep(index)
                     }
@@ -134,6 +136,7 @@ struct DetailInstructionCard: View {
     let index: Int
     let instruction: String
     let isHighlighted: Bool
+    var highlightNamespace: Namespace.ID
     let onTap: () -> Void
 
     var body: some View {
@@ -157,9 +160,10 @@ struct DetailInstructionCard: View {
                 if isHighlighted {
                     RoundedRectangle(cornerRadius: .cornerRadiusMedium)
                         .strokeBorder(Color.accentColor, lineWidth: 2)
+                        .matchedGeometryEffect(id: "instructionHighlight", in: highlightNamespace)
                 }
             }
-            .animation(.linear(duration: 0.1), value: isHighlighted)
+            .animation(.smooth, value: isHighlighted)
         }
         .buttonStyle(.plain)
     }
