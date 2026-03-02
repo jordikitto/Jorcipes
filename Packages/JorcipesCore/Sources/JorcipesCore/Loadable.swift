@@ -13,4 +13,9 @@ public enum Loadable<Value: Equatable>: Equatable {
         if case .loading = self { return true }
         return false
     }
+
+    public var isFailed: Bool {
+        if case .failed = self { return true }
+        return false
+    }
 }
