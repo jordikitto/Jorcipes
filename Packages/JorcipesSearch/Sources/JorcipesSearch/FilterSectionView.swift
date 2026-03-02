@@ -139,12 +139,12 @@ struct FilterRow: View {
 }
 
 #Preview("Collapsed") {
-    FilterSectionView(viewModel: SearchViewModel(apiClient: MockAPIClient()))
+    FilterSectionView(viewModel: SearchViewModel(apiClient: LocalAPIClient()))
 }
 
 #Preview("Expanded with Filters") {
     @Previewable @State var viewModel = {
-        let vm = SearchViewModel(apiClient: MockAPIClient())
+        let vm = SearchViewModel(apiClient: LocalAPIClient())
         vm.filtersExpanded = true
         vm.query.dietaryAttributes = [.vegan, .vegetarian]
         vm.query.servings = 4

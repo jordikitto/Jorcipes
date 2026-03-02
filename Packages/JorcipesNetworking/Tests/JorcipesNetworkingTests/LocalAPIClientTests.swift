@@ -3,11 +3,11 @@ import Foundation
 @testable import JorcipesNetworking
 import JorcipesCore
 
-@Suite("MockAPIClient Tests")
-struct MockAPIClientTests {
+@Suite("LocalAPIClient Tests")
+struct LocalAPIClientTests {
 
-    private func makeClient(jsonFileName: String = "recipes_5") -> MockAPIClient {
-        MockAPIClient(jsonFileName: jsonFileName, simulateDelay: false)
+    private func makeClient(jsonFileName: String = "recipes_5") -> LocalAPIClient {
+        LocalAPIClient(jsonFileName: jsonFileName, simulateDelay: false)
     }
 
     // MARK: - Fetch
@@ -130,7 +130,7 @@ struct MockAPIClientTests {
 
     @Test("fetchFilterOptions returns sorted unique servings and ingredients")
     func fetchFilterOptions() async throws {
-        let client = MockAPIClient(jsonFileName: "recipes_5", simulateDelay: false)
+        let client = LocalAPIClient(jsonFileName: "recipes_5", simulateDelay: false)
         let options = try await client.fetchFilterOptions()
 
         // recipes_5.json has recipes with servings: 4, 2, 4, 6, 3
@@ -144,7 +144,7 @@ struct MockAPIClientTests {
 
     @Test("fetchFilterOptions returns empty options for empty recipes")
     func fetchFilterOptionsEmpty() async throws {
-        let client = MockAPIClient(jsonFileName: "recipes_empty", simulateDelay: false)
+        let client = LocalAPIClient(jsonFileName: "recipes_empty", simulateDelay: false)
         let options = try await client.fetchFilterOptions()
 
         #expect(options.availableServings.isEmpty)
@@ -153,7 +153,7 @@ struct MockAPIClientTests {
 
     @Test("fetchFilterOptions throws for corrupted JSON")
     func fetchFilterOptionsCorrupted() async {
-        let client = MockAPIClient(jsonFileName: "recipes_corrupted", simulateDelay: false)
+        let client = LocalAPIClient(jsonFileName: "recipes_corrupted", simulateDelay: false)
         do {
             _ = try await client.fetchFilterOptions()
             Issue.record("Expected an error to be thrown")

@@ -109,7 +109,7 @@ struct SearchResultsContent: View {
 #Preview {
     SearchView(
         viewModel: SearchViewModel(
-            apiClient: MockAPIClient(simulateDelay: false)
+            apiClient: LocalAPIClient(simulateDelay: false)
         )
     )
 }

@@ -70,7 +70,7 @@ public struct RecipeListView: View {
 #Preview {
     RecipeListView(
         viewModel: RecipeListViewModel(
-            apiClient: MockAPIClient(simulateDelay: false)
+            apiClient: LocalAPIClient(simulateDelay: false)
         )
     )
 }

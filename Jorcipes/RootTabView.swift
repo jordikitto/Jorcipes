@@ -28,5 +28,5 @@ struct RootTabView: View {
 }
 
 #Preview {
-    RootTabView(container: AppContainer(apiClient: MockAPIClient(simulateDelay: false)))
+    RootTabView(container: AppContainer(apiClient: LocalAPIClient(simulateDelay: false)))
 }

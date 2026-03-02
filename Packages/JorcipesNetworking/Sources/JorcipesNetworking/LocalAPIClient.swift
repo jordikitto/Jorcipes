@@ -1,7 +1,7 @@
 import Foundation
 import JorcipesCore
 
-public final class MockAPIClient: APIClient, @unchecked Sendable {
+public final class LocalAPIClient: APIClient, @unchecked Sendable {
     private let jsonFileName: String
     private let bundle: Bundle
     private let simulateDelay: Bool

@@ -7,7 +7,7 @@ struct JorcipesApp: App {
 
     init() {
         let jsonFileName = UserDefaults.standard.string(forKey: "mockDataSource") ?? "recipes_5"
-        container = AppContainer(apiClient: MockAPIClient(jsonFileName: jsonFileName))
+        container = AppContainer(apiClient: LocalAPIClient(jsonFileName: jsonFileName))
     }
 
     var body: some Scene {
