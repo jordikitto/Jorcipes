@@ -12,6 +12,7 @@ let package = Package(
         .package(path: "../JorcipesDesignSystem")
     ],
     targets: [
-        .target(name: "JorcipesCards", dependencies: ["JorcipesCore", "JorcipesDesignSystem"])
+        .target(name: "JorcipesCards", dependencies: ["JorcipesCore", "JorcipesDesignSystem"]),
+        .testTarget(name: "JorcipesCardsTests", dependencies: ["JorcipesCards"])
     ]
 )

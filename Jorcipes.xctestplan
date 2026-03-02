@@ -28,9 +28,25 @@
     {
       "parallelizable" : false,
       "target" : {
-        "containerPath" : "container:Jorcipes.xcodeproj",
-        "identifier" : "D15D5CE22F525C210071C9B4",
-        "name" : "JorcipesTests"
+        "containerPath" : "container:Packages\/JorcipesCards",
+        "identifier" : "JorcipesCardsTests",
+        "name" : "JorcipesCardsTests"
+      }
+    },
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:Packages\/JorcipesRecipeList",
+        "identifier" : "JorcipesRecipeListTests",
+        "name" : "JorcipesRecipeListTests"
+      }
+    },
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:Packages\/JorcipesSearch",
+        "identifier" : "JorcipesSearchTests",
+        "name" : "JorcipesSearchTests"
       }
     },
     {

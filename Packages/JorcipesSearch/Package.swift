@@ -16,6 +16,10 @@ let package = Package(
     targets: [
         .target(name: "JorcipesSearch", dependencies: [
             "JorcipesCore", "JorcipesDesignSystem", "JorcipesCards", "JorcipesNetworking"
+        ]),
+        .testTarget(name: "JorcipesSearchTests", dependencies: [
+            "JorcipesSearch",
+            .product(name: "JorcipesTestSupport", package: "JorcipesNetworking")
         ])
     ]
 )
