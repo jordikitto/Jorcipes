@@ -17,7 +17,7 @@ struct ServingsFilterSheet: View {
                                 viewModel.setServings(servings)
                             } label: {
                                 HStack {
-                                    Text("\(servings) servings")
+                                    Text("^[\(servings) serving](inflect: true)")
 
                                     Spacer()
 
