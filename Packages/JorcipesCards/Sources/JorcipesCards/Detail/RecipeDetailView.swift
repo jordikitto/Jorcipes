@@ -159,6 +159,7 @@ struct DetailInstructionCard: View {
                         .strokeBorder(Color.accentColor, lineWidth: 2)
                 }
             }
+            .animation(.linear(duration: 0.1), value: isHighlighted)
         }
         .buttonStyle(.plain)
     }
