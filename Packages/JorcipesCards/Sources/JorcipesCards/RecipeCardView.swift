@@ -22,6 +22,8 @@ public struct RecipeCardView: View {
                 }
 
             VStack(alignment: .leading, spacing: .space100) {
+                DietaryBadgesView(attributes: Array(recipe.dietaryAttributes))
+
                 Text(recipe.title)
                     .font(.headline)
                     .lineLimit(2)
@@ -33,17 +35,9 @@ public struct RecipeCardView: View {
 
                 Spacer()
 
-                HStack(spacing: .space200) {
-                    Label("\(recipe.servings)", systemImage: "person.2")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-
-                    Spacer()
-
-                    ForEach(Array(recipe.dietaryAttributes).sorted(by: { $0.rawValue < $1.rawValue }), id: \.self) { attribute in
-                        DietaryBadgeView(attribute: attribute)
-                    }
-                }
+                Label("\(recipe.servings)", systemImage: "person.2")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
             .padding(.horizontal, .space200)
             .padding(.bottom, .space300)
