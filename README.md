@@ -51,8 +51,8 @@ The app follows MVVM with a modular package structure:
 
 ## Known Limitations
 
-- **Card disappearance on swipe-back** — Occasionally, recipe cards disappear when navigating back from the detail view. This appears related to LazyVGrid recycling behaviour.
-- **Filter animation glitches** — The expand/collapse animation on filter sections can be slightly choppy under certain conditions.
+- **Card disappearance on swipe-back** — Occasionally, recipe cards disappear when navigating back from the detail view. This may be related to LazyVGrid.
+- **Filter animation glitches** — The expand/collapse animation on filter sections can be slightly choppy when closing.
 - **Hardcoded dietary attributes** — Vegetarian and vegan are defined as a Swift enum. In production, these could be driven by the API to support additional attributes without an app update.
 - **No localisation** — Strings are not externalised into .xcstrings files. The app is English-only.
 
@@ -70,11 +70,11 @@ Each feature followed a structured cycle: **brainstorm → plan → implement �
 
 ### My contributions
 
-- **Direction and taste** — I drove all UI/UX decisions, architecture choices, and quality standards through detailed prompts and iterative review
-- **Filter UX** — The filtering interaction design required significant effort to make it look good, feel intuitive, and work reliably
+- **Direction and taste** — I the majority of the UI/UX decisions, architecture choices, and quality standards through detailed prompts and iterative review
+- **Filter UX** — The filtering interaction design required significant effort to make it look good, feel intuitive, and be easy-to-use.
 - **Manual edits** — I made direct code changes alongside Claude-generated output
-- **MVVM guidance** — I provided an `mvvm.md` reference to align Claude with the MVVM pattern, since I primarily use The Composable Architecture at work
-- **Xcode 26.3 coding agent** — I also used the new Xcode MCP integration for some changes
+- **MVVM guidance** — I provided an `mvvm.md` reference to align Claude with the MVVM pattern, since we primarily use The Composable Architecture at my current workplace.
+- **Xcode 26.3 coding agent** — I also used the new Xcode MCP integration extensively.
 
 ### Tooling
 
