@@ -18,27 +18,27 @@ struct FilterSectionView: View {
             }
 
             if viewModel.filtersExpanded {
-                FilterRow(label: "Dietary", value: dietaryValue) {
+                FilterRow(label: "Dietary", value: dietaryFormatted) {
                     viewModel.activeSheet = .dietary
                 }
 
                 if hasOptions(for: \.availableServings) {
-                    FilterRow(label: "Servings", value: servingsValue) {
+                    FilterRow(label: "Servings", value: servingsFormatted) {
                         viewModel.activeSheet = .servings
                     }
                 }
 
                 if hasOptions(for: \.availableIngredients) {
-                    FilterRow(label: "Included", value: includedValue) {
+                    FilterRow(label: "Included", value: includedFormatted) {
                         viewModel.activeSheet = .includedIngredients
                     }
 
-                    FilterRow(label: "Excluded", value: excludedValue) {
+                    FilterRow(label: "Excluded", value: excludedFormatted) {
                         viewModel.activeSheet = .excludedIngredients
                     }
                 }
 
-                FilterRow(label: "Instructions", value: instructionsValue) {
+                FilterRow(label: "Instructions", value: instructionsFormatted) {
                     viewModel.activeSheet = .instructions
                 }
             }
@@ -51,30 +51,30 @@ struct FilterSectionView: View {
         return !options[keyPath: keyPath].isEmpty
     }
 
-    private var dietaryValue: String? {
-        let attrs = viewModel.query.dietaryAttributes
-        guard !attrs.isEmpty else { return nil }
-        return attrs.sorted(by: { $0.rawValue < $1.rawValue })
+    private var dietaryFormatted: String? {
+        let attributes = viewModel.query.dietaryAttributes
+        guard !attributes.isEmpty else { return nil }
+        return attributes.sorted(by: { $0.rawValue < $1.rawValue })
             .map(\.rawValue.capitalized)
             .joined(separator: ", ")
     }
 
-    private var servingsValue: String? {
+    private var servingsFormatted: String? {
         guard let servings = viewModel.query.servings else { return nil }
         return "\(servings) servings"
     }
 
-    private var includedValue: String? {
+    private var includedFormatted: String? {
         guard !viewModel.query.includedIngredients.isEmpty else { return nil }
         return viewModel.query.includedIngredients.joined(separator: ", ")
     }
 
-    private var excludedValue: String? {
+    private var excludedFormatted: String? {
         guard !viewModel.query.excludedIngredients.isEmpty else { return nil }
         return viewModel.query.excludedIngredients.joined(separator: ", ")
     }
 
-    private var instructionsValue: String? {
+    private var instructionsFormatted: String? {
         guard !viewModel.query.instructionText.isEmpty else { return nil }
         return viewModel.query.instructionText
     }
@@ -98,10 +98,14 @@ struct FilterHeader: View {
                     .rotationEffect(isExpanded ? .degrees(90) : .degrees(0))
 
             }
-            .padding(.space200)
+            .padding()
             .contentShape(.rect)
+            .glassEffect(
+                .regular.interactive(),
+                in: .rect(cornerRadius: .cornerRadiusLarge)
+            )
         }
-        .buttonStyle(.glass)
+        .buttonStyle(.plain)
     }
 }
 
@@ -123,6 +127,7 @@ struct FilterRow: View {
                 if let value {
                     Text(value)
                         .font(.callout)
+                        .multilineTextAlignment(.trailing)
                 } else {
                     Text("Select")
                         .font(.callout)
@@ -130,10 +135,14 @@ struct FilterRow: View {
                         .foregroundStyle(.secondary)
                 }
             }
-            .padding(.space200)
+            .padding()
             .contentShape(.rect)
+            .glassEffect(
+                .regular.interactive(),
+                in: .rect(cornerRadius: .cornerRadiusLarge)
+            )
         }
-        .buttonStyle(.glass)
+        .buttonStyle(.plain)
         .padding(.leading, .space200)
     }
 }
