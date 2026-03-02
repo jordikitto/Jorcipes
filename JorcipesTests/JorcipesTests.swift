@@ -1,5 +1,6 @@
 import Testing
 import Foundation
+@testable import JorcipesCards
 @testable import JorcipesRecipeList
 @testable import JorcipesSearch
 import JorcipesCore
@@ -337,6 +338,73 @@ struct SearchViewModelTests {
         vm.onFilterSheetDismiss()
         #expect(vm.results == .loaded([Recipe.preview]))
         #expect(vm.ingredientSearchText.isEmpty)
+    }
+}
+
+@Suite("RecipeDetailViewModel Tests")
+@MainActor
+struct RecipeDetailViewModelTests {
+    @Test("Initial state has no highlighted step and shows Start")
+    func initialState() {
+        let vm = RecipeDetailViewModel(instructionCount: 5)
+        #expect(vm.highlightedStep == nil)
+        #expect(vm.showCongratulations == false)
+        #expect(vm.instructionButtonLabel == "Start")
+    }
+
+    @Test("Start highlights the first step")
+    func startHighlightsFirstStep() {
+        let vm = RecipeDetailViewModel(instructionCount: 3)
+        vm.advanceStep()
+        #expect(vm.highlightedStep == 0)
+        #expect(vm.instructionButtonLabel == "Next")
+    }
+
+    @Test("Next advances through steps")
+    func nextAdvancesThroughSteps() {
+        let vm = RecipeDetailViewModel(instructionCount: 4)
+        vm.advanceStep() // Start → step 0
+        vm.advanceStep() // Next → step 1
+        #expect(vm.highlightedStep == 1)
+        vm.advanceStep() // Next → step 2
+        #expect(vm.highlightedStep == 2)
+        #expect(vm.instructionButtonLabel == "Next")
+    }
+
+    @Test("Last step shows Finish label")
+    func lastStepShowsFinish() {
+        let vm = RecipeDetailViewModel(instructionCount: 3)
+        vm.advanceStep() // step 0
+        vm.advanceStep() // step 1
+        vm.advanceStep() // step 2 (last)
+        #expect(vm.highlightedStep == 2)
+        #expect(vm.instructionButtonLabel == "Finish")
+    }
+
+    @Test("Finish resets state and shows congratulations")
+    func finishResetsAndCongratulates() {
+        let vm = RecipeDetailViewModel(instructionCount: 2)
+        vm.advanceStep() // step 0
+        vm.advanceStep() // step 1 (last)
+        vm.advanceStep() // Finish
+        #expect(vm.highlightedStep == nil)
+        #expect(vm.showCongratulations == true)
+        #expect(vm.instructionButtonLabel == "Start")
+    }
+
+    @Test("Selecting a step directly sets the highlight")
+    func selectStep() {
+        let vm = RecipeDetailViewModel(instructionCount: 5)
+        vm.selectStep(3)
+        #expect(vm.highlightedStep == 3)
+        #expect(vm.instructionButtonLabel == "Next")
+    }
+
+    @Test("Selecting the last step directly shows Finish")
+    func selectLastStep() {
+        let vm = RecipeDetailViewModel(instructionCount: 3)
+        vm.selectStep(2)
+        #expect(vm.instructionButtonLabel == "Finish")
     }
 }
 

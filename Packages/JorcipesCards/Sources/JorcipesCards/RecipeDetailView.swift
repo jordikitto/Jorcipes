@@ -4,10 +4,11 @@ import JorcipesDesignSystem
 
 public struct RecipeDetailView: View {
     let recipe: Recipe
-    @State private var highlightedStep = 0
+    @State private var viewModel: RecipeDetailViewModel
 
     public init(recipe: Recipe) {
         self.recipe = recipe
+        _viewModel = State(initialValue: RecipeDetailViewModel(instructionCount: recipe.instructions.count))
     }
 
     public var body: some View {
@@ -29,17 +30,26 @@ public struct RecipeDetailView: View {
 
                 DetailIngredientsCard(ingredients: recipe.ingredients)
 
-                Text("Instructions")
-                    .font(.title2)
-                    .bold()
+                HStack {
+                    Text("Instructions")
+                        .font(.title2)
+                        .bold()
+
+                    Spacer()
+
+                    Button(viewModel.instructionButtonLabel) {
+                        viewModel.advanceStep()
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
 
                 ForEach(recipe.instructions.enumerated(), id: \.offset) { index, instruction in
                     DetailInstructionCard(
                         index: index,
                         instruction: instruction,
-                        isHighlighted: index == highlightedStep
+                        isHighlighted: index == viewModel.highlightedStep
                     ) {
-                        highlightedStep = index
+                        viewModel.selectStep(index)
                     }
                 }
             }
@@ -47,6 +57,11 @@ public struct RecipeDetailView: View {
         }
         .navigationTitle(recipe.title)
         .navigationBarTitleDisplayMode(.inline)
+        .alert("Congratulations 🎉", isPresented: $viewModel.showCongratulations) {
+            Button("OK") { }
+        } message: {
+            Text("Another Jorcipe cooked! Keep up the great work, chef.")
+        }
     }
 }
 

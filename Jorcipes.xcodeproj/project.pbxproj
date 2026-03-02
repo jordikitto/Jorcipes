@@ -17,6 +17,7 @@
 		A1B2C3D4E5F600000003D002 /* JorcipesNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002C002 /* JorcipesNetworking */; };
 		A1B2C3D4E5F600000003D003 /* JorcipesRecipeList in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002C003 /* JorcipesRecipeList */; };
 		A1B2C3D4E5F600000003D004 /* JorcipesSearch in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002C004 /* JorcipesSearch */; };
+		A1B2C3D4E5F600000003D005 /* JorcipesCards in Frameworks */ = {isa = PBXBuildFile; productRef = A1B2C3D4E5F600000002C005 /* JorcipesCards */; };
 		D16253AC2F528C7B009B546B /* Jorcipes.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = D16253AB2F528C7B009B546B /* Jorcipes.xctestplan */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 				A1B2C3D4E5F600000003D002 /* JorcipesNetworking in Frameworks */,
 				A1B2C3D4E5F600000003D003 /* JorcipesRecipeList in Frameworks */,
 				A1B2C3D4E5F600000003D004 /* JorcipesSearch in Frameworks */,
+				A1B2C3D4E5F600000003D005 /* JorcipesCards in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +173,7 @@
 				A1B2C3D4E5F600000002C002 /* JorcipesNetworking */,
 				A1B2C3D4E5F600000002C003 /* JorcipesRecipeList */,
 				A1B2C3D4E5F600000002C004 /* JorcipesSearch */,
+				A1B2C3D4E5F600000002C005 /* JorcipesCards */,
 			);
 			productName = JorcipesTests;
 			productReference = D15D5CE32F525C210071C9B4 /* JorcipesTests.xctest */;
@@ -703,6 +706,10 @@
 		A1B2C3D4E5F600000002C004 /* JorcipesSearch */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JorcipesSearch;
+		};
+		A1B2C3D4E5F600000002C005 /* JorcipesCards */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JorcipesCards;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
