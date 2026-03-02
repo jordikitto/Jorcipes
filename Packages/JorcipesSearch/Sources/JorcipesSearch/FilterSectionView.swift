@@ -33,6 +33,10 @@ struct FilterSectionView: View {
                 FilterRow(label: "Excluded", value: excludedValue) {
                     viewModel.activeSheet = .excludedIngredients
                 }
+
+                FilterRow(label: "Instructions", value: instructionsValue) {
+                    viewModel.activeSheet = .instructions
+                }
             }
         }
         .padding(.space400)
@@ -59,6 +63,11 @@ struct FilterSectionView: View {
     private var excludedValue: String? {
         guard !viewModel.query.excludedIngredients.isEmpty else { return nil }
         return viewModel.query.excludedIngredients.joined(separator: ", ")
+    }
+
+    private var instructionsValue: String? {
+        guard !viewModel.query.instructionText.isEmpty else { return nil }
+        return viewModel.query.instructionText
     }
 }
 

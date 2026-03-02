@@ -34,6 +34,7 @@ public final class MockAPIClient: APIClient, @unchecked Sendable {
                 && matchesServings(recipe: recipe, servings: query.servings)
                 && matchesIncludedIngredients(recipe: recipe, included: query.includedIngredients)
                 && matchesExcludedIngredients(recipe: recipe, excluded: query.excludedIngredients)
+                && matchesInstructions(recipe: recipe, text: query.instructionText)
         }
     }
 
@@ -93,6 +94,11 @@ public final class MockAPIClient: APIClient, @unchecked Sendable {
         return !excluded.contains { term in
             recipe.ingredients.contains { $0.name.localizedStandardContains(term) }
         }
+    }
+
+    private func matchesInstructions(recipe: Recipe, text: String) -> Bool {
+        guard !text.isEmpty else { return true }
+        return recipe.instructions.contains { $0.localizedStandardContains(text) }
     }
 }
 

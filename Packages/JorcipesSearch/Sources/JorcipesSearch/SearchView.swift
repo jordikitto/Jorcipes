@@ -64,6 +64,9 @@ public struct SearchView: View {
                         isIncluded: false
                     )
                     .presentationDetents([.medium])
+                case .instructions:
+                    InstructionsFilterSheet(viewModel: viewModel)
+                        .presentationDetents([.fraction(0.3)])
                 }
             }
             .navigationDestination(for: RecipeDestination.self) { destination in

@@ -7,6 +7,7 @@ public enum FilterSheet: Identifiable {
     case servings
     case includedIngredients
     case excludedIngredients
+    case instructions
 
     public var id: Self { self }
 }
@@ -98,6 +99,7 @@ public final class SearchViewModel {
         if query.servings != nil { count += 1 }
         if !query.includedIngredients.isEmpty { count += 1 }
         if !query.excludedIngredients.isEmpty { count += 1 }
+        if !query.instructionText.isEmpty { count += 1 }
         return count
     }
 
@@ -163,6 +165,10 @@ public final class SearchViewModel {
 
     public func clearExcludedIngredients() {
         query.excludedIngredients.removeAll()
+    }
+
+    public func clearInstructionText() {
+        query.instructionText = ""
     }
 
     // MARK: - Sheet Dismissal

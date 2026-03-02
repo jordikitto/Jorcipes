@@ -237,6 +237,21 @@ struct SearchViewModelTests {
 
         vm.query.excludedIngredients = ["tofu"]
         #expect(vm.activeFilterCount == 4)
+
+        vm.query.instructionText = "boil"
+        #expect(vm.activeFilterCount == 5)
+    }
+
+    @Test("clearInstructionText resets instruction text")
+    func clearInstructionText() {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+
+        vm.query.instructionText = "simmer"
+        #expect(!vm.query.instructionText.isEmpty)
+
+        vm.clearInstructionText()
+        #expect(vm.query.instructionText.isEmpty)
     }
 
     @Test("loadFilterOptions populates filter options")
