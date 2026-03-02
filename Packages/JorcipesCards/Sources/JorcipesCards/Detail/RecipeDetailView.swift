@@ -138,21 +138,15 @@ struct DetailInstructionCard: View {
 
     var body: some View {
         Button(action: onTap) {
-            HStack(alignment: .top, spacing: .space300) {
-                Text("\(index + 1)")
-                    .font(.title3)
-                    .bold()
-                    .foregroundStyle(Color.recipePrimary)
-                    .frame(width: 30)
-
-                if let attributed = try? AttributedString(markdown: instruction) {
-                    Text(attributed)
-                        .font(.body)
-                        .multilineTextAlignment(.leading)
-                } else {
-                    Text(instruction)
-                        .font(.body)
-                        .multilineTextAlignment(.leading)
+            ViewThatFits(in: .horizontal) {
+                HStack(alignment: .center, spacing: .space300) {
+                    stepCountText
+                    stepInstructionsText
+                        .fixedSize()
+                }
+                HStack(alignment: .top, spacing: .space300) {
+                    stepCountText
+                    stepInstructionsText
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -167,6 +161,27 @@ struct DetailInstructionCard: View {
             }
         }
         .buttonStyle(.plain)
+    }
+
+    private var stepCountText: some View {
+        Text("\(index + 1)")
+            .font(.title3)
+            .bold()
+            .foregroundStyle(Color.recipePrimary)
+            .frame(width: 30)
+    }
+
+    @ViewBuilder
+    private var stepInstructionsText: some View {
+        if let attributed = try? AttributedString(markdown: instruction) {
+            Text(attributed)
+                .font(.body)
+                .multilineTextAlignment(.leading)
+        } else {
+            Text(instruction)
+                .font(.body)
+                .multilineTextAlignment(.leading)
+        }
     }
 }
 
