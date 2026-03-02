@@ -7,7 +7,7 @@ struct JorcipesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(container: container)
+            RootTabView(container: container)
         }
     }
 }

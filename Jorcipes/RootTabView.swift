@@ -3,7 +3,7 @@ import JorcipesRecipeList
 import JorcipesSearch
 import JorcipesNetworking
 
-struct ContentView: View {
+struct RootTabView: View {
     let container: AppContainer
 
     var body: some View {
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(container: AppContainer(apiClient: MockAPIClient(simulateDelay: false)))
+    RootTabView(container: AppContainer(apiClient: MockAPIClient(simulateDelay: false)))
 }
