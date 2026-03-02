@@ -18,11 +18,13 @@ public final class RecipeListViewModel {
         self.apiClient = apiClient
     }
 
+    /// Triggers an initial load if the state is idle. Called by the view on appear.
     public func onAppear() {
         guard case .idle = state else { return }
         load()
     }
 
+    /// Cancels any in-flight fetch and starts a new one, driving the state through loading → loaded/failed.
     public func load() {
         loadTask?.cancel()
         state = .loading
@@ -40,6 +42,7 @@ public final class RecipeListViewModel {
         }
     }
 
+    /// Awaitable refresh that keeps existing data visible while fetching. Used by SwiftUI's `.refreshable`.
     public func refresh() async {
         do {
             let recipes = try await apiClient.fetchRecipes()
@@ -49,6 +52,7 @@ public final class RecipeListViewModel {
         }
     }
 
+    /// Pushes the given recipe onto the navigation path to show its detail view.
     public func didTapRecipe(_ recipe: Recipe) {
         navigationPath.append(.detail(recipe))
     }

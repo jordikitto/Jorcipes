@@ -26,6 +26,7 @@ public final class RecipeDetailViewModel {
         highlightedStep == instructionCount - 1
     }
 
+    /// Advances to the next instruction step, or finishes if on the last step.
     public func advanceStep() {
         if highlightedStep == nil {
             highlightedStep = 0
@@ -37,6 +38,7 @@ public final class RecipeDetailViewModel {
         }
     }
 
+    /// Jumps directly to the given instruction step index.
     public func selectStep(_ index: Int) {
         highlightedStep = index
     }

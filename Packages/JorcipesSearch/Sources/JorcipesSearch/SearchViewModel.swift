@@ -42,6 +42,7 @@ public final class SearchViewModel {
 
     // MARK: - Filter Options
 
+    /// Fetches available filter options from the API. Only runs from idle or failed state.
     public func loadFilterOptions() {
         guard filterOptions == .idle || filterOptions.isFailed else { return }
         filterOptions = .loading
@@ -61,6 +62,7 @@ public final class SearchViewModel {
 
     // MARK: - Search
 
+    /// Cancels any pending search and starts a new one immediately if the query has changed.
     public func search() {
         guard query != lastSearchedQuery else { return }
 
@@ -82,6 +84,7 @@ public final class SearchViewModel {
         }
     }
 
+    /// Schedules a search after a 300ms debounce. Cancels any previously scheduled debounced search.
     public func debouncedSearch() {
         debouncedSearchTask?.cancel()
         debouncedSearchTask = Task {
@@ -105,6 +108,7 @@ public final class SearchViewModel {
 
     // MARK: - Dietary Attributes
 
+    /// Toggles the given dietary attribute in or out of the search query.
     public func toggleDietaryAttribute(_ attribute: DietaryAttribute) {
         if query.dietaryAttributes.contains(attribute) {
             query.dietaryAttributes.remove(attribute)
@@ -113,18 +117,21 @@ public final class SearchViewModel {
         }
     }
 
+    /// Returns whether the given dietary attribute is currently active in the search query.
     public func isDietaryAttributeActive(_ attribute: DietaryAttribute) -> Bool {
         query.dietaryAttributes.contains(attribute)
     }
 
     // MARK: - Servings
 
+    /// Sets the servings filter to the given value, or clears it if nil.
     public func setServings(_ servings: Int?) {
         query.servings = servings
     }
 
     // MARK: - Ingredients
 
+    /// Toggles the given ingredient in or out of the included ingredients list.
     public func toggleIncludedIngredient(_ name: String) {
         if let index = query.includedIngredients.firstIndex(of: name) {
             query.includedIngredients.remove(at: index)
@@ -133,6 +140,7 @@ public final class SearchViewModel {
         }
     }
 
+    /// Toggles the given ingredient in or out of the excluded ingredients list.
     public func toggleExcludedIngredient(_ name: String) {
         if let index = query.excludedIngredients.firstIndex(of: name) {
             query.excludedIngredients.remove(at: index)
@@ -141,32 +149,39 @@ public final class SearchViewModel {
         }
     }
 
+    /// Returns whether the given ingredient is in the included list.
     public func isIngredientIncluded(_ name: String) -> Bool {
         query.includedIngredients.contains(name)
     }
 
+    /// Returns whether the given ingredient is in the excluded list.
     public func isIngredientExcluded(_ name: String) -> Bool {
         query.excludedIngredients.contains(name)
     }
 
     // MARK: - Clear Filters
 
+    /// Removes all dietary attribute filters from the search query.
     public func clearDietaryAttributes() {
         query.dietaryAttributes.removeAll()
     }
 
+    /// Removes the servings filter from the search query.
     public func clearServings() {
         query.servings = nil
     }
 
+    /// Removes all included ingredient filters from the search query.
     public func clearIncludedIngredients() {
         query.includedIngredients.removeAll()
     }
 
+    /// Removes all excluded ingredient filters from the search query.
     public func clearExcludedIngredients() {
         query.excludedIngredients.removeAll()
     }
 
+    /// Clears the instruction text filter from the search query.
     public func clearInstructionText() {
         query.instructionText = ""
     }
@@ -182,6 +197,7 @@ public final class SearchViewModel {
 
     // MARK: - Navigation
 
+    /// Pushes the given recipe onto the navigation path to show its detail view.
     public func didTapRecipe(_ recipe: Recipe) {
         navigationPath.append(.detail(recipe))
     }

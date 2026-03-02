@@ -12,6 +12,7 @@ public final class LocalAPIClient: APIClient, @unchecked Sendable {
         self.simulateDelay = simulateDelay
     }
 
+    /// Fetches all recipes from the local JSON file, with an optional simulated network delay.
     public func fetchRecipes() async throws -> [Recipe] {
         if simulateDelay {
             try await Task.sleep(for: .seconds(Double.random(in: 0.5...1.5)))
@@ -19,6 +20,7 @@ public final class LocalAPIClient: APIClient, @unchecked Sendable {
         return try await loadRecipes()
     }
 
+    /// Searches recipes by applying the query filters locally against the JSON data.
     public func searchRecipes(query: RecipeSearchQuery) async throws -> [Recipe] {
         if simulateDelay {
             try await Task.sleep(for: .seconds(Double.random(in: 0.5...1.5)))
@@ -38,6 +40,7 @@ public final class LocalAPIClient: APIClient, @unchecked Sendable {
         }
     }
 
+    /// Builds filter options (available servings and ingredients) from the local recipe data.
     public func fetchFilterOptions() async throws -> FilterOptions {
         if simulateDelay {
             try await Task.sleep(for: .seconds(Double.random(in: 0.5...1.5)))
