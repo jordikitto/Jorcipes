@@ -134,6 +134,24 @@ public final class SearchViewModel {
         query.excludedIngredients.contains(name)
     }
 
+    // MARK: - Clear Filters
+
+    public func clearDietaryAttributes() {
+        query.dietaryAttributes.removeAll()
+    }
+
+    public func clearServings() {
+        query.servings = nil
+    }
+
+    public func clearIncludedIngredients() {
+        query.includedIngredients.removeAll()
+    }
+
+    public func clearExcludedIngredients() {
+        query.excludedIngredients.removeAll()
+    }
+
     // MARK: - Sheet Dismissal
 
     /// Called when any filter sheet is dismissed. Clears ingredient search text

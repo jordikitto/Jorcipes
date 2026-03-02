@@ -63,8 +63,13 @@ struct ServingsFilterSheet: View {
             .navigationTitle("Servings")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close", systemImage: "xmark") { dismiss() }
+                        .labelStyle(.iconOnly)
+                }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    Button("Clear") { viewModel.clearServings() }
+                        .tint(.red)
                 }
             }
         }

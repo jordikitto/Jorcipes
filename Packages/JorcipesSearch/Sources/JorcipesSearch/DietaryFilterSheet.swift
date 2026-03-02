@@ -30,8 +30,13 @@ struct DietaryFilterSheet: View {
             .navigationTitle("Dietary")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close", systemImage: "xmark") { dismiss() }
+                        .labelStyle(.iconOnly)
+                }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    Button("Clear") { viewModel.clearDietaryAttributes() }
+                        .tint(.red)
                 }
             }
         }

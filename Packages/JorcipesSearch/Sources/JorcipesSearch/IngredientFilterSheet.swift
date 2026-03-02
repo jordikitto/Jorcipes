@@ -51,8 +51,19 @@ struct IngredientFilterSheet: View {
                 isSearchFocused = true
             }
             .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close", systemImage: "xmark") { dismiss() }
+                        .labelStyle(.iconOnly)
+                }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
+                    Button("Clear") {
+                        if isIncluded {
+                            viewModel.clearIncludedIngredients()
+                        } else {
+                            viewModel.clearExcludedIngredients()
+                        }
+                    }
+                    .tint(.red)
                 }
             }
         }
