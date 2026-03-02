@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DevSettingsView: View {
-    @AppStorage("mockDataSource") private var mockDataSource = "recipes_5"
+    @AppStorage(AppStorageKey.mockDataSource) private var mockDataSource = "recipes_5"
     @State private var initialValue = ""
 
     private let mockDataOptions = ["recipes_5", "recipes_50", "recipes_empty", "recipes_corrupted"]
