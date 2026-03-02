@@ -145,13 +145,13 @@ struct SearchViewModelTests {
         #expect(vm.results == .loading)
     }
 
-    @Test("Search with empty query resets to idle")
+    @Test("Search with empty query still triggers loading")
     func searchEmpty() {
         let client = ControlledAPIClient()
         let vm = SearchViewModel(apiClient: client)
         vm.query = RecipeSearchQuery()
         vm.search()
-        #expect(vm.results == .idle)
+        #expect(vm.results == .loading)
     }
 
     @Test("Successful search transitions to loaded")

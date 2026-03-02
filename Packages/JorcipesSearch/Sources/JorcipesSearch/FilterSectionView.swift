@@ -1,6 +1,7 @@
 import SwiftUI
 import JorcipesCore
 import JorcipesDesignSystem
+import JorcipesNetworking
 
 struct FilterSectionView: View {
     @Bindable var viewModel: SearchViewModel
@@ -11,7 +12,7 @@ struct FilterSectionView: View {
                 activeCount: viewModel.activeFilterCount,
                 isExpanded: viewModel.filtersExpanded
             ) {
-                withAnimation {
+                withAnimation(.bouncy) {
                     viewModel.filtersExpanded.toggle()
                 }
             }
@@ -25,11 +26,17 @@ struct FilterSectionView: View {
                     viewModel.activeSheet = .servings
                 }
 
-                FilterChipRow(label: "Included ingredients", items: viewModel.query.includedIngredients) {
+                FilterRow(
+                    label: "Included",
+                    value: viewModel.query.includedIngredients.joined(separator: ", ")
+                ) {
                     viewModel.activeSheet = .includedIngredients
                 }
 
-                FilterChipRow(label: "Excluded ingredients", items: viewModel.query.excludedIngredients) {
+                FilterRow(
+                    label: "Excluded",
+                    value: viewModel.query.excludedIngredients.joined(separator: ", ")
+                ) {
                     viewModel.activeSheet = .excludedIngredients
                 }
             }
@@ -64,11 +71,15 @@ struct FilterHeader: View {
 
                 Spacer()
 
-                Image(systemName: isExpanded ? "chevron.down" : "chevron.right")
+                Image(systemName: "chevron.right")
                     .foregroundStyle(.secondary)
+                    .rotationEffect(isExpanded ? .degrees(90) : .degrees(0))
+
             }
+            .padding(.space200)
+            .contentShape(.rect)
         }
-        .buttonStyle(.plain)
+        .buttonStyle(.glass)
     }
 }
 
@@ -78,49 +89,42 @@ struct FilterRow: View {
     let onTap: () -> Void
 
     var body: some View {
-        HStack {
-            Text(label)
-                .foregroundStyle(.secondary)
+        Button {
+            onTap()
+        } label: {
+            HStack(alignment: .firstTextBaseline) {
+                Text(label)
+                    .foregroundStyle(.primary)
 
-            Spacer()
+                Spacer()
 
-            Button(value ?? "Select", action: onTap)
-                .buttonStyle(.bordered)
-        }
-    }
-}
-
-struct FilterChipRow: View {
-    let label: String
-    let items: [String]
-    let onTap: () -> Void
-
-    var body: some View {
-        HStack {
-            Text(label)
-                .foregroundStyle(.secondary)
-
-            Spacer()
-
-            if items.isEmpty {
-                Button("Select", action: onTap)
-                    .buttonStyle(.bordered)
-            } else {
-                Button(action: onTap) {
-                    HStack(spacing: .space100) {
-                        ForEach(items, id: \.self) { item in
-                            Text(item)
-                                .font(.caption)
-                                .padding(.horizontal, .space200)
-                                .padding(.vertical, .space50)
-                                .background(Color.recipePrimary.opacity(0.15))
-                                .foregroundStyle(Color.recipePrimary)
-                                .clipShape(.capsule)
-                        }
-                    }
+                if let value {
+                    Text(value)
+                        .font(.callout)
                 }
-                .buttonStyle(.plain)
             }
+            .padding(.space200)
+            .contentShape(.rect)
         }
+        .buttonStyle(.glass)
+        .padding(.leading, .space200)
     }
 }
+
+#Preview("Collapsed") {
+    FilterSectionView(viewModel: SearchViewModel(apiClient: MockAPIClient()))
+}
+
+#Preview("Expanded with Filters") {
+    @Previewable @State var viewModel = {
+        let vm = SearchViewModel(apiClient: MockAPIClient())
+        vm.filtersExpanded = true
+        vm.query.dietaryAttributes = [.vegan, .vegetarian]
+        vm.query.servings = 4
+        vm.query.includedIngredients = ["Tomato", "Basil"]
+        return vm
+    }()
+    FilterSectionView(viewModel: viewModel)
+}
+
+

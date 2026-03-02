@@ -16,17 +16,15 @@ public struct SearchView: View {
         @Bindable var viewModel = viewModel
 
         NavigationStack(path: $viewModel.navigationPath) {
-            ScrollView {
-                VStack(spacing: .space400) {
+            VStack(spacing: 0) {
+                SearchResultsContent(
+                    results: viewModel.results,
+                    heroNamespace: heroNamespace,
+                    onRetry: { viewModel.search() }
+                )
+                .frame(maxHeight: .infinity)
+                .safeAreaBar(edge: .top) {
                     FilterSectionView(viewModel: viewModel)
-
-                    Divider()
-
-                    SearchResultsContent(
-                        results: viewModel.results,
-                        heroNamespace: heroNamespace,
-                        onRetry: { viewModel.search() }
-                    )
                 }
             }
             .navigationTitle("Search")
@@ -37,6 +35,7 @@ public struct SearchView: View {
             }
             .task {
                 viewModel.loadFilterOptions()
+                viewModel.search()
             }
             .sheet(item: $viewModel.activeSheet, onDismiss: {
                 viewModel.onFilterSheetDismiss()
@@ -82,31 +81,26 @@ struct SearchResultsContent: View {
 
     var body: some View {
         switch results {
-        case .idle:
-            ContentUnavailableView(
-                "Search Recipes",
-                systemImage: "magnifyingglass",
-                description: Text("Use the filters above or type a search term to find recipes.")
-            )
-
-        case .loading:
-            ProgressView("Searching...")
-                .padding()
+        case .idle, .loading:
+            ProgressView("Loading recipes...")
 
         case .loaded(let recipes):
             if recipes.isEmpty {
                 ContentUnavailableView.search
             } else {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: .space400) {
-                    ForEach(recipes) { recipe in
-                        NavigationLink(value: RecipeDestination.detail(recipe)) {
-                            RecipeCardView(recipe: recipe)
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: .space400) {
+                        ForEach(recipes) { recipe in
+                            NavigationLink(value: RecipeDestination.detail(recipe)) {
+                                RecipeCardView(recipe: recipe)
+                            }
+                            .buttonStyle(.plain)
+                            .matchedTransitionSource(id: recipe.id, in: heroNamespace)
                         }
-                        .buttonStyle(.plain)
-                        .matchedTransitionSource(id: recipe.id, in: heroNamespace)
                     }
+                    .padding(.horizontal, .space400)
                 }
-                .padding(.horizontal, .space400)
+                .safeAreaPadding(.vertical, .space400)
             }
 
         case .failed(let message):

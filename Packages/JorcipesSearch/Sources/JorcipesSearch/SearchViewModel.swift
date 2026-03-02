@@ -58,11 +58,6 @@ public final class SearchViewModel {
     public func search() {
         searchTask?.cancel()
 
-        guard !query.isEmpty else {
-            results = .idle
-            return
-        }
-
         results = .loading
 
         searchTask = Task {
