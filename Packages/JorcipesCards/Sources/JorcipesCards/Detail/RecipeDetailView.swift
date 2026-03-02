@@ -8,7 +8,11 @@ public struct RecipeDetailView: View {
 
     public init(recipe: Recipe) {
         self.recipe = recipe
-        _viewModel = State(initialValue: RecipeDetailViewModel(instructionCount: recipe.instructions.count))
+        _viewModel = State(
+            initialValue: RecipeDetailViewModel(
+                instructionCount: recipe.instructions.count
+            )
+        )
     }
 
     public var body: some View {

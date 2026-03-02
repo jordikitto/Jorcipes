@@ -51,16 +51,6 @@
 			path = Jorcipes;
 			sourceTree = "<group>";
 		};
-		D15D5CE62F525C210071C9B4 /* JorcipesTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = JorcipesTests;
-			sourceTree = "<group>";
-		};
-		D15D5CF02F525C210071C9B4 /* JorcipesUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = JorcipesUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				D15D5CD82F525C200071C9B4 /* Jorcipes */,
-				D15D5CE62F525C210071C9B4 /* JorcipesTests */,
-				D15D5CF02F525C210071C9B4 /* JorcipesUITests */,
 				D15D5CD72F525C200071C9B4 /* Products */,
 				D16253AB2F528C7B009B546B /* Jorcipes.xctestplan */,
 			);
@@ -164,9 +152,6 @@
 			dependencies = (
 				D15D5CE52F525C210071C9B4 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				D15D5CE62F525C210071C9B4 /* JorcipesTests */,
-			);
 			name = JorcipesTests;
 			packageProductDependencies = (
 				A1B2C3D4E5F600000002C001 /* JorcipesCore */,
@@ -191,9 +176,6 @@
 			);
 			dependencies = (
 				D15D5CEF2F525C210071C9B4 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				D15D5CF02F525C210071C9B4 /* JorcipesUITests */,
 			);
 			name = JorcipesUITests;
 			packageProductDependencies = (
