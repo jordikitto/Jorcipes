@@ -91,7 +91,6 @@ struct SearchResultsContent: View {
                 ContentUnavailableView.search
             } else {
                 RecipeGridView(recipes: recipes, heroNamespace: heroNamespace)
-                    .safeAreaPadding(.space400)
             }
 
         case .failed(let message):

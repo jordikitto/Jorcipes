@@ -33,7 +33,6 @@ public struct RecipeListView: View {
                         )
                     } else {
                         RecipeGridView(recipes: recipes, heroNamespace: heroNamespace)
-                            .safeAreaPadding(.space400)
                     }
 
                 case .failed(let message):

@@ -27,6 +27,8 @@ public struct RecipeGridView: View {
                     .matchedTransitionSource(id: recipe.id, in: heroNamespace)
                 }
             }
+            .padding(.vertical, .space400)
+            .padding(.horizontal)
         }
     }
 }
