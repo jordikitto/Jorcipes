@@ -125,4 +125,40 @@ struct MockAPIClientTests {
             $0.dietaryAttributes.contains(.vegetarian) && $0.servings == 4
         })
     }
+
+    // MARK: - Filter Options
+
+    @Test("fetchFilterOptions returns sorted unique servings and ingredients")
+    func fetchFilterOptions() async throws {
+        let client = MockAPIClient(jsonFileName: "recipes_5", simulateDelay: false)
+        let options = try await client.fetchFilterOptions()
+
+        // recipes_5.json has recipes with servings: 4, 2, 4, 6, 3
+        #expect(options.availableServings == [2, 3, 4, 6])
+        #expect(!options.availableIngredients.isEmpty)
+        // Ingredients should be sorted alphabetically
+        #expect(options.availableIngredients == options.availableIngredients.sorted())
+        // Should contain no duplicates
+        #expect(Set(options.availableIngredients).count == options.availableIngredients.count)
+    }
+
+    @Test("fetchFilterOptions returns empty options for empty recipes")
+    func fetchFilterOptionsEmpty() async throws {
+        let client = MockAPIClient(jsonFileName: "recipes_empty", simulateDelay: false)
+        let options = try await client.fetchFilterOptions()
+
+        #expect(options.availableServings.isEmpty)
+        #expect(options.availableIngredients.isEmpty)
+    }
+
+    @Test("fetchFilterOptions throws for corrupted JSON")
+    func fetchFilterOptionsCorrupted() async {
+        let client = MockAPIClient(jsonFileName: "recipes_corrupted", simulateDelay: false)
+        do {
+            _ = try await client.fetchFilterOptions()
+            Issue.record("Expected an error to be thrown")
+        } catch {
+            // Expected
+        }
+    }
 }

@@ -37,6 +37,19 @@ public final class MockAPIClient: APIClient, @unchecked Sendable {
         }
     }
 
+    public func fetchFilterOptions() async throws -> FilterOptions {
+        if simulateDelay {
+            try await Task.sleep(for: .seconds(Double.random(in: 0.5...1.5)))
+        }
+
+        let recipes = try await loadRecipes()
+
+        let servings = Array(Set(recipes.map(\.servings))).sorted()
+        let ingredients = Array(Set(recipes.flatMap { $0.ingredients.map(\.name) })).sorted()
+
+        return FilterOptions(availableServings: servings, availableIngredients: ingredients)
+    }
+
     // MARK: - Private
 
     /// Loads and decodes recipes off the main actor to avoid UI hitching.
