@@ -297,19 +297,44 @@ struct SearchViewModelTests {
         #expect(vm.filterOptions == .loaded(expected))
     }
 
-    @Test("Sheet dismiss triggers search with updated query")
+    @Test("Sheet dismiss triggers search when query changed")
     func sheetDismissTriggersSearch() async {
         let client = ControlledAPIClient()
         let vm = SearchViewModel(apiClient: client)
-        vm.query.dietaryAttributes.insert(.vegan)
-        vm.query.text = "curry"
 
+        // Initial search to establish lastSearchedQuery
+        vm.search()
+        await client.waitForSearch()
+        await client.resolveSearch(with: .success([]))
+        try? await Task.sleep(for: .milliseconds(10))
+
+        // Change filters, then dismiss sheet
+        vm.query.dietaryAttributes.insert(.vegan)
         vm.onFilterSheetDismiss()
 
         await client.waitForSearch()
         await client.resolveSearch(with: .success([Recipe.preview]))
         try? await Task.sleep(for: .milliseconds(10))
 
+        #expect(vm.results == .loaded([Recipe.preview]))
+        #expect(vm.ingredientSearchText.isEmpty)
+    }
+
+    @Test("Sheet dismiss skips search when query unchanged")
+    func sheetDismissSkipsSearchWhenUnchanged() async {
+        let client = ControlledAPIClient()
+        let vm = SearchViewModel(apiClient: client)
+
+        // Initial search
+        vm.query.text = "pasta"
+        vm.search()
+        await client.waitForSearch()
+        await client.resolveSearch(with: .success([Recipe.preview]))
+        try? await Task.sleep(for: .milliseconds(10))
+        #expect(vm.results == .loaded([Recipe.preview]))
+
+        // Dismiss sheet without changing query — should not trigger search
+        vm.onFilterSheetDismiss()
         #expect(vm.results == .loaded([Recipe.preview]))
         #expect(vm.ingredientSearchText.isEmpty)
     }

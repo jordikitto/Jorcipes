@@ -30,6 +30,8 @@ public final class SearchViewModel {
     @ObservationIgnored
     nonisolated(unsafe) private var filterOptionsTask: Task<Void, Never>?
 
+    private var lastSearchedQuery: RecipeSearchQuery?
+
     public init(apiClient: APIClient) {
         self.apiClient = apiClient
     }
@@ -56,8 +58,9 @@ public final class SearchViewModel {
     // MARK: - Search
 
     public func search() {
-        searchTask?.cancel()
+        guard query != lastSearchedQuery else { return }
 
+        searchTask?.cancel()
         results = .loading
 
         searchTask = Task {
@@ -65,6 +68,7 @@ public final class SearchViewModel {
                 let recipes = try await apiClient.searchRecipes(query: query)
                 try Task.checkCancellation()
                 results = .loaded(recipes)
+                lastSearchedQuery = query
             } catch is CancellationError {
                 // Ignore
             } catch {
