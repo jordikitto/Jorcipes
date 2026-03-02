@@ -26,17 +26,11 @@ struct FilterSectionView: View {
                     viewModel.activeSheet = .servings
                 }
 
-                FilterRow(
-                    label: "Included",
-                    value: viewModel.query.includedIngredients.joined(separator: ", ")
-                ) {
+                FilterRow(label: "Included", value: includedValue) {
                     viewModel.activeSheet = .includedIngredients
                 }
 
-                FilterRow(
-                    label: "Excluded",
-                    value: viewModel.query.excludedIngredients.joined(separator: ", ")
-                ) {
+                FilterRow(label: "Excluded", value: excludedValue) {
                     viewModel.activeSheet = .excludedIngredients
                 }
             }
@@ -55,6 +49,16 @@ struct FilterSectionView: View {
     private var servingsValue: String? {
         guard let s = viewModel.query.servings else { return nil }
         return "\(s) servings"
+    }
+
+    private var includedValue: String? {
+        guard !viewModel.query.includedIngredients.isEmpty else { return nil }
+        return viewModel.query.includedIngredients.joined(separator: ", ")
+    }
+
+    private var excludedValue: String? {
+        guard !viewModel.query.excludedIngredients.isEmpty else { return nil }
+        return viewModel.query.excludedIngredients.joined(separator: ", ")
     }
 }
 
@@ -101,6 +105,11 @@ struct FilterRow: View {
                 if let value {
                     Text(value)
                         .font(.callout)
+                } else {
+                    Text("Select")
+                        .font(.callout)
+                        .italic()
+                        .foregroundStyle(.secondary)
                 }
             }
             .padding(.space200)
