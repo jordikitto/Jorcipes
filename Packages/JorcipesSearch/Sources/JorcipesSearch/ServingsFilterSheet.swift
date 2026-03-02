@@ -1,6 +1,7 @@
 import SwiftUI
 import JorcipesCore
 import JorcipesDesignSystem
+import JorcipesNetworking
 
 struct ServingsFilterSheet: View {
     @Bindable var viewModel: SearchViewModel
@@ -15,16 +16,19 @@ struct ServingsFilterSheet: View {
                             Button {
                                 viewModel.setServings(servings)
                             } label: {
-                                Text("\(servings) servings")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .contentShape(.rect)
+                                HStack {
+                                    Text("\(servings) servings")
+
+                                    Spacer()
+
+                                    if viewModel.query.servings == servings {
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .foregroundStyle(.primary, .tint)
+                                    }
+                                }
+                                .contentShape(.rect)
                             }
                             .buttonStyle(.plain)
-                            .listRowBackground(
-                                viewModel.query.servings == servings
-                                    ? Color.accentColor.opacity(0.12)
-                                    : nil
-                            )
                         }
                     }
 
@@ -45,5 +49,7 @@ struct ServingsFilterSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { FilterSheetToolbar(onClear: { viewModel.clearServings() }) }
         }
+        .presentationDetents([.medium])
     }
 }
+

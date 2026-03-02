@@ -12,21 +12,25 @@ struct DietaryFilterSheet: View {
                     Button {
                         viewModel.toggleDietaryAttribute(attribute)
                     } label: {
-                        Text(attribute.rawValue.capitalized)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .contentShape(.rect)
+                        HStack {
+                            Text(attribute.rawValue.capitalized)
+
+                            Spacer()
+
+                            if viewModel.isDietaryAttributeActive(attribute) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundStyle(.primary, .tint)
+                            }
+                        }
+                        .contentShape(.rect)
                     }
                     .buttonStyle(.plain)
-                    .listRowBackground(
-                        viewModel.isDietaryAttributeActive(attribute)
-                            ? Color.accentColor.opacity(0.12)
-                            : nil
-                    )
                 }
             }
             .navigationTitle("Dietary")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { FilterSheetToolbar(onClear: { viewModel.clearDietaryAttributes() }) }
         }
+        .presentationDetents([.medium])
     }
 }

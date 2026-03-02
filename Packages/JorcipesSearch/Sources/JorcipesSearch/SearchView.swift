@@ -46,27 +46,22 @@ public struct SearchView: View {
                 switch sheet {
                 case .dietary:
                     DietaryFilterSheet(viewModel: viewModel)
-                        .presentationDetents([.medium])
                 case .servings:
                     ServingsFilterSheet(viewModel: viewModel)
-                        .presentationDetents([.medium])
                 case .includedIngredients:
                     IngredientFilterSheet(
                         title: "Included Ingredients",
                         viewModel: viewModel,
                         isIncluded: true
                     )
-                    .presentationDetents([.medium])
                 case .excludedIngredients:
                     IngredientFilterSheet(
                         title: "Excluded Ingredients",
                         viewModel: viewModel,
                         isIncluded: false
                     )
-                    .presentationDetents([.medium])
                 case .instructions:
                     InstructionsFilterSheet(viewModel: viewModel)
-                        .presentationDetents([.fraction(0.3)])
                 }
             }
             .navigationDestination(for: RecipeDestination.self) { destination in

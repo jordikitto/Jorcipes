@@ -22,5 +22,6 @@ struct InstructionsFilterSheet: View {
             }
             .toolbar { FilterSheetToolbar(onClear: { viewModel.clearInstructionText() }) }
         }
+        .presentationDetents([.fraction(0.3)])
     }
 }

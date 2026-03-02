@@ -17,6 +17,7 @@ struct IngredientFilterSheet: View {
                         ForEach(filteredIngredients(from: options), id: \.self) { ingredient in
                             IngredientRow(
                                 ingredient: ingredient,
+                                isSelected: isSelected(ingredient),
                                 isDisabled: isInOppositeList(ingredient),
                                 oppositeLabel: isIncluded ? "Excluded" : "Included"
                             ) {
@@ -26,11 +27,8 @@ struct IngredientFilterSheet: View {
                                     viewModel.toggleExcludedIngredient(ingredient)
                                 }
                             }
-                            .listRowBackground(
-                                isSelected(ingredient) && !isInOppositeList(ingredient)
-                                    ? Color.accentColor.opacity(0.12)
-                                    : nil
-                            )
+
+
                         }
                     }
                     .searchable(text: $viewModel.ingredientSearchText, isPresented: $isSearchFocused, prompt: "Search ingredients...")
@@ -50,9 +48,6 @@ struct IngredientFilterSheet: View {
             }
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
-            .onAppear {
-                isSearchFocused = true
-            }
             .toolbar {
                 FilterSheetToolbar {
                     if isIncluded {
@@ -93,6 +88,7 @@ struct IngredientFilterSheet: View {
 
 struct IngredientRow: View {
     let ingredient: String
+    let isSelected: Bool
     let isDisabled: Bool
     let oppositeLabel: String
     let onTap: () -> Void
@@ -113,6 +109,9 @@ struct IngredientRow: View {
                         .padding(.vertical, .space50)
                         .background(Color.secondary.opacity(0.15))
                         .clipShape(.capsule)
+                } else if isSelected {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundStyle(.primary, .tint)
                 }
             }
             .contentShape(.rect)
