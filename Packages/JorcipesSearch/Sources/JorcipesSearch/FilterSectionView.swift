@@ -60,8 +60,8 @@ struct FilterSectionView: View {
     }
 
     private var servingsValue: String? {
-        guard let s = viewModel.query.servings else { return nil }
-        return "\(s) servings"
+        guard let servings = viewModel.query.servings else { return nil }
+        return "\(servings) servings"
     }
 
     private var includedValue: String? {
@@ -144,12 +144,12 @@ struct FilterRow: View {
 
 #Preview("Expanded with Filters") {
     @Previewable @State var viewModel = {
-        let vm = SearchViewModel(apiClient: LocalAPIClient())
-        vm.filtersExpanded = true
-        vm.query.dietaryAttributes = [.vegan, .vegetarian]
-        vm.query.servings = 4
-        vm.query.includedIngredients = ["Tomato", "Basil"]
-        return vm
+        let viewModel = SearchViewModel(apiClient: LocalAPIClient())
+        viewModel.filtersExpanded = true
+        viewModel.query.dietaryAttributes = [.vegan, .vegetarian]
+        viewModel.query.servings = 4
+        viewModel.query.includedIngredients = ["Tomato", "Basil"]
+        return viewModel
     }()
     FilterSectionView(viewModel: viewModel)
 }
