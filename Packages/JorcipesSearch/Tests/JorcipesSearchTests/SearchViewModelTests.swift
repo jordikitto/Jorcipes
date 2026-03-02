@@ -2,7 +2,7 @@ import Testing
 import Foundation
 @testable import JorcipesSearch
 import JorcipesCore
-import JorcipesTestSupport
+import JorcipesNetworkingTestSupport
 
 @Suite("SearchViewModel Tests")
 @MainActor

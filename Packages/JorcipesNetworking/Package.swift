@@ -6,7 +6,7 @@ let package = Package(
     platforms: [.iOS(.v26), .macOS(.v15)],
     products: [
         .library(name: "JorcipesNetworking", targets: ["JorcipesNetworking"]),
-        .library(name: "JorcipesTestSupport", targets: ["JorcipesTestSupport"])
+        .library(name: "JorcipesNetworkingTestSupport", targets: ["JorcipesNetworkingTestSupport"])
     ],
     dependencies: [
         .package(path: "../JorcipesCore")
@@ -18,7 +18,7 @@ let package = Package(
             resources: [.process("Resources")]
         ),
         .target(
-            name: "JorcipesTestSupport",
+            name: "JorcipesNetworkingTestSupport",
             dependencies: ["JorcipesCore", "JorcipesNetworking"]
         ),
         .testTarget(

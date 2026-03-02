@@ -2,7 +2,7 @@ import Testing
 import Foundation
 @testable import JorcipesRecipeList
 import JorcipesCore
-import JorcipesTestSupport
+import JorcipesNetworkingTestSupport
 
 @Suite("RecipeListViewModel Tests")
 @MainActor

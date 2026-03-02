@@ -19,7 +19,7 @@ let package = Package(
         ]),
         .testTarget(name: "JorcipesRecipeListTests", dependencies: [
             "JorcipesRecipeList",
-            .product(name: "JorcipesTestSupport", package: "JorcipesNetworking")
+            .product(name: "JorcipesNetworkingTestSupport", package: "JorcipesNetworking")
         ])
     ]
 )
