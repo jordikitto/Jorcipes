@@ -2,7 +2,7 @@ import Testing
 import Foundation
 @testable import JorcipesRecipeList
 import JorcipesCore
-import JorcipesNetworking
+import JorcipesTestSupport
 
 @Suite("RecipeListViewModel Tests")
 @MainActor
@@ -10,7 +10,7 @@ struct RecipeListViewModelTests {
 
     @Test func `happy path loads and refreshes recipes`() async {
         // GIVEN: View model initialised
-        let client = ControlledAPIClient()
+        let client = MockAPIClient()
         let viewModel = RecipeListViewModel(apiClient: client)
         let recipes = Recipe.previewList
 
@@ -55,7 +55,7 @@ struct RecipeListViewModelTests {
 
     @Test func `failed load and stale cancellation`() async {
         // GIVEN: View model initialised
-        let client = ControlledAPIClient()
+        let client = MockAPIClient()
         let viewModel = RecipeListViewModel(apiClient: client)
 
         // WHEN: Load fails
@@ -96,7 +96,7 @@ struct RecipeListViewModelTests {
 
     @Test func `tapping recipe navigates to detail`() {
         // GIVEN: View model initialised
-        let client = ControlledAPIClient()
+        let client = MockAPIClient()
         let viewModel = RecipeListViewModel(apiClient: client)
         let recipe = Recipe.preview
 

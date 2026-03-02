@@ -1,7 +1,7 @@
 import JorcipesCore
 import JorcipesNetworking
 
-public actor ControlledAPIClient: APIClient {
+public actor MockAPIClient: APIClient {
     private var fetchContinuations: [CheckedContinuation<[Recipe], Error>] = []
     private var searchContinuations: [CheckedContinuation<[Recipe], Error>] = []
     private var filterOptionsContinuations: [CheckedContinuation<FilterOptions, Error>] = []

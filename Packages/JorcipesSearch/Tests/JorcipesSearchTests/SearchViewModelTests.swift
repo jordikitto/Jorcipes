@@ -2,7 +2,7 @@ import Testing
 import Foundation
 @testable import JorcipesSearch
 import JorcipesCore
-import JorcipesNetworking
+import JorcipesTestSupport
 
 @Suite("SearchViewModel Tests")
 @MainActor
@@ -10,7 +10,7 @@ struct SearchViewModelTests {
 
     @Test func `search flow from idle through loading to loaded`() async {
         // GIVEN: View model initialised
-        let client = ControlledAPIClient()
+        let client = MockAPIClient()
         let viewModel = SearchViewModel(apiClient: client)
 
         // THEN: Initial state is idle
@@ -72,7 +72,7 @@ struct SearchViewModelTests {
 
     @Test func `filter manipulation updates query state`() {
         // GIVEN: View model initialised
-        let client = ControlledAPIClient()
+        let client = MockAPIClient()
         let viewModel = SearchViewModel(apiClient: client)
 
         // THEN: No active filters initially
@@ -136,7 +136,7 @@ struct SearchViewModelTests {
 
     @Test func `filter options load and retry from failure`() async {
         // GIVEN: View model initialised
-        let client = ControlledAPIClient()
+        let client = MockAPIClient()
         let viewModel = SearchViewModel(apiClient: client)
         let expected = FilterOptions(availableServings: [2, 4], availableIngredients: ["Chicken", "Tofu"])
 
@@ -174,7 +174,7 @@ struct SearchViewModelTests {
 
     @Test func `sheet dismiss triggers search only when query changed`() async {
         // GIVEN: View model with an initial search completed
-        let client = ControlledAPIClient()
+        let client = MockAPIClient()
         let viewModel = SearchViewModel(apiClient: client)
         viewModel.search()
         await client.waitForSearch()
