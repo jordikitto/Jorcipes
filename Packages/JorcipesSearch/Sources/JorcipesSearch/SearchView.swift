@@ -48,7 +48,6 @@ public struct SearchView: View {
     }
 }
 
-/// Extracted View struct for search results (per CLAUDE.md: no computed view properties).
 struct SearchResultsContent: View {
     let results: Loadable<[Recipe]>
     var heroNamespace: Namespace.ID

@@ -65,7 +65,6 @@ public struct RecipeListView: View {
     }
 }
 
-/// Extracted View struct for the recipe grid (per CLAUDE.md: no computed view properties).
 struct RecipeGridContent: View {
     let recipes: [Recipe]
     var heroNamespace: Namespace.ID

@@ -40,7 +40,6 @@ struct IngredientChipInputView: View {
     }
 }
 
-/// Separate View struct for individual ingredient chip (per CLAUDE.md: no computed view property returning some View).
 struct IngredientChip: View {
     let name: String
     let isIncluded: Bool
