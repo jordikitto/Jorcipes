@@ -18,7 +18,7 @@ public struct SearchView: View {
         NavigationStack(path: $viewModel.navigationPath) {
             ScrollView {
                 VStack(spacing: .space400) {
-                    SearchFilterView(viewModel: viewModel)
+                    FilterSectionView(viewModel: viewModel)
 
                     Divider()
 
@@ -30,12 +30,39 @@ public struct SearchView: View {
                 }
             }
             .navigationTitle("Search")
+            .navigationBarTitleDisplayMode(.inline)
             .searchable(text: $viewModel.query.text, prompt: "Search recipes...")
             .onSubmit(of: .search) {
                 viewModel.search()
             }
-            .onChange(of: viewModel.query.text) {
-                viewModel.search()
+            .task {
+                viewModel.loadFilterOptions()
+            }
+            .sheet(item: $viewModel.activeSheet, onDismiss: {
+                viewModel.onFilterSheetDismiss()
+            }) { sheet in
+                switch sheet {
+                case .dietary:
+                    DietaryFilterSheet(viewModel: viewModel)
+                        .presentationDetents([.medium])
+                case .servings:
+                    ServingsFilterSheet(viewModel: viewModel)
+                        .presentationDetents([.medium])
+                case .includedIngredients:
+                    IngredientFilterSheet(
+                        title: "Included Ingredients",
+                        viewModel: viewModel,
+                        isIncluded: true
+                    )
+                    .presentationDetents([.medium])
+                case .excludedIngredients:
+                    IngredientFilterSheet(
+                        title: "Excluded Ingredients",
+                        viewModel: viewModel,
+                        isIncluded: false
+                    )
+                    .presentationDetents([.medium])
+                }
             }
             .navigationDestination(for: RecipeDestination.self) { destination in
                 switch destination {
