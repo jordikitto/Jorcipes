@@ -28,11 +28,12 @@ struct DevSettingsView: View {
             .safeAreaInset(edge: .bottom) {
                 if needsRestart {
                     Text("Restart the app for this to take effect.")
+                        .foregroundStyle(.red)
                         .font(.subheadline)
                         .bold()
-                        .frame(maxWidth: .infinity)
                         .padding()
-                        .background(.ultraThinMaterial)
+                        .glassEffect()
+                        .padding()
                 }
             }
         }

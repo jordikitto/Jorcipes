@@ -22,16 +22,20 @@ struct FilterSectionView: View {
                     viewModel.activeSheet = .dietary
                 }
 
-                FilterRow(label: "Servings", value: servingsValue) {
-                    viewModel.activeSheet = .servings
+                if hasOptions(for: \.availableServings) {
+                    FilterRow(label: "Servings", value: servingsValue) {
+                        viewModel.activeSheet = .servings
+                    }
                 }
 
-                FilterRow(label: "Included", value: includedValue) {
-                    viewModel.activeSheet = .includedIngredients
-                }
+                if hasOptions(for: \.availableIngredients) {
+                    FilterRow(label: "Included", value: includedValue) {
+                        viewModel.activeSheet = .includedIngredients
+                    }
 
-                FilterRow(label: "Excluded", value: excludedValue) {
-                    viewModel.activeSheet = .excludedIngredients
+                    FilterRow(label: "Excluded", value: excludedValue) {
+                        viewModel.activeSheet = .excludedIngredients
+                    }
                 }
 
                 FilterRow(label: "Instructions", value: instructionsValue) {
@@ -40,6 +44,11 @@ struct FilterSectionView: View {
             }
         }
         .padding(.space400)
+    }
+
+    private func hasOptions<C: Collection>(for keyPath: KeyPath<FilterOptions, C>) -> Bool {
+        guard case .loaded(let options) = viewModel.filterOptions else { return false }
+        return !options[keyPath: keyPath].isEmpty
     }
 
     private var dietaryValue: String? {
