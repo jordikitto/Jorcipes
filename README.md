@@ -81,3 +81,4 @@ Each feature followed a structured cycle: **brainstorm → plan → implement �
 - Claude Code with the **Superpowers** plugin (brainstorming → planning → implementation workflow)
 - **swiftui-expert** skills for SwiftUI best practices
 - Xcode MCP server for build/test integration
+- Paul Hudson's [SwiftAgents AGENTS.md](https://github.com/twostraws/SwiftAgents/blob/main/AGENTS.md) as the project's `CLAUDE.md` for Swift and SwiftUI conventions
