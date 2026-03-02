@@ -28,6 +28,9 @@ public final class SearchViewModel {
     nonisolated(unsafe) private var searchTask: Task<Void, Never>?
 
     @ObservationIgnored
+    nonisolated(unsafe) private var debouncedSearchTask: Task<Void, Never>?
+
+    @ObservationIgnored
     nonisolated(unsafe) private var filterOptionsTask: Task<Void, Never>?
 
     private var lastSearchedQuery: RecipeSearchQuery?
@@ -60,6 +63,7 @@ public final class SearchViewModel {
     public func search() {
         guard query != lastSearchedQuery else { return }
 
+        debouncedSearchTask?.cancel()
         searchTask?.cancel()
         results = .loading
 
@@ -74,6 +78,15 @@ public final class SearchViewModel {
             } catch {
                 results = .failed(error.localizedDescription)
             }
+        }
+    }
+
+    public func debouncedSearch() {
+        debouncedSearchTask?.cancel()
+        debouncedSearchTask = Task {
+            try? await Task.sleep(for: .milliseconds(300))
+            guard !Task.isCancelled else { return }
+            search()
         }
     }
 
@@ -169,6 +182,7 @@ public final class SearchViewModel {
 
     deinit {
         searchTask?.cancel()
+        debouncedSearchTask?.cancel()
         filterOptionsTask?.cancel()
     }
 }

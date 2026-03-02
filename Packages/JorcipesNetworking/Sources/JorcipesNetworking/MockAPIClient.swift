@@ -68,7 +68,7 @@ public final class MockAPIClient: APIClient, @unchecked Sendable {
         guard !text.isEmpty else { return true }
         return recipe.title.localizedStandardContains(text)
             || recipe.description.localizedStandardContains(text)
-            || recipe.instructions.contains { $0.localizedStandardContains(text) }
+            || recipe.ingredients.contains { $0.name.localizedStandardContains(text) }
     }
 
     private func matchesDietary(recipe: Recipe, attributes: Set<DietaryAttribute>) -> Bool {

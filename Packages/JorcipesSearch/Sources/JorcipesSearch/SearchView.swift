@@ -30,6 +30,9 @@ public struct SearchView: View {
             .navigationTitle("Search")
             .navigationBarTitleDisplayMode(.inline)
             .searchable(text: $viewModel.query.text, prompt: "Search recipes...")
+            .onChange(of: viewModel.query.text) {
+                viewModel.debouncedSearch()
+            }
             .onSubmit(of: .search) {
                 viewModel.search()
             }
