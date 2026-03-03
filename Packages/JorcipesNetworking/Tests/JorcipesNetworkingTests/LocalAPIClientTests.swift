@@ -69,6 +69,32 @@ struct LocalAPIClientTests {
         #expect(results.first?.title.localizedStandardContains("pizza") == true)
     }
 
+    @Test func `search by description text returns matching recipes`() async throws {
+        // GIVEN: A client with recipe data
+        let client = makeClient()
+
+        // WHEN: Searching for a term only found in a description
+        let query = RecipeSearchQuery(text: "fragrant")
+        let results = try await client.searchRecipes(query: query)
+
+        // THEN: The Thai Green Curry is returned (its description contains "fragrant")
+        #expect(results.count == 1)
+        #expect(results.first?.title.localizedStandardContains("curry") == true)
+    }
+
+    @Test func `search by ingredient name returns matching recipes`() async throws {
+        // GIVEN: A client with recipe data
+        let client = makeClient()
+
+        // WHEN: Searching for an ingredient name not in any title or description
+        let query = RecipeSearchQuery(text: "arborio")
+        let results = try await client.searchRecipes(query: query)
+
+        // THEN: The Mushroom Risotto is returned (it has "Arborio Rice" as an ingredient)
+        #expect(results.count == 1)
+        #expect(results.first?.title.localizedStandardContains("risotto") == true)
+    }
+
     @Test func `search with empty query returns all recipes`() async throws {
         // GIVEN: A client with recipe data
         let client = makeClient()
@@ -170,11 +196,26 @@ struct LocalAPIClientTests {
         })
     }
 
+    // MARK: - Search: Instructions
+
+    @Test func `search by instruction text returns matching recipes`() async throws {
+        // GIVEN: A client with recipe data
+        let client = makeClient()
+
+        // WHEN: Searching by instruction text
+        let query = RecipeSearchQuery(instructionText: "preheat")
+        let results = try await client.searchRecipes(query: query)
+
+        // THEN: Only the pizza recipe is returned (its instructions mention "Preheat")
+        #expect(results.count == 1)
+        #expect(results.first?.title.localizedStandardContains("pizza") == true)
+    }
+
     // MARK: - Filter Options
 
     @Test func `fetchFilterOptions returns sorted unique servings and ingredients`() async throws {
         // GIVEN: A client with 5 recipes
-        let client = LocalAPIClient(jsonFileName: "recipes_5", simulateDelay: false)
+        let client = makeClient()
 
         // WHEN: Fetching filter options
         let options = try await client.fetchFilterOptions()
@@ -188,7 +229,7 @@ struct LocalAPIClientTests {
 
     @Test func `fetchFilterOptions returns empty options for empty recipes`() async throws {
         // GIVEN: A client with no recipes
-        let client = LocalAPIClient(jsonFileName: "recipes_empty", simulateDelay: false)
+        let client = makeClient(jsonFileName: "recipes_empty")
 
         // WHEN: Fetching filter options
         let options = try await client.fetchFilterOptions()
@@ -200,14 +241,11 @@ struct LocalAPIClientTests {
 
     @Test func `fetchFilterOptions throws for corrupted JSON`() async {
         // GIVEN: A client with corrupted JSON
-        let client = LocalAPIClient(jsonFileName: "recipes_corrupted", simulateDelay: false)
+        let client = makeClient(jsonFileName: "recipes_corrupted")
 
         // WHEN/THEN: Fetching throws an error
-        do {
-            _ = try await client.fetchFilterOptions()
-            Issue.record("Expected an error to be thrown")
-        } catch {
-            // Expected
+        await #expect(throws: (any Error).self) {
+            try await client.fetchFilterOptions()
         }
     }
 }
