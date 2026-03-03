@@ -24,9 +24,7 @@ struct RecipeListViewModelTests {
         #expect(viewModel.state == .loading)
 
         // WHEN: Fetch completes successfully
-        await client.waitForFetch()
-        await client.resolveFetch(with: .success(recipes))
-        try await Task.sleep(for: .milliseconds(10))
+        try await client.completeFetch(with: .success(recipes))
 
         // THEN: State is loaded with recipes
         #expect(viewModel.state == .loaded(recipes))
@@ -60,9 +58,7 @@ struct RecipeListViewModelTests {
 
         // WHEN: Load fails
         viewModel.load()
-        await client.waitForFetch()
-        await client.resolveFetch(with: .failure(TestError.offline))
-        try await Task.sleep(for: .milliseconds(10))
+        try await client.completeFetch(with: .failure(TestError.offline))
 
         // THEN: State is failed
         if case .failed = viewModel.state {
@@ -105,5 +101,23 @@ struct RecipeListViewModelTests {
 
         // THEN: Recipe is pushed onto the navigation path
         #expect(viewModel.navigationPath.count == 1)
+    }
+
+    @Test func `failed refresh sets failed state`() async throws {
+        // GIVEN: View model with loaded recipes
+        let client = MockAPIClient()
+        let viewModel = RecipeListViewModel(apiClient: client)
+        viewModel.load()
+        try await client.completeFetch(with: .success(Recipe.previewList))
+        #expect(viewModel.state == .loaded(Recipe.previewList))
+
+        // WHEN: Pull-to-refresh fails
+        async let refreshTask: Void = viewModel.refresh()
+        await client.waitForFetch()
+        await client.resolveFetch(with: .failure(TestError.offline))
+        await refreshTask
+
+        // THEN: State is failed
+        #expect(viewModel.state.isFailed)
     }
 }

@@ -25,9 +25,7 @@ struct SearchViewModelTests {
 
         // WHEN: Search completes successfully
         let expected = [Recipe.preview]
-        await client.waitForSearch()
-        await client.resolveSearch(with: .success(expected))
-        try await Task.sleep(for: .milliseconds(10))
+        try await client.completeSearch(with: .success(expected))
 
         // THEN: State is loaded with results
         #expect(viewModel.results == .loaded(expected))
@@ -43,9 +41,7 @@ struct SearchViewModelTests {
         #expect(viewModel2.results == .loading)
 
         // Resolve viewModel2's search so it doesn't pollute later assertions
-        await client.waitForSearch()
-        await client.resolveSearch(with: .success([]))
-        try await Task.sleep(for: .milliseconds(10))
+        try await client.completeSearch(with: .success([]))
 
         // GIVEN: A fresh view model for cancellation test
         let viewModel3 = SearchViewModel(apiClient: client)
@@ -142,9 +138,7 @@ struct SearchViewModelTests {
 
         // WHEN: Loading filter options succeeds
         viewModel.loadFilterOptions()
-        await client.waitForFilterOptions()
-        await client.resolveFilterOptions(with: .success(expected))
-        try await Task.sleep(for: .milliseconds(10))
+        try await client.completeFilterOptions(with: .success(expected))
 
         // THEN: Filter options are loaded
         #expect(viewModel.filterOptions == .loaded(expected))
@@ -155,18 +149,14 @@ struct SearchViewModelTests {
 
         // WHEN: First attempt fails
         viewModel2.loadFilterOptions()
-        await client.waitForFilterOptions()
-        await client.resolveFilterOptions(with: .failure(TestError.offline))
-        try await Task.sleep(for: .milliseconds(10))
+        try await client.completeFilterOptions(with: .failure(TestError.offline))
 
         // THEN: State is failed
         #expect(viewModel2.filterOptions.isFailed)
 
         // WHEN: Retry succeeds
         viewModel2.loadFilterOptions()
-        await client.waitForFilterOptions()
-        await client.resolveFilterOptions(with: .success(retryExpected))
-        try await Task.sleep(for: .milliseconds(10))
+        try await client.completeFilterOptions(with: .success(retryExpected))
 
         // THEN: Filter options are loaded
         #expect(viewModel2.filterOptions == .loaded(retryExpected))
@@ -177,18 +167,14 @@ struct SearchViewModelTests {
         let client = MockAPIClient()
         let viewModel = SearchViewModel(apiClient: client)
         viewModel.search()
-        await client.waitForSearch()
-        await client.resolveSearch(with: .success([]))
-        try await Task.sleep(for: .milliseconds(10))
+        try await client.completeSearch(with: .success([]))
 
         // WHEN: Filters change and sheet is dismissed
         viewModel.query.dietaryAttributes.insert(.vegan)
         viewModel.onFilterSheetDismiss()
 
         // THEN: A new search is triggered
-        await client.waitForSearch()
-        await client.resolveSearch(with: .success([Recipe.preview]))
-        try await Task.sleep(for: .milliseconds(10))
+        try await client.completeSearch(with: .success([Recipe.preview]))
         #expect(viewModel.results == .loaded([Recipe.preview]))
         #expect(viewModel.ingredientSearchText.isEmpty)
 
@@ -198,5 +184,19 @@ struct SearchViewModelTests {
         // THEN: Results stay the same (no new search)
         #expect(viewModel.results == .loaded([Recipe.preview]))
         #expect(viewModel.ingredientSearchText.isEmpty)
+    }
+
+    @Test func `failed search sets failed state`() async throws {
+        // GIVEN: View model initialised
+        let client = MockAPIClient()
+        let viewModel = SearchViewModel(apiClient: client)
+
+        // WHEN: Search fails
+        viewModel.query.text = "pizza"
+        viewModel.search()
+        try await client.completeSearch(with: .failure(TestError.offline))
+
+        // THEN: State is failed
+        #expect(viewModel.results.isFailed)
     }
 }

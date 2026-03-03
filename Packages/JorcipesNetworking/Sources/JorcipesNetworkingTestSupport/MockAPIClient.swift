@@ -68,4 +68,25 @@ public actor MockAPIClient: APIClient {
         let continuation = filterOptionsContinuations.removeFirst()
         continuation.resume(with: result)
     }
+
+    /// Waits for a fetch continuation, resolves it, then sleeps briefly for the caller to observe the result.
+    public func completeFetch(with result: Result<[Recipe], Error>) async throws {
+        await waitForFetch()
+        resolveFetch(with: result)
+        try await Task.sleep(for: .milliseconds(10))
+    }
+
+    /// Waits for a search continuation, resolves it, then sleeps briefly for the caller to observe the result.
+    public func completeSearch(with result: Result<[Recipe], Error>) async throws {
+        await waitForSearch()
+        resolveSearch(with: result)
+        try await Task.sleep(for: .milliseconds(10))
+    }
+
+    /// Waits for a filter-options continuation, resolves it, then sleeps briefly for the caller to observe the result.
+    public func completeFilterOptions(with result: Result<FilterOptions, Error>) async throws {
+        await waitForFilterOptions()
+        resolveFilterOptions(with: result)
+        try await Task.sleep(for: .milliseconds(10))
+    }
 }
