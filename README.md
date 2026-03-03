@@ -38,7 +38,6 @@ The app follows MVVM with a modular package structure:
 - **Liquid Glass filters** — Filter chips use glassEffect styling on iOS 26, giving the search interface a modern, tactile feel.
 - **Consistent filtering UX** — All filters (dietary, servings, ingredients, instructions) use a uniform sheet-based interaction pattern for discoverability and consistency.
 - **Step-by-step instructions** — The detail view renders cooking instructions as a numbered step list with markdown support, rather than a wall of text.
-- **Matched geometry step highlight** — A `matchedGeometryEffect` animates the active-step border between instruction cards. More playful than polished, but it showcases SwiftUI's declarative geometry interpolation across the view hierarchy.
 - **Computed dietary attributes** — A recipe is only classified as vegetarian/vegan if *all* its ingredients carry that attribute, ensuring accuracy.
 - **Card-style recipe presentation** — Each recipe appears as a card with title, description, servings, and dietary badges for quick scanning.
 - **Dedicated search tab** — Separating search into its own tab gives each tab an independent navigation stack. This means a user can keep a recipe open in the browse tab while searching for another — a subtle but practical multitasking benefit.
@@ -46,15 +45,11 @@ The app follows MVVM with a modular package structure:
 ## Assumptions & Tradeoffs
 
 - **UI leans into native iOS** — The interface prioritises platform-native patterns over a custom-branded look. This feels polished and familiar, but some may prefer a more distinctive visual identity.
-- **No persistence** — Recipes are fetched fresh each launch. There's no favouriting, bookmarking, or offline caching, as the challenge focuses on browsing and search.
-- **No real images** — Recipes use system placeholder images. In production, an image URL field and async image loading would be added to the model.
-- **Client-side filtering** — The `LocalAPIClient` performs all search and filtering in-memory. The `APIClient` protocol is designed so a real backend could handle this server-side with no view changes.
-- **Dev settings tab** — A developer-only tab allows switching between mock data sources (5 recipes, 50 recipes, empty, corrupted) for quick testing during development.
 
 ## Known Limitations
 
 - **Card disappearance on swipe-back** — Occasionally, recipe cards disappear when navigating back from the detail view. This may be related to LazyVGrid.
-- **Filter animation glitches** — The expand/collapse animation on filter sections can be slightly choppy when closing.
+- **Filter animation glitches** — The expand/collapse animation on filter sections can be choppy when closing.
 - **Hardcoded dietary attributes** — Vegetarian and vegan are defined as a Swift enum. In production, these could be driven by the API to support additional attributes without an app update.
 - **No localisation** — Strings are not externalised into .xcstrings files. The app is English-only.
 
@@ -76,7 +71,6 @@ Each feature followed a structured cycle: **brainstorm → plan → implement �
 - **Filter UX** — The filtering interaction design required significant effort to make it look good, feel intuitive, and be easy-to-use.
 - **Manual edits** — I made direct code changes alongside Claude-generated output
 - **MVVM guidance** — I provided an `mvvm.md` reference to align Claude with the MVVM pattern, since we primarily use The Composable Architecture at my current workplace.
-- **Xcode 26.3 coding agent** — I also used the new Xcode MCP integration extensively.
 
 ### Tooling
 
