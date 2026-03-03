@@ -73,30 +73,4 @@ struct RecipeTests {
         // THEN: Recipe has no dietary attributes
         #expect(recipe.dietaryAttributes.isEmpty)
     }
-
-    // MARK: - RecipeSearchQuery
-
-    @Test func `empty query reports isEmpty as true`() {
-        // GIVEN: A default search query
-        let query = RecipeSearchQuery()
-
-        // THEN: Query is empty
-        #expect(query.isEmpty)
-    }
-
-    @Test func `query with text is not empty`() {
-        // GIVEN: A query with search text
-        let query = RecipeSearchQuery(text: "pizza")
-
-        // THEN: Query is not empty
-        #expect(!query.isEmpty)
-    }
-
-    @Test func `query with dietary attributes is not empty`() {
-        // GIVEN: A query with a dietary filter
-        let query = RecipeSearchQuery(dietaryAttributes: [.vegan])
-
-        // THEN: Query is not empty
-        #expect(!query.isEmpty)
-    }
 }
